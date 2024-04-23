@@ -12,3 +12,11 @@
     background: rgba(240, 240, 240, 0.46);
     margin-bottom: 10px;
 }
+header {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos en el header */
+}
+.icono-empresa {
+    width: 70px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+}
