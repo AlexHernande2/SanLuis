@@ -1,0 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.titulo {
+    text-align: center;
+    border: 1px solid #f46565;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* Ponerle bordes al texto */
+    -webkit-text-stroke: 0.3px #1f60f8;
+    background: rgba(240, 240, 240, 0.46);
+    margin-bottom: 10px;
+}
