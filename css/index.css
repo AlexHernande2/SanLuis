@@ -1,7 +1,9 @@
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 .titulo {
     text-align: center;
     border: 1px solid #f46565;
@@ -12,11 +14,17 @@
     background: rgba(240, 240, 240, 0.46);
     margin-bottom: 10px;
 }
+
 header {
     display: flex;
     align-items: center; /* Centra verticalmente los elementos en el header */
 }
+
 .icono-empresa {
     width: 70px; /* Ajusta el tamaño de la imagen según tus necesidades */
-    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-right: 21px; /* Ajusta el margen derecho para separar la imagen del título */
+}
+
+.KvoMHf {
+    margin-right: 10px; /* Ajusta el margen derecho para separar el campo de búsqueda de otros elementos */
 }
