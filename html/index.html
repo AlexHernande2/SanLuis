@@ -9,45 +9,35 @@
 </head>
 
 <body>
-
-  <header> <!-- Sección de encabezado -->
-
-    <div class="logo">
-      <img class="imagenSanLuis" src="../imagenes/icono empresa.png" alt="">
-    </div> <!-- Div para el logo -->
-    <div class="search-bar"> <!-- Div para la barra de búsqueda -->
-      <input type="text" placeholder="Search..."> <!-- Input para el campo de búsqueda -->
-      <button>Search</button> <!-- Botón de búsqueda -->
-    </div>
-    <div class="menu"> <!-- Div para el menú desplegable -->
-      <span>
-        <a href="/html/sesion.html">
-          <button>Iniciar sesión o registrarse</button>
-        </a>
-      </span> <!-- Primera línea del menú -->
-      <span>-</span> <!-- Segunda línea del menú -->
-      <span>-</span> <!-- Tercera línea del menú -->
-      <span>-</span> <!-- Tercera línea del menú -->
-    </div>
-
-
+  <!-- Contenedor para el encabezado -->
+  <header>
+    <script>
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector('header').innerHTML = data;
+        });
+    </script>
   </header>
   <main>
-
-
+    
   </main>
 
+
+
+  <!-- Contenedor para el pie de página -->
   <footer>
-    <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
-    <nav>
-      <ul>
-        <li><a href="/about">Acerca de</a></li>
-        <li><a href="/contact">Contacto</a></li>
-        <li><a href="/terms">Términos de Servicio</a></li>
-        <li><a href="/privacy">Política de Privacidad</a></li>
-      </ul>
-    </nav>
+    <script>
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.querySelector('footer').innerHTML = data;
+        });
+    </script>
   </footer>
+
+
+
 
 </body>
 
