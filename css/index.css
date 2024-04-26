@@ -4,27 +4,25 @@
     box-sizing: border-box;
 }
 
-.titulo {
-    text-align: center;
-    border: 1px solid #f46565;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    /* Ponerle bordes al texto */
-    -webkit-text-stroke: 0.3px #1f60f8;
-    background: rgba(240, 240, 240, 0.46);
-    margin-bottom: 10px;
+.logo {
+    max-width: 100px; /* Ancho máximo para el logo */
+    margin-right: 20px; /* Espacio entre el logo y la barra de búsqueda */
+    display: flex; /* Configuración de la visualización como flexbox */
+    align-items: center; /* Alineación vertical de los elementos */
 }
 
+.imagenSanLuis {
+    max-width: 100%; /* Ancho máximo de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+}
 header {
-    display: flex;
-    align-items: center; /* Centra verticalmente los elementos en el header */
+    background-color: #f1f1f1; /* Color de fondo para el encabezado */
+    padding: 10px; /* Espaciado interno */
+    display: grid; /* Usar grid layout */
+    grid-template-columns: auto 1fr auto; /* Tres columnas con tamaño automático para el logo y las líneas, y una fracción de espacio disponible para la barra de búsqueda */
+    align-items: center; /* Alineación vertical de los elementos */
 }
 
-.icono-empresa {
-    width: 70px; /* Ajusta el tamaño de la imagen según tus necesidades */
-    margin-right: 21px; /* Ajusta el margen derecho para separar la imagen del título */
-}
-
-.KvoMHf {
-    margin-right: 10px; /* Ajusta el margen derecho para separar el campo de búsqueda de otros elementos */
+.search-bar {
+    justify-self: center; /* Centrar la barra de búsqueda en su columna */
 }
