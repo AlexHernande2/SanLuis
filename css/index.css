@@ -2,5 +2,46 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*Quita los estilos que tiene por default*/
 }
 
+.itemCarrusel {
+    background-color: bisque;
+    height: 200px;
+    position: relative;
+    /*Para que flechasCarrusel lo tome como referencia en position:absolute*/
+}
+
+.tarjetaCarrusel {
+    border: 1px solid black;
+    background-color: aquamarine;
+    height: 100%;
+}
+
+.flechasCarrusel {
+
+    position: absolute;
+    /*Para super poner elementos toma como referencia su elemento más sercano no static itemCarrusel  */
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+#conteItemCarrusel {
+    border: 5px solid black;
+    height: 200px;
+    overflow: hidden /*Se utiliza para que recorte todo lo que sobra de el*/;
+}
+#tarjetaCarrusel-1{
+    background-color: rgb(163, 91, 230);
+}
+#tarjetaCarrusel-2{
+    background-color: rgb(114, 231, 178);
+}
+#tarjetaCarrusel-3{
+    background-color: rgb(230, 163, 91);
+}
