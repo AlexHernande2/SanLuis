@@ -17,8 +17,7 @@
 }
 
 header {
-    background-color: #ffe5e5; /* Color de fondo para el encabezado */
-    padding: 10px; /* Espaciado interno */
+    background-color: #8ae4fd; /* Color de fondo para el encabezado */
     display: grid; /* Usar grid layout */
     grid-template-columns: auto 1fr auto; /* Tres columnas con tamaño automático para el logo y las líneas, y una fracción de espacio disponible para la barra de búsqueda */
     align-items: center; /* Alineación vertical de los elementos */

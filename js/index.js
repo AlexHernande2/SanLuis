@@ -1,21 +1,31 @@
-const carrusel = document.getElementById('carruselImagenes');
-const imagenes = carrusel.getElementsByTagName('img');
-let indice = 0;
+ // Variables globales para controlar el carrusel
+ let currentIndex = 1;
+ let intervalId;
 
-// Ocultar todas las imágenes excepto la primera
-for (let i = 1; i < imagenes.length; i++) {
-    imagenes[i].style.display = 'none';
-}
+ // Función para avanzar al siguiente elemento del carrusel
+ function nextSlide() {
+   const currentSlide = document.getElementById(`itemCarrusel-${currentIndex}`);
+   const nextIndex = currentIndex === 3 ? 1 : currentIndex + 1;
+   const nextSlide = document.getElementById(`itemCarrusel-${nextIndex}`);
+   currentSlide.style.display = 'none';
+   nextSlide.style.display = 'block';
+   currentIndex = nextIndex;
+ }
 
-// Función para cambiar la imagen
-function cambiarImagen() {
-    // Ocultar imagen actual
-    imagenes[indice].style.display = 'none';
-    // Calcular el índice de la próxima imagen
-    indice = (indice + 1) % imagenes.length;
-    // Muestra la proxima imagen
-    imagenes[indice].style.display = 'block';
-   
-}
-setInterval(cambiarImagen, 3000);
+ // Función para iniciar la transición automática
+ function startAutoSlide() {
+   intervalId = setInterval(nextSlide, 5000); // Cambia de imagen cada 3 segundos
+ }
 
+ // Iniciar la transición automática al cargar la página
+ startAutoSlide();
+
+ // Detener la transición automática cuando el usuario interactúa con el carrusel
+ const carruselItems = document.querySelectorAll('.itemCarrusel');
+ carruselItems.forEach(item => {
+   item.addEventListener('mouseenter', () => {
+     clearInterval(intervalId);
+   });
+   item.addEventListener('mouseleave', startAutoSlide);
+ });
+ 
