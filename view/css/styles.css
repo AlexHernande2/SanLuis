@@ -4,44 +4,18 @@
     box-sizing: border-box;
 }
 
-.logo {
-    max-width: 100px;
-    /* Ancho máximo para el logo */
-    margin-right: 20px;
-    /* Espacio entre el logo y la barra de búsqueda */
-    display: flex;
-    /* Configuración de la visualización como flexbox */
-    align-items: center;
-    /* Alineación vertical de los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.imagenSanLuis {
-    max-width: 100%;
-    /* Ancho máximo de la imagen */
-    height: auto;
-    /* Altura automática para mantener la proporción */
-}
+/* barra de navegacion */
+.navbar {
+    /* padding: 2rem; */
 
-header {
-    background-color: #8ae4fd;
-    /* Color de fondo para el encabezado */
-    display: grid;
-    /* Usar grid layout */
-    grid-template-columns: auto 1fr auto;
-    /* Tres columnas con tamaño automático para el logo y las líneas, y una fracción de espacio disponible para la barra de búsqueda */
-    align-items: center;
-    /* Alineación vertical de los elementos */
 }
-
-.search-bar {
-    /* justify-self: center; */
-    /* Centrar la barra de búsqueda en su columna */
-  
-    width: 400px;
-    margin-left: 100px;
-    margin-right: 50px;
-}
-
-footer {
-    background-color: aqua;
+.navbar-collapse{
+    align-items:center ;
+    justify-content: space-between;
 }
