@@ -5,6 +5,8 @@
     /*Quita los estilos que tiene por default*/
 }
 
+
+
 .carousel-item img {
     max-width: 100%; /* Establece un ancho máximo del 100% para que la imagen se ajuste al contenedor */
     max-height: 300px; /* Establece una altura máxima para que la imagen no se haga demasiado grande */
@@ -13,7 +15,7 @@
   }
   
 #container{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 #menuDesplegable{
@@ -26,3 +28,6 @@
     overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
   }
   
+#categoriesSection{
+    margin-top: 20px;
+}
