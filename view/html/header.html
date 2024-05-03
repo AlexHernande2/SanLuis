@@ -2,79 +2,106 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Se utiliza para que se ajuste al conenido de la pagina  -->
-    <title>Headerpagina</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/view/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Se utiliza para que se ajuste al conenido de la pagina  -->
+  <title>Headerpagina</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/view/css/styles.css">
 
 </head>
 
 <body>
+  <header>
+
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <!-- contenedor que se ajusta al 100% del ancho -->
-        <div class="container-fluid">
+      <!-- contenedor que se ajusta al 100% del ancho -->
+      <div class="container-fluid">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
-                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-toggler">
-                <a class="navbar-brand" href="#">
-                    <img src="/view/imagenes/icono empresa.png.48x48.png" width="80" alt="logo de la empresa">
-                </a>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <ul class="navbar-nav d-flex justify-content-center align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ">Disabled</a>
-                    </li>
-                </ul>
-            </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-toggler">
+          <a class="navbar-brand" href="index.html">
+            <img src="/view/imagenes/icono empresa.png.48x48.png" width="80" alt="logo de la empresa">
+          </a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <ul class="navbar-nav d-flex justify-content-center align-items-center">
+            <li class="nav-item">
+              <img src="/view/imagenes/imagenUsuario.png" alt="usuario" width="50">
+              <!-- <a class="nav-link " aria-current="page" href="#">Home</a> -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sesion.html">¡Hola! inicia sesión o registrate</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link ">Carrito</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
 
     <nav class="navbar navbar-expand-lg " id="menuDesplegable">
-        <div class="container-fluid">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      
+      <div class="container-fluid">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Todas las categorias
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="index.html">Inicio</a></li>
+              <li> <a class="dropdown-header ">Comida</a></li>
+              <li><a class="dropdown-item" href="#">Vegtales</a></li>
+              <li><a class="dropdown-item" href="#">Fruta</a></li>
+              <li><a class="dropdown-item" href="#">Carne y Aves</a></li>
+              <li><a class="dropdown-item" href="#">Lácteos y Huevos </a></li>
+              <li><a class="dropdown-item" href="#">Panadería</a></li>
+              <li><a class="dropdown-item" href="#">Pasta y Granos</a></li>
+              <li><a class="dropdown-item" href="#">Cereales</a></li>
+
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li> <a class="dropdown-header ">Bebidas</a></li>
+              <li><a class="dropdown-item" href="#">Té</a></li>
+              <li><a class="dropdown-item" href="#">Café</a></li>
+              <li><a class="dropdown-item" href="#">Bebidas sin Alcohol</a></li>
+              <li><a class="dropdown-item" href="#">Cerveza</a></li>
+              <li><a class="dropdown-item" href="#">Vino</a></li>
 
 
-    <!-- Seccion Hero es decir la seccion principal -->
-    <section>
-
-    </section>
 
 
 
-    <!-- <footer>
+
+
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+
+
+
+  <!-- Seccion Hero es decir la seccion principal -->
+  <section>
+
+  </section>
+
+
+
+  <!-- <footer>
         <div class="card">
             <div class="card-header">
               Featured
@@ -90,9 +117,9 @@
      -->
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
