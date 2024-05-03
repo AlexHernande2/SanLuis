@@ -15,3 +15,14 @@
 #container{
     margin-top: 20px;
 }
+
+#menuDesplegable{
+    background-color: rgb(166, 251, 180);
+}
+
+/* Para agregar una barra de movimiento al menu desplegable */
+.dropdown-menu-scroll {
+    max-height: 550px; /* Altura máxima del menú */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+  }
+  
