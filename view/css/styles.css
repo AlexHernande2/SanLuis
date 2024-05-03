@@ -4,11 +4,7 @@
     box-sizing: border-box;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 /* barra de navegacion */
 .navbar {
@@ -18,4 +14,7 @@
 .navbar-collapse{
     align-items:center ;
     justify-content: space-between;
+}
+#menuDesplegable{
+    background-color: rgb(166, 251, 180);
 }

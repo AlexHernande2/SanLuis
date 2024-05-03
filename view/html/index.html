@@ -19,23 +19,23 @@
 
   <!-- El resto del contenido de tu página -->
 
+
+
   <script>
     // Función para cargar el encabezado desde header.html
-    document.addEventListener('DOMContentLoaded', function() {
+     document.addEventListener('DOMContentLoaded', function() {
         const headerContainer = document.getElementById('header-container');
-        const headerHtmlFile = 'SanLuis/html/header.html'; // Ruta corregida
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', headerHtmlFile, true);
-        xhr.onreadystatechange = function() {
+     const headerHtmlFile = 'header.html'; // Ruta corregida
+     const xhr = new XMLHttpRequest();
+     xhr.open('GET', headerHtmlFile, true);
+     xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                headerContainer.innerHTML = xhr.responseText;
+       headerContainer.innerHTML = xhr.responseText;
             }
         };
-        xhr.send();
+     xhr.send();
     });
-  </script>
-
-
+   </script>
 
 
 
@@ -44,6 +44,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+    <script src="/view/js/index.js"></script>
     
 </body>
 
