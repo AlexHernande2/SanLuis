@@ -5,51 +5,13 @@
     /*Quita los estilos que tiene por default*/
 }
 
-.itemCarrusel {
-   
-    height: 200px;
-    position: relative;
-    /*Para que flechasCarrusel lo tome como referencia en position:absolute*/
-}
-
-.tarjetaCarrusel {
- 
-    
-    height: 100%;
-}
-
-.flechasCarrusel {
-
-    position: absolute;
-    /*Para super poner elementos toma como referencia su elemento más sercano no static itemCarrusel  */
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-#conteItemCarrusel {
+.carousel-item img {
+    max-width: 100%; /* Establece un ancho máximo del 100% para que la imagen se ajuste al contenedor */
+    max-height: 300px; /* Establece una altura máxima para que la imagen no se haga demasiado grande */
+    width: auto; /* Permite que el ancho se ajuste automáticamente manteniendo la proporción original */
+    height: auto; /* Permite que la altura se ajuste automáticamente manteniendo la proporción original */
+  }
   
-    height: 200px;
-    overflow: hidden /*Se utiliza para que recorte todo lo que sobra de el*/;
-}
-
-a{
-    text-decoration: none;
-}
-i{
-    color: rgb(194, 35, 35);
-}
-img{
-    width: 100%;
-    height: 100%;
-}
-#contenido{
-    margin-top: 10px;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-bottom: 10px;
+#container{
+    margin-top: 20px;
 }
