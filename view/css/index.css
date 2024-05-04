@@ -39,3 +39,10 @@
     margin: 0 auto; /* Alinea horizontalmente */
     display: block; /* Para que los márgenes automáticos funcionen */
 }
+
+
+
+#tit{
+    text-decoration: none;
+    color: black;
+}
