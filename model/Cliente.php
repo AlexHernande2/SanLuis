@@ -25,7 +25,7 @@ class Cliente
     {
         return $this->correoElectronico;
     }
-    public function getdireccion()
+    public function getDireccion()
     {
         return $this->direccion;
     }
@@ -45,7 +45,7 @@ class Cliente
     {
         $this->correoElectronico = $value;
     }
-    public function setdireccion($value)
+    public function setDireccion($value)
     {
         $this->direccion = $value;
     }

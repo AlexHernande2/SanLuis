@@ -74,6 +74,7 @@
 
   <main>
     <!-- Carrusel de imagenes -->
+
     <div class="container" id="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">

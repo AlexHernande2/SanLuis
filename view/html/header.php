@@ -1,3 +1,25 @@
+<?php 
+require '../../model/Cliente.php';
+require '../../controller/conexionDbController.php';
+require '../../controller/baseController.php';
+require '../../controller/ClienteController.php';
+
+use cliente\Cliente;
+use ClienteController\ClienteController;
+session_start();
+
+if(isset($_SESSION['documento'])){
+  $documento = $_SESSION['documento'];
+  $cliente = new ClienteController();
+  $cliente = $cliente->readRow($documento);
+  $cliente = $cliente->getNombre() ;
+  $iniEdit = "editarCliente.php";
+}else{
+  $cliente = "inicia sesion o registrate";
+  $iniEdit = "formSesion.php?inicioSesion=no";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,10 +28,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Se utiliza para que se ajuste al conenido de la pagina  -->
   <title>Headerpagina</title>
-  <link rel="stylesheet" href="/css/styles.css">
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styless.css">
 
 </head>
 
@@ -39,7 +61,7 @@
             
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="formSesion.php?inicioSesion=no">¡Hola! inicia sesión o registrate</a>
+              <a class="nav-link" href="<?php echo $iniEdit?>">¡Hola! <?php echo $cliente ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link ">Carrito</a>

@@ -9,15 +9,19 @@ use ClienteController\ClienteController;
 $cliente = new Cliente();
 $inicioSesion = $_GET['inicioSesion'];
 if($inicioSesion == "si"){
-  session_start();
+  $iniRegis = "registroCliente.php?inicioSes=si&";
   $iniOregis = "INICIAR SESION";
   $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no">registrate</a>';
   $ocultar = "display: none;";
+  $password = "Contraseña";
+  $type = "password";
 }else{
-  
+  $iniRegis = "registroCliente.php?inicioSes=no&";
   $iniOregis = "REGISTRO";
   $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si">inicia sesion</a>';
   $ocultar = "";
+  $password = "Documento";
+  $type = "Number";
 }
 ?>
 
@@ -29,7 +33,7 @@ if($inicioSesion == "si"){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../css/sesion.css">
-
+  <link rel>
 </head>
 
 <body>
@@ -40,13 +44,17 @@ if($inicioSesion == "si"){
   </header>
 
   <main>
-    <form id="Registrar" action="registroCliente.php" method="GET">
+    <form id="Registrar" action="<?php echo $iniRegis?>" method="POST">
     <div class="text-center">
         <?php echo $iniOregis ?>
       </div>
       <div class="mb-3">
-        <label class="form-label">Documento</label>
-        <input type="number" name="documento" class="form-control" value="<?php $cliente->getDocumento()?>">
+        <label name="correoElectronico" class="form-label">Email</label>
+        <input type="text" name="correoElectronico" class="form-control" value="<?php $cliente->getCorreoElectronico()?>">
+      </div>
+      <div class="mb-3">
+        <label class="form-label"><?php echo $password ?> </label>
+        <input type="<?php echo $type?>" name="documento" class="form-control" value="<?php $cliente->getDocumento()?>">
       </div>
       <div class="mb-3">
         <label class="form-label" style="<?php echo $ocultar?>">Nombre</label>
@@ -55,10 +63,6 @@ if($inicioSesion == "si"){
       <div class="mb-3">
         <label name="telefono" style="<?php echo $ocultar?>" class="form-label">telefono</label>
         <input type="number" name="telefono" style="<?php echo $ocultar?>" class="form-control" value="<?php $cliente->getTelefono()?>" >
-      </div>
-      <div class="mb-3">
-        <label name="correoElectronico" class="form-label">Email</label>
-        <input type="text" name="correoElectronico" class="form-control" value="<?php $cliente->getCorreoElectronico()?>">
       </div>
       <div class="mb-3">
         <label name="correoElectronico" style="<?php echo $ocultar?>" class="form-label">direccion</label>
