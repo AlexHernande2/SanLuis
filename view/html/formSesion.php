@@ -7,6 +7,18 @@ require '../../controller/ClienteController.php';
 use cliente\Cliente;
 use ClienteController\ClienteController;
 $cliente = new Cliente();
+$inicioSesion = $_GET['inicioSesion'];
+if($inicioSesion == "si"){
+  session_start();
+  $iniOregis = "INICIAR SESION";
+  $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no">registrate</a>';
+  $ocultar = "display: none;";
+}else{
+  
+  $iniOregis = "REGISTRO";
+  $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si">inicia sesion</a>';
+  $ocultar = "";
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +29,7 @@ $cliente = new Cliente();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../css/sesion.css">
+
 </head>
 
 <body>
@@ -27,26 +40,32 @@ $cliente = new Cliente();
   </header>
 
   <main>
-    <form id="Registrar" action="registroCliente.php" method="POST">
+    <form id="Registrar" action="registroCliente.php" method="GET">
+    <div class="text-center">
+        <?php echo $iniOregis ?>
+      </div>
       <div class="mb-3">
         <label class="form-label">Documento</label>
         <input type="number" name="documento" class="form-control" value="<?php $cliente->getDocumento()?>">
       </div>
       <div class="mb-3">
-        <label class="form-label">Nombre</label>
-        <input type="text" name="nombre" class="form-control" value="<?php $cliente->getNombre()?>">
+        <label class="form-label" style="<?php echo $ocultar?>">Nombre</label>
+        <input type="text" name="nombre" style="<?php echo $ocultar?>" class="form-control" value="<?php $cliente->getNombre()?>">
       </div>
       <div class="mb-3">
-        <label name="telefono" class="form-label">telefono</label>
-        <input type="number" name="telefono" class="form-control" value="<?php $cliente->getTelefono()?>" >
+        <label name="telefono" style="<?php echo $ocultar?>" class="form-label">telefono</label>
+        <input type="number" name="telefono" style="<?php echo $ocultar?>" class="form-control" value="<?php $cliente->getTelefono()?>" >
       </div>
       <div class="mb-3">
         <label name="correoElectronico" class="form-label">Email</label>
         <input type="text" name="correoElectronico" class="form-control" value="<?php $cliente->getCorreoElectronico()?>">
       </div>
       <div class="mb-3">
-        <label name="correoElectronico" class="form-label">direccion</label>
-        <input type="text" name="direccion" class="form-control" value="<?php $cliente->getDireccion()?>">
+        <label name="correoElectronico" style="<?php echo $ocultar?>" class="form-label">direccion</label>
+        <input type="text" name="direccion" class="form-control" style="<?php echo $ocultar?>" value="<?php $cliente->getDireccion()?>">
+      </div>
+      <div class="text-center">
+        <?php   echo $tieneCuenta ?>
       </div>
       <button type="submit" class="btn btn-primary">registrar</button>
     </form>
