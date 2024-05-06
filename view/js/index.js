@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Obtiene una referencia al contenedor del encabezado por su ID
     const headerContainer = document.getElementById('header-container');
     // Especifica la ruta del archivo HTML que contiene el encabezado
-    const headerHtmlFile = 'header.html'; // Ruta 
+    const headerHtmlFile = 'header.php'; // Ruta 
     // Crea una nueva instancia de XMLHttpRequest para realizar la solicitud HTTP
     const xhr = new XMLHttpRequest();
     // Abre una conexión HTTP GET asíncrona hacia el archivo HTML del encabezado

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const headerContainer = document.getElementById('header-container');
-    const headerHtmlFile = 'header.html'; // Ruta 
+    const headerHtmlFile = 'header.php'; // Ruta 
     const xhr = new XMLHttpRequest(); // Crear una nueva instancia de XMLHttpRequest
     xhr.open('GET', headerHtmlFile, true);
     xhr.onreadystatechange = function() {
