@@ -31,15 +31,15 @@
               Todas las categorias
             </a>
             <ul class="dropdown-menu dropdown-menu-scroll">
-              <li><a class="dropdown-item" href="index.html">Inicio</a></li>
-              <li> <a class="dropdown-header ">Comida</a></li>
-              <li><a class="dropdown-item" href="../html/categorias.html">Vegtales</a></li>
-              <li><a class="dropdown-item" href="#">Fruta</a></li>
-              <li><a class="dropdown-item" href="#">Carne y Aves</a></li>
-              <li><a class="dropdown-item" href="#">Lácteos y Huevos </a></li>
-              <li><a class="dropdown-item" href="#">Panadería</a></li>
-              <li><a class="dropdown-item" href="#">Pasta y Granos</a></li>
-              <li><a class="dropdown-item" href="#">Cereales</a></li>
+              <li><a class="dropdown-item" href="index.php">Inicio</a></li>
+              <li><a class="dropdown-header ">Comida</a></li>
+              <li><a class="dropdown-item" href="./vegetales.html">Vegetales</a></li>
+              <li><a class="dropdown-item" href="./fruta.html">Fruta</a></li>
+              <li><a class="dropdown-item" href="./carnes.html">Carne y Aves</a></li>
+              <li><a class="dropdown-item" href="./lacteos.html">Lácteos y Huevos </a></li>
+              <li><a class="dropdown-item" href="./panaderia.html">Panadería</a></li>
+              <li><a class="dropdown-item" href="./pastas.html">Pasta y Granos</a></li>
+              <li><a class="dropdown-item" href="./cereales.html">Cereales</a></li>
 
               <li>
                 <hr class="dropdown-divider">
@@ -74,7 +74,8 @@
 
   <main>
     <!-- Carrusel de imagenes -->
-    <div class="container" id="container">
+
+    <div class="container-fluid " id="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
 
@@ -108,13 +109,13 @@
     <!-- Caja de categorias -->
     <div class="container">
       <section id="categoriesSection">
-        <h1>Categorias</h1>
+        <h1>Destacados</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div class="col">
             <div class="card">
               <img src="../imagenes/vegetales.jpg.png" class="card-img-top" alt="vegetales">
               <div class="card-body">
-                <a href="#" id="tit">
+                <a href="./vegetales.html" id="tit">
                   <h5 class="card-title" id="tit">vegetales</h5>
                 </a>
 
@@ -125,7 +126,7 @@
             <div class="card">
               <img src="../imagenes/pan.jpg.png" class="card-img-top" alt="pan">
               <div class="card-body">
-                <a href="#">
+                <a href="./panaderia.html">
                   <h5 class="card-title">Panadería</h5>
                 </a>
 
@@ -147,7 +148,7 @@
             <div class="card">
               <img src="../imagenes/lacteos.jpg.png" class="card-img-top" alt="lacteos">
               <div class="card-body">
-                <a href="#">
+                <a href="./lacteos.html">
                   <h5 class="card-title">Lácteos y huevos</h5>
                 </a>
               </div>
@@ -161,7 +162,7 @@
             <div class="card">
               <img src="../imagenes/carne.jpg.png" class="card-img-top" alt="carne">
               <div class="card-body">
-                <a href="#">
+                <a href="./carnes.html">
                   <h5 class="card-title">Carne y aves</h5>
                 </a>
 
@@ -194,7 +195,7 @@
             <div class="card">
               <img src="../imagenes/cereal-1444495_1280.jpg.192x192.png" class="card-img-top" alt="cereales">
               <div class="card-body">
-                <a href="#">
+                <a href="./cereales.html">
                   <h5 class="card-title">Cereales</h5>
                 </a>
 

@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <p>categorias</p>
+    HOLAAAA <br>
+    <a href="index.php">
+        <button onclick="<?php session_start();echo session_destroy()?>">log out</button>
+    </a>
 </body>
 </html>

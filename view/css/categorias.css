@@ -16,13 +16,9 @@
     /* Permite que la altura se ajuste automáticamente manteniendo la proporción original */
 }
 
- #container {
+#container {
     margin-top: 10px;
-} 
-
-
-
-
+}
 
 #menuDesplegable {
     background-color: rgb(238, 202, 202);
