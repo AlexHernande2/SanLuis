@@ -1,7 +1,7 @@
 <?php 
 require '../../model/Cliente.php';
 require '../../controller/conexionDbController.php';
-require '../../controller/baseController.php';
+require '../../controller/ClienteBaseController.php';
 require '../../controller/ClienteController.php';
 
 use cliente\Cliente;

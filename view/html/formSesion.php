@@ -1,7 +1,7 @@
 <?php
 require '../../model/Cliente.php';
 require '../../controller/conexionDbController.php';
-require '../../controller/baseController.php';
+require '../../controller/ClienteBaseController.php';
 require '../../controller/ClienteController.php';
 
 use cliente\Cliente;
@@ -36,7 +36,7 @@ if($inicioSesion == "si"){
   <link rel>
 </head>
 
-<body>
+<body id="bodySes">
 
   <!-- Contenedor para el encabezado -->
   <header>
@@ -79,7 +79,7 @@ if($inicioSesion == "si"){
 
 
 
-  <footer>
+  <footer id="footerSes">
     <div id="footer-container"></div>
   </footer>
   <script src="../js/sesion.js"></script>

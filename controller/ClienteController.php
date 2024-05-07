@@ -1,11 +1,11 @@
 <?php
 namespace clienteController;
 
-use baseControler\BaseController;
+use clienteController\ClienteBaseController;
 use conexionDb\ConexionDbController;
 use cliente\Cliente;
 
-class ClienteController extends BaseController
+class ClienteController extends ClienteBaseController
 {
     function create($cliente)
     {

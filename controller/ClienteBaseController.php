@@ -1,8 +1,8 @@
 <?php
 
-namespace baseControler;
+namespace clienteController;
 
-abstract class BaseController
+abstract class ClienteBaseController
 {
     abstract function create($cliente);
     abstract function readClienteValid($documento,$correoElectronico);
