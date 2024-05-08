@@ -9,7 +9,7 @@ class Producto{
     private $categoria;	
     private $precioUnitario;
     private $imagen;
-    
+    private $extensionImagen;
     function getId(){
         return $this->id;
     }
@@ -30,6 +30,9 @@ class Producto{
     }
     function getImagen(){
         return $this->imagen;
+    }
+    function getExtensionImagen(){
+        return $this->extensionImagen;
     }
 
     function setId($value){
@@ -52,6 +55,9 @@ class Producto{
     }
     function setImagen($value){
         $this->imagen = $value;
+    }
+    function setExtensionImagen($value){
+        $this->extensionImagen = $value;
     }
 
 }

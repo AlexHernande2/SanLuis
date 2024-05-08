@@ -34,6 +34,7 @@
               <li><a class="dropdown-item" href="index.php">Inicio</a></li>
               <li><a class="dropdown-header ">Comida</a></li>
               <li><a class="dropdown-item" href="./vegetales.html">Vegetales</a></li>
+              <li><a class="dropdown-item" href="./vegetales.php?tipoProducto=vegetales">Vegetales</a></li>
               <li><a class="dropdown-item" href="./fruta.html">Fruta</a></li>
               <li><a class="dropdown-item" href="./carnes.html">Carne y Aves</a></li>
               <li><a class="dropdown-item" href="./lacteos.html">Lácteos y Huevos </a></li>

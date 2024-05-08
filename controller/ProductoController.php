@@ -6,7 +6,7 @@ use conexionDb\ConexionDbController;
 
 class ProductoController extends ProductoBaseController{
     function readProductoCategori($tipoProducto){
-        $sql = 'select tipoProducto from cliente';
+        $sql = 'select * from producto ';
         $sql .= 'where tipoProducto="'.$tipoProducto.'"';
         $conexiondb = new ConexionDbController();
         $resultadoSQL = $conexiondb->execSQL($sql);
@@ -19,13 +19,14 @@ class ProductoController extends ProductoBaseController{
             $producto->setTipoProducto($registro['tipoProducto']);
             $producto->setCategoria($registro['categoria']);
             $producto->setPrecioUnitario($registro['precioUnitario']);
-            $producto->setImagen($registro['imagen']);
-         
+            $producto->setImagen($registro['imagenProducto']);
+            $producto->setExtensionImagen($registro['extensionImagen']);
+
             array_push($productosValid, $producto);
 
 
         }
         $conexiondb->close();
-    
+        return $productosValid;
     }
 }
