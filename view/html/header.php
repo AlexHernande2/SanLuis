@@ -1,4 +1,4 @@
-<?php 
+<?php
 require '../../model/Cliente.php';
 require '../../controller/conexionDbController.php';
 require '../../controller/ClienteBaseController.php';
@@ -6,17 +6,42 @@ require '../../controller/ClienteController.php';
 
 use cliente\Cliente;
 use ClienteController\ClienteController;
+
+
 session_start();
 
-if(isset($_SESSION['documento'])){
+if(isset($_GET['des'])){
+  unset($_SESSION['documento']);
+  session_destroy();
+}
+
+
+if (isset($_SESSION['documento'])) {
   $documento = $_SESSION['documento'];
   $cliente = new ClienteController();
   $cliente = $cliente->readRow($documento);
-  $cliente = $cliente->getNombre() ;
-  $iniEdit = "editarCliente.php";
-}else{
+  $cliente = $cliente->getNombre();
+  $iniEdit = "#";
+  $dropdown =
+    '
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="index.php?des=si">Salir</a>
+  </div>
+  ';
+  $nav = "nav-link dropdown-toggle";
+} else {
   $cliente = "inicia sesion o registrate";
   $iniEdit = "formSesion.php?inicioSesion=no";
+  $dropdown = "";
+  $nav = "nav-link";
+}
+
+
+if(isset($_GET['des'])){
+  session_destroy();
 }
 
 ?>
@@ -28,7 +53,7 @@ if(isset($_SESSION['documento'])){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Se utiliza para que se ajuste al conenido de la pagina  -->
   <title>Headerpagina</title>
-  
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/styless.css">
@@ -58,16 +83,19 @@ if(isset($_SESSION['documento'])){
           <ul class="navbar-nav d-flex justify-content-center align-items-center">
             <li class="nav-item">
               <img src="../imagenes/imagenUsuario.png" alt="usuario" width="50">
-            
+
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo $iniEdit?>">¡Hola! <?php echo $cliente ?></a>
+            <li class="nav-item dropdown">
+              <a class="<?php echo $nav ?>" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" href="<?php echo $iniEdit ?>">¡Hola!
+                <?php echo $cliente ?></a>
+              <?php echo $dropdown ?>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="../html/carrito.html">Carrito</a>
             </li>
           </ul>
-         
+
         </div>
       </div>
     </nav>

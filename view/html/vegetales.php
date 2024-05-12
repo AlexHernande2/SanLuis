@@ -28,7 +28,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
     <main>
     <div class="container">
     <section id="categoriesSection">
-    <h1>Vegetales</h1>
+    <h1><?php echo $tipoProducto ?></h1>
         <?php
         $cont = 1;
         foreach ($productoValid as $producto) {
