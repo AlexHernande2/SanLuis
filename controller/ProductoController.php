@@ -29,4 +29,28 @@ class ProductoController extends ProductoBaseController{
         $conexiondb->close();
         return $productosValid;
     }
+    function readProducBuscador($nombre){
+        $sql = 'select * from producto ';
+        $sql .= 'WHERE nombre LIKE "%'.$nombre.'%"';
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $productos = [];
+        while($registro = $resultadoSQL->fetch_assoc()){
+            $producto = new Producto();
+            $producto->setId($registro['id']);
+            $producto->setNombre($registro['nombre']);
+            $producto->setDescripcion($registro['descripcion']);
+            $producto->setTipoProducto($registro['tipoProducto']);
+            $producto->setCategoria($registro['categoria']);
+            $producto->setPrecioUnitario($registro['precioUnitario']);
+            $producto->setImagen($registro['imagenProducto']);
+            $producto->setExtensionImagen($registro['extensionImagen']);
+
+            array_push($productos, $producto);
+
+
+        }
+        $conexiondb->close();
+        return $productos;
+    }
 }

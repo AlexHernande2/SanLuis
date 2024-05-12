@@ -25,6 +25,9 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
 </head>
 
 <body>
+<header>
+    <div id="header-container"></div>
+  </header>
     <main>
     <div class="container">
     <section id="categoriesSection">
@@ -56,4 +59,5 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 
+<script src="../js/sesion.js"></script>
 </html>

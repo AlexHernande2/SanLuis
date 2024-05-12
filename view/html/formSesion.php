@@ -84,8 +84,6 @@ if($inicioSesion == "si"){
   </footer>
   <script src="../js/sesion.js"></script>
 
-
-
 </body>
 
 </html>
