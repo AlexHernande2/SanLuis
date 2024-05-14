@@ -83,6 +83,7 @@ if($inicioSesion == "si"){
     <div id="footer-container"></div>
   </footer>
   <script src="../js/sesion.js"></script>
+  <script src="../js/initHF.js"></script>
 
 </body>
 
