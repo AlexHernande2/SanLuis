@@ -5,8 +5,9 @@ require '../../controller/ClienteBaseController.php';
 require '../../controller/ClienteController.php';
 
 use cliente\Cliente;
-use ClienteController\ClienteController;
+
 $cliente = new Cliente();
+$header = include 'header.php';
 $inicioSesion = $_GET['inicioSesion'];
 if($inicioSesion == "si"){
   $iniRegis = "registroCliente.php?inicioSes=si&";
@@ -36,12 +37,21 @@ if($inicioSesion == "si"){
   <link rel>
 </head>
 
-<body id="bodySes">
-
-  <!-- Contenedor para el encabezado -->
-  <header>
-    <div id="header-container"></div>
+<body>
+<header>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Aquí se ejecutará cuando el DOM esté completamente cargado
+            <?php
+            // Imprime la variable de PHP usando JavaScript
+            echo $header;
+            ?>
+         // Muestra la variable en la consola del navegador
+            // Puedes manipular la variable como desees aquí en JavaScript
+        });
+    </script>
   </header>
+  <!-- Contenedor para el encabezado -->
 
   <main>
     <form id="Registrar" action="<?php echo $iniRegis?>" method="POST">
@@ -50,23 +60,23 @@ if($inicioSesion == "si"){
       </div>
       <div class="mb-3">
         <label name="correoElectronico" class="form-label">Email</label>
-        <input type="text" name="correoElectronico" class="form-control" value="<?php $cliente->getCorreoElectronico()?>">
+        <input type="text" name="correoElectronico" class="form-control" value="">
       </div>
       <div class="mb-3">
         <label class="form-label"><?php echo $password ?> </label>
-        <input type="<?php echo $type?>" name="documento" class="form-control" value="<?php $cliente->getDocumento()?>">
+        <input type="<?php echo $type?>" name="documento" class="form-control" value="">
       </div>
       <div class="mb-3">
         <label class="form-label" style="<?php echo $ocultar?>">Nombre</label>
-        <input type="text" name="nombre" style="<?php echo $ocultar?>" class="form-control" value="<?php $cliente->getNombre()?>">
+        <input type="text" name="nombre" style="<?php echo $ocultar?>" class="form-control" value="">
       </div>
       <div class="mb-3">
         <label name="telefono" style="<?php echo $ocultar?>" class="form-label">telefono</label>
-        <input type="number" name="telefono" style="<?php echo $ocultar?>" class="form-control" value="<?php $cliente->getTelefono()?>" >
+        <input type="number" name="telefono" style="<?php echo $ocultar?>" class="form-control" value="" >
       </div>
       <div class="mb-3">
         <label name="correoElectronico" style="<?php echo $ocultar?>" class="form-label">direccion</label>
-        <input type="text" name="direccion" class="form-control" style="<?php echo $ocultar?>" value="<?php $cliente->getDireccion()?>">
+        <input type="text" name="direccion" class="form-control" style="<?php echo $ocultar?>" value="">
       </div>
       <div class="text-center">
         <?php   echo $tieneCuenta ?>
@@ -76,6 +86,7 @@ if($inicioSesion == "si"){
   </main>
 
 
+  <header>
 
 
 

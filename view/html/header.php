@@ -40,6 +40,9 @@ if (isset($_SESSION['documento'])) {
 
 if (isset($_GET['des'])) {
   session_destroy();
+  header('Location:index.php');
+}else{
+
 }
 
 ?>
