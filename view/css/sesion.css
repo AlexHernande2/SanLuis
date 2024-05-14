@@ -2,19 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /*Quita los estilos que tiene por default*/
+    /* Elimina los márgenes y rellenos predeterminados */
 }
-#Registrar{
-    margin-left: 25%;
-    margin-right: 25%;
-  
-}
-.body{
-    display: flex;
-    flex-direction: row;
-}
-#footerSes{
-    position: absolute;
-    bottom: 0;
-    width:100%;
+
+#formularioDiv {
+    min-height: 50vh; 
+    /* Define una altura mínima para el contenedor del formulario */
 }
