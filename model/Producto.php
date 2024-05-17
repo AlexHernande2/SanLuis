@@ -5,6 +5,7 @@ class Producto{
     private $id;
     private	$nombre;
     private $descripcion;
+    private $cantidad;
     private $tipoProducto;	
     private $categoria;	
     private $precioUnitario;
@@ -18,6 +19,9 @@ class Producto{
     }
     function getDescripcion(){
         return $this->descripcion;
+    }
+    function getCantidad(){
+        return $this->cantidad;
     }
     function getTipoProducto(){
         return $this->tipoProducto;
@@ -43,6 +47,9 @@ class Producto{
     }
     function setDescripcion($value){
         $this->descripcion = $value;
+    }
+    function setCantidad($value){
+        $this->cantidad = $value;
     }
     function setTipoProducto($value){
         $this->tipoProducto = $value;

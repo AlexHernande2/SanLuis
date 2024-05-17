@@ -118,7 +118,7 @@ if (isset($_GET['des'])) {
             <!-- Elemento de navegación para el carrito -->
             <li class="nav-item">
               <!-- Botón para abrir el carrito -->
-              <button class="nav-link btn btn-link" id="cartButton">Carrito</button>
+              <button class="nav-link btn btn-link" id="cartButton"><img width="30px" height="50px" src="../imagenes/cart.svg" alt=""></button>
             </li>
           </ul>
         </div>

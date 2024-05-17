@@ -16,6 +16,7 @@ class ProductoController extends ProductoBaseController{
             $producto->setId($registro['id']);
             $producto->setNombre($registro['nombre']);
             $producto->setDescripcion($registro['descripcion']);
+            $producto->setCantidad($registro['cantidad']);
             $producto->setTipoProducto($registro['tipoProducto']);
             $producto->setCategoria($registro['categoria']);
             $producto->setPrecioUnitario($registro['precioUnitario']);
@@ -40,6 +41,7 @@ class ProductoController extends ProductoBaseController{
             $producto->setId($registro['id']);
             $producto->setNombre($registro['nombre']);
             $producto->setDescripcion($registro['descripcion']);
+            $producto->setCantidad($registro['cantidad']);
             $producto->setTipoProducto($registro['tipoProducto']);
             $producto->setCategoria($registro['categoria']);
             $producto->setPrecioUnitario($registro['precioUnitario']);

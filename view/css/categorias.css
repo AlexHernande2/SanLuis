@@ -46,7 +46,12 @@
     text-decoration: none;
     color: black;
 }
+.contador{
+    margin-left:15px;
+    margin-right:15px;
+}
 .card{
     margin-left: 5px;
     margin-top: 5px;
 }
+
