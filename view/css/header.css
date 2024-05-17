@@ -1,0 +1,37 @@
+/* Barra lateral */
+.sidebar {
+    height: 100%; /* Altura completa de la ventana */
+    width: 0; /* Ancho inicial */
+    position: fixed; /* Se mantiene fija en la pantalla */
+    z-index: 100; /* Índice z para superponer sobre otros elementos */
+    top: 0; /* Posicionada en la parte superior */
+    right: 0; /* Posicionada en el borde derecho */
+    background-color: #ffffff; /* Color de fondo */
+    overflow-x: hidden; /* Oculta el desplazamiento horizontal */
+    transition: 0.5s; /* Transición suave de animación */
+    padding-top: 60px; /* Espacio superior para evitar superposición con la barra de navegación */
+  }
+  
+  /* Estilos para los enlaces dentro de la barra lateral */
+  .sidebar a {
+    padding: 10px 15px; /* Espaciado interno */
+    text-decoration: none; /* Sin decoración de texto */
+    font-size: 25px; /* Tamaño de fuente */
+    color: #c6bfbf; /* Color de texto */
+    display: block; /* Elementos de bloque para ocupar todo el ancho */
+    transition: 0.3s; /* Transición suave de animación */
+  }
+  
+  /* Estilos al pasar el ratón por encima de los enlaces */
+  .sidebar a:hover {
+    color: blue; /* Cambio de color al pasar el ratón */
+  }
+  
+  /* Estilos para el botón de cerrar la barra lateral */
+  .sidebar .closebtn {
+    position: absolute; /* Posicionado absolutamente */
+    top: 0; /* Posicionado en la parte superior */
+    right: 25px; /* Posicionado en el borde derecho */
+    font-size: 36px; /* Tamaño de fuente */
+    margin-left: 50px; /* Margen izquierdo */
+  }

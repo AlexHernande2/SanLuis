@@ -41,8 +41,7 @@ if (isset($_SESSION['documento'])) {
 if (isset($_GET['des'])) {
   session_destroy();
   header('Location:index.php');
-}else{
-
+} else {
 }
 
 ?>
@@ -58,47 +57,14 @@ if (isset($_GET['des'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="../css/styless.css">
+  <link rel="stylesheet" href="../css/header.css">
 
-  <style>
-    /* Estilos para el menú lateral */
-    .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      right: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-    }
 
-    .sidebar a {
-      padding: 10px 15px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      color: #f1f1f1;
-    }
-
-    .sidebar .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-  </style>
 
 </head>
 
 <body>
+
   <header>
     <?php echo var_dump($_SESSION); ?>
 
@@ -208,7 +174,7 @@ if (isset($_GET['des'])) {
       </div>
     </nav>
 
-
+    <h1>Hola</h1>
 
 
     <!--  -->
@@ -216,9 +182,33 @@ if (isset($_GET['des'])) {
     <!-- Menú lateral -->
     <div class="sidebar" id="mySidebar">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a href="#">Producto 1</a>
-      <a href="#">Producto 2</a>
-      <a href="#">Producto 3</a>
+      <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
+        <tbody id="items">
+          <tr>
+            <td>  </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr id="footer">
+
+            <th scope="row" colspan="5">
+
+              <a href="../html/carrito.html" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ir al carrito</a>
+          </tr>
+        </tfoot>
+      </table>
+
+
       <!-- Puedes agregar más elementos aquí -->
     </div>
   </header>
