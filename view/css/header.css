@@ -35,3 +35,11 @@
     font-size: 36px; /* Tamaño de fuente */
     margin-left: 50px; /* Margen izquierdo */
   }
+ 
+  #rar{
+    color: blue;
+  }
+
+  #menuDesplegable{
+    background-color: aquamarine;
+  }

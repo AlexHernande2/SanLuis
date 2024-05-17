@@ -138,7 +138,7 @@ if (isset($_GET['des'])) {
             <ul class="dropdown-menu dropdown-menu-scroll">
               <li><a class="dropdown-item" href="index.php">Inicio</a></li>
               <li><a class="dropdown-header ">Comida</a></li>
-              <li><a class="dropdown-item" href="./vegetales.html">Vegetales</a></li>
+              <li><a class="dropdown-item" href="./vegetales.php">Vegetales</a></li>
               <li><a class="dropdown-item" href="./vegetales.php?tipoProducto=vegetales">Vegetales</a></li>
               <li><a class="dropdown-item" href="./fruta.html">Fruta</a></li>
               <li><a class="dropdown-item" href="./carnes.html">Carne y Aves</a></li>
@@ -174,7 +174,7 @@ if (isset($_GET['des'])) {
       </div>
     </nav>
 
-    <h1>Hola</h1>
+    <h1 id="rar">Hola</h1>
 
 
     <!--  -->
@@ -203,7 +203,7 @@ if (isset($_GET['des'])) {
 
             <th scope="row" colspan="5">
 
-              <a href="../html/carrito.html" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ir al carrito</a>
+              <a href="../php/carrito.php" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Ir al carrito</a>
           </tr>
         </tfoot>
       </table>

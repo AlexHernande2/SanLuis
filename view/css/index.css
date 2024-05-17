@@ -20,14 +20,6 @@
     margin-top: 10px;
 } 
 
-
-
-
-
-#menuDesplegable {
-    background-color: rgb(238, 202, 202);
-}
-
 /* Para agregar una barra de movimiento al menu desplegable */
 .dropdown-menu-scroll {
     max-height: 550px;
@@ -43,8 +35,6 @@
     margin: 0 auto; /* Alinea horizontalmente */
     display: block; /* Para que los márgenes automáticos funcionen */
 }
-
-
 
 #tit{
     text-decoration: none;
