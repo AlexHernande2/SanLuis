@@ -12,6 +12,7 @@ $inicioSesion = $_GET['inicioSesion'];
 if($inicioSesion == "si"){
   $iniRegis = "registroCliente.php?inicioSes=si&";
   $iniOregis = "INICIAR SESION";
+  $btn = "iniciar sesion";
   $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no">registrate</a>';
   $ocultar = "display: none;";
   $password = "Contraseña";
@@ -19,6 +20,7 @@ if($inicioSesion == "si"){
 }else{
   $iniRegis = "registroCliente.php?inicioSes=no&";
   $iniOregis = "REGISTRO";
+  $btn = "registrar";
   $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si">inicia sesion</a>';
   $ocultar = "";
   $password = "Documento";
@@ -106,7 +108,7 @@ if($inicioSesion == "si"){
           <!-- Div centrado con texto dinámico -->
           <?php echo $tieneCuenta ?>
         </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="submit" class="btn btn-primary"><?php echo $btn?></button>
         <!-- Botón de envío del formulario -->
       </form>
     </div>

@@ -1,3 +1,21 @@
+<?php
+include 'header.php';
+require '../../model/Producto.php';
+require '../../controller/ProductoBaseController.php';
+require '../../controller/ProductoController.php';
+require '../../controller/ProCaBaseController.php';
+require '../../controller/ProCaController.php';
+
+
+use proCaController\ProCaController;
+
+//leer productos para mostrarlos al hacer click en el icono del carrito
+
+$proCa = new proCaController();
+$proEnCarrito = $proCa->ReadPro($documento);
+//se muestran todos los productos que se encuentran en el carrito del cliente
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,88 +27,87 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 </head>
-<header>
-
-<header>
-    <?php include 'header.php'; ?>
-</header>
 
 
 
-    <body>
-        <div class="container">
-            <h1>Carrito</h1>
-            <hr>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Item</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Acción</th>
-                        <th scope="col">Total</th>
-                    </tr>
-                </thead>
-                <tbody id="items"></tbody>
-                <tfoot>
-                    <tr id="footer">
-                        <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
-                    </tr>
-                </tfoot>
-            </table>
-            <div class="row" id="cards"></div>
-        </div>
 
-        <template id="template-footer">
-            <th scope="row" colspan="2">Total productos</th>
-            <td>10</td>
-            <td>
-                <button class="btn btn-danger btn-sm" id="vaciar-carrito">
-                    vaciar todo
-                </button>
-            </td>
-            <td class="font-weight-bold">$ <span>5000</span></td>
-        </template>
+<body>
+    <div class="container">
+        <h1>Carrito</h1>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Acción</th>
+                    <th scope="col">Total <?php $holaaa ?></th>
+                </tr>
+            </thead>
+            <tbody id="items">
+                <?php
+                $contador = 1;
+                $precioTotalPro = 0;
+                $precioTotal =0;
+                foreach ($proEnCarrito as $producto) {
+                    $precioTotalPro = $producto->getPrecioUnitario()*$producto->getCantidad();
+                    echo '<tr>
+                            <td>' . $contador . '</td>
+                            <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
+                            <td>' . $producto->getCantidad() . '</td>
+                            <td> sumar restar</td>
+                            <td> ' .$precioTotalPro. ' COP</td>
+                          </tr>';
+                    $contador++;
+                    $precioTotal += $precioTotalPro;
+                }
+                echo '<tr>
+                <td>TOTAL</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>'.$precioTotal.' COP</td>
+              </tr>';
+                ?>
+            </tbody>
+        </table>
 
-        <template id="template-carrito">
-            <tr>
-                <th scope="row">id</th>
-                <td>Café</td>
-                <td>1</td>
-                <td>
-                    <button class="btn btn-info btn-sm">
-                        +
-                    </button>
-                    <button class="btn btn-danger btn-sm">
-                        -
-                    </button>
-                </td>
-                <td>$ <span>500</span></td>
-            </tr>
-        </template>
-
-
-        <template id="template-card">
-            <div class="col-12 mb-2 col-md-4">
-                <div class="card">
-                    <img src="" alt="" class="card-img-top">
-                    <div class="card-body">
-                        <h5>Titulo</h5>
-                        <p>precio</p>
-                        <button class="btn btn-dark">Comprar</button>
-                    </div>
-                </div>
-            </div>
-        </template>
 
 
         <footer>
-            <div id="footer-container"></div>
+            <div style="margin-left:-25%;margin-right: -15.25%;"id="footer-container"></div>
         </footer>
 
 
         <script src="../js/carrito.js"></script>
         <script src="../js/index.js"></script>
-    </body>
+        <script>
+            const $dropdown = $(".dropdown");
+            const $dropdownToggle = $(".dropdown-toggle");
+            const $dropdownMenu = $(".dropdown-menu");
+            const showClass = "show";
+            $(window).on("load resize", function () {
+                if (this.matchMedia("(min-width: 768px)").matches) {
+                    $dropdown.hover(
+                        function () {
+                            const $this = $(this);
+                            $this.addClass(showClass);
+                            $this.find($dropdownToggle).attr("aria-expanded", "true");
+                            $this.find($dropdownMenu).addClass(showClass);
+                        },
+                        function () {
+                            const $this = $(this);
+                            $this.removeClass(showClass);
+                            $this.find($dropdownToggle).attr("aria-expanded", "false");
+                            $this.find($dropdownMenu).removeClass(showClass);
+                        }
+                    );
+                } else {
+                    $dropdown.off("mouseenter mouseleave");
+                }
+            });
+        </script>
+</body>
 
 </html>
