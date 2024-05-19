@@ -55,4 +55,25 @@ class ProductoController extends ProductoBaseController{
         $conexiondb->close();
         return $productos;
     }
+    function readRow($idProducto){
+        $sql = 'select * from producto ';
+        $sql .= 'WHERE id = '.$idProducto;
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        while($registro = $resultadoSQL->fetch_assoc()){
+            $producto = new Producto();
+            $producto->setId($registro['id']);
+            $producto->setNombre($registro['nombre']);
+            $producto->setDescripcion($registro['descripcion']);
+            $producto->setCantidad($registro['cantidad']);
+            $producto->setTipoProducto($registro['tipoProducto']);
+            $producto->setCategoria($registro['categoria']);
+            $producto->setPrecioUnitario($registro['precioUnitario']);
+            $producto->setImagen($registro['imagenProducto']);
+            $producto->setExtensionImagen($registro['extensionImagen']);
+        }
+        $conexiondb->close();
+        return $producto;
+    }
+    
 }

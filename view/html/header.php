@@ -31,6 +31,7 @@ if (isset($_SESSION['documento'])) {
   ';
   $nav = "nav-link dropdown-toggle";
 } else {
+  $documento="";
   $cliente = "inicia sesion o registrate";
   $iniEdit = "formSesion.php?inicioSesion=no";
   $dropdown = "";
@@ -41,8 +42,7 @@ if (isset($_SESSION['documento'])) {
 if (isset($_GET['des'])) {
   session_destroy();
   header('Location:index.php');
-} else {
-}
+} 
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ if (isset($_GET['des'])) {
   <link rel="stylesheet" href="../css/styless.css">
   <link rel="stylesheet" href="../css/header.css">
 
-
+  <script src="../js/busqueda.js"></script>
 
 </head>
 
@@ -118,7 +118,7 @@ if (isset($_GET['des'])) {
             <!-- Elemento de navegación para el carrito -->
             <li class="nav-item">
               <!-- Botón para abrir el carrito -->
-              <button class="nav-link btn btn-link" id="cartButton"><img width="30px" height="50px" src="../imagenes/cart.svg" alt=""></button>
+              <button onclick="view_cart(<?php echo $documento?>)" class="nav-link btn btn-link" id="cartButton"><img width="30px" height="50px" src="../imagenes/cart.svg" alt=""></button>
             </li>
           </ul>
         </div>
@@ -181,22 +181,17 @@ if (isset($_GET['des'])) {
 
     <!-- Menú lateral -->
     <div class="sidebar" id="mySidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="javascript:void(0)" class="closebtn">×</a>
       <table class="table">
         <thead>
           <tr>
-            
             <th scope="col">Nombre</th>
             <th scope="col">Cantidad</th>
             <th scope="col">Valor</th>
           </tr>
         </thead>
         <tbody id="items">
-          <tr>
-            <td>  </td>
-            <td></td>
-            <td></td>
-          </tr>
+        
         </tbody>
         <tfoot>
           <tr id="footer">
@@ -217,7 +212,7 @@ if (isset($_GET['des'])) {
 
   <script src="../js/header.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script src="../js/busqueda.js"></script>
+ 
 
 
 </body>

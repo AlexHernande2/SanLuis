@@ -33,13 +33,13 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
     <section id="categoriesSection">
     <h1><?php echo $tipoProducto ?></h1>
         <?php
-        //contador paea saltos
+        //contador para saltos
         $cont = 1;
         //contador para saber index de cara card
         $conta = 0;
         foreach ($productoValid as $producto) {
             //cada cuatro loops se genera un salto 
-            if($cont%4 == 0){
+            if($cont == 1 || $cont%4 == 0){
                 echo '<div class="row row-cols-1 row-cols-md-4 g-4">';
                 $cont = $cont+1;
             }
@@ -54,7 +54,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
             echo '<button onclick="decrementCounter('.$conta.')" class="menos btn btn-danger">-</button>';
             echo '<span max ="'.$producto->getCantidad() .'" class="contador">1</span>';
             echo '<button onclick="incrementCounter('.$conta.')" class="mas btn btn-success">+</button>';
-            echo '<button style="margin-left: 5px;" class="btn btn-primary"><img src="../imagenes/cart.svg" alt=""></button>';
+            echo '<button onclick="add_cart('.$documento.','.$producto->getId().','.$conta.')" style="margin-left: 5px;" class="btn btn-primary"><img src="../imagenes/cart.svg" alt=""></button>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
