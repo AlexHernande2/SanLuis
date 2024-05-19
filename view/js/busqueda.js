@@ -36,7 +36,7 @@ function add_cart(idCliente,idProducto,index) {
     };
     $.ajax({
         data: parametros,
-        url: '../html/AgMosCarrito.php',
+        url: '../php/AgMosCarrito.php',
         type: 'POST',
         beforeSend: function () {
 
@@ -59,7 +59,7 @@ function view_cart(idCliente){
     };
     $.ajax({
         data: parametros,
-        url: '../html/AgMosCarrito.php',
+        url: '../php/AgMosCarrito.php',
         type: 'POST',
         beforeSend: function () {
             

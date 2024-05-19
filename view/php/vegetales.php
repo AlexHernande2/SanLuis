@@ -66,5 +66,6 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
 
 
      <script src="../js/header.js"></script>
+     <script src="../js/sumRes.js"></script>
    
 </html>
