@@ -10,9 +10,11 @@ require '../../controller/ProCaController.php';
 use proCaController\ProCaController;
 
 //leer productos para mostrarlos al hacer click en el icono del carrito
-
-$proCa = new proCaController();
-$proEnCarrito = $proCa->ReadPro($documento);
+if (!isset($documento)) {
+    $proCa = new proCaController();
+    $proEnCarrito = $proCa->ReadPro($documento);
+}
+var_dump(isset($documento));
 //se muestran todos los productos que se encuentran en el carrito del cliente
 
 ?>
@@ -47,36 +49,45 @@ $proEnCarrito = $proCa->ReadPro($documento);
             </thead>
             <tbody id="items">
                 <?php
-                $contador = 1;
-                $precioTotalPro = 0;
-                $precioTotal =0;
-                foreach ($proEnCarrito as $producto) {
-                    $precioTotalPro = $producto->getPrecioUnitario()*$producto->getCantidad();
-                    echo '<tr>
+                if (!isset($documento)) {
+                    $contador = 1;
+                    $precioTotalPro = 0;
+                    $precioTotal = 0;
+                    foreach ($proEnCarrito as $producto) {
+                        $precioTotalPro = $producto->getPrecioUnitario() * $producto->getCantidad();
+                        echo '<tr>
                             <td>' . $contador . '</td>
                             <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
                             <td>' . $producto->getCantidad() . '</td>
                             <td> sumar restar</td>
-                            <td> ' .$precioTotalPro. ' COP</td>
+                            <td> ' . $precioTotalPro . ' COP</td>
                           </tr>';
-                    $contador++;
-                    $precioTotal += $precioTotalPro;
-                }
-                echo '<tr>
-                <td>TOTAL</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>'.$precioTotal.' COP</td>
-              </tr>';
-                ?>
+                        $contador++;
+                        $precioTotal += $precioTotalPro;
+                    }
+
+                    echo '<tr>
+                             <td>TOTAL</td>
+                             <td></td>
+                             <td></td>
+                             <td></td>
+                             <td>' . $precioTotal . ' COP</td>
+                         </tr>';
+
+                }else{
+                    echo '<tfoot>
+                    <tr id="footer">
+                        <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                    </tr>
+                </tfoot>';
+                } ?>
             </tbody>
         </table>
 
 
 
         <footer>
-            <div style="margin-left:-25%;margin-right: -15.25%;"id="footer-container"></div>
+            <div style="margin-left:-25%;margin-right: -15.25%;" id="footer-container"></div>
         </footer>
 
 
