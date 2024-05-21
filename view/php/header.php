@@ -186,7 +186,13 @@ if (isset($_GET['des'])) {
       <a href="javascript:void(0)" class="closebtn">×</a>
       <table class="table">
         <thead>
-         
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Valor</th>
+          </tr>
+        </thead>
         </thead>
         <tbody id="items">
         
