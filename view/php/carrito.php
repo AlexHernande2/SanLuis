@@ -10,11 +10,7 @@ require '../../controller/ProCaController.php';
 use proCaController\ProCaController;
 
 //leer productos para mostrarlos al hacer click en el icono del carrito
-if (!isset($documento)) {
-    $proCa = new proCaController();
-    $proEnCarrito = $proCa->ReadPro($documento);
-}
-var_dump(isset($documento));
+
 //se muestran todos los productos que se encuentran en el carrito del cliente
 
 ?>
@@ -49,10 +45,13 @@ var_dump(isset($documento));
             </thead>
             <tbody id="items">
                 <?php
-                if (!isset($documento)) {
+                var_dump(!empty($documento));
+                if (!empty($documento)) {
                     $contador = 1;
                     $precioTotalPro = 0;
                     $precioTotal = 0;
+                    $proCa = new proCaController();
+                    $proEnCarrito = $proCa->ReadPro($documento);
                     foreach ($proEnCarrito as $producto) {
                         $precioTotalPro = $producto->getPrecioUnitario() * $producto->getCantidad();
                         echo '<tr>
@@ -65,22 +64,22 @@ var_dump(isset($documento));
                         $contador++;
                         $precioTotal += $precioTotalPro;
                     }
-
                     echo '<tr>
-                             <td>TOTAL</td>
-                             <td></td>
-                             <td></td>
-                             <td></td>
-                             <td>' . $precioTotal . ' COP</td>
-                         </tr>';
-
-                }else{
+                            <td>TOTAL</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>' . $precioTotal . ' COP</td>
+                          </tr>';
+                } else {
                     echo '<tfoot>
-                    <tr id="footer">
-                        <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
-                    </tr>
-                </tfoot>';
-                } ?>
+                            <tr id="footer">
+                                <th scope="row" colspan="5">Carrito vacío - inicia sesion y comienza a comprar!</th>
+                            </tr>
+                          </tfoot>';
+                }
+
+                ?>
             </tbody>
         </table>
 

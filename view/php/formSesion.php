@@ -8,23 +8,31 @@ use cliente\Cliente;
 
 $cliente = new Cliente();
 $header = include 'header.php';
-$inicioSesion = $_GET['inicioSesion'];
-if($inicioSesion == "si"){
-  $iniRegis = "registroCliente.php?inicioSes=si&";
-  $iniOregis = "INICIAR SESION";
-  $btn = "iniciar sesion";
-  $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no">registrate</a>';
-  $ocultar = "display: none;";
-  $password = "Contraseña";
-  $type = "password";
-}else{
-  $iniRegis = "registroCliente.php?inicioSes=no&";
-  $iniOregis = "REGISTRO";
-  $btn = "registrar";
-  $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si">inicia sesion</a>';
-  $ocultar = "";
-  $password = "Documento";
-  $type = "Number";
+if (empty($documento)) {
+  $inicioSesion = $_GET['inicioSesion'];
+  if ($inicioSesion == "si") {
+    $iniRegis = "registroCliente.php?inicioSes=si&";
+    $iniOregis = "INICIAR SESION";
+    $btn = "iniciar sesion";
+    $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no">registrate</a>';
+    $ocultar = "display: none;";
+    $password = "Contraseña";
+    $type = "password";
+  } else {
+    $iniRegis = "registroCliente.php?inicioSes=no&";
+    $iniOregis = "REGISTRO";
+    $btn = "registrar";
+    $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si">inicia sesion</a>';
+    $ocultar = "";
+    $password = "Documento";
+    $type = "Number";
+  }
+} else {
+    $iniOregis = "EDITAR CAMPOS";
+    $tieneCuenta = '';
+    $password = "Documento";
+    $btn = "Editar campos";
+    var_dump(empty($documento));
 }
 ?>
 
@@ -32,7 +40,7 @@ if($inicioSesion == "si"){
 <html lang="es">
 
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
   <!-- Define el conjunto de caracteres como UTF-8 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Establece el viewport para que el diseño sea responsive -->
@@ -40,25 +48,26 @@ if($inicioSesion == "si"){
   <!-- Título de la página -->
   <link rel="stylesheet" href="../css/sesion.css">
   <!-- Enlace a la hoja de estilo CSS personalizada -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Enlace a la hoja de estilo de Bootstrap -->
 </head>
 
 <body>
-<header>
-<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Aquí se ejecutará cuando el DOM esté completamente cargado
-            <?php
-            // Imprime la variable de PHP usando JavaScript
-            echo $header;
-            ?>
+  <header>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Aquí se ejecutará cuando el DOM esté completamente cargado
+        <?php
+        // Imprime la variable de PHP usando JavaScript
+        echo $header;
+        ?>
          // Muestra la variable en la consola del navegador
             // Puedes manipular la variable como desees aquí en JavaScript
         });
     </script>
   </header>
-  <!-- Contenedor para el encabezado -->
+    <!-- Contenedor para el encabezado -->
 
   <main>
   <div class="container" id="formularioDiv">
@@ -108,7 +117,7 @@ if($inicioSesion == "si"){
           <!-- Div centrado con texto dinámico -->
           <?php echo $tieneCuenta ?>
         </div>
-        <button type="submit" class="btn btn-primary"><?php echo $btn?></button>
+        <button type="submit" class="btn btn-primary"><?php echo $btn ?></button>
         <!-- Botón de envío del formulario -->
       </form>
     </div>
@@ -119,7 +128,7 @@ if($inicioSesion == "si"){
 
   <footer id="footerSes">
     <div id="footer-container"></div>
-  </footer>
+</footer>
   <script src="../js/sesion.js"></script>
   <script src="../js/initHF.js"></script>
   

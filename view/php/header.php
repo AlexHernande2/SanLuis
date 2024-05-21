@@ -24,7 +24,7 @@ if (isset($_SESSION['documento'])) {
     '
   <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
     <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="formSesion.php">Editar</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="index.php?des=si">Salir</a>
   </div>
