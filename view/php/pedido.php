@@ -1,14 +1,4 @@
-<?php
 
-
-
-
-
-
-
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,23 +38,23 @@
                     <!-- Va el contenido, Nombre, Fecha, Estado y Productos-->
                     <td>Cesar Martinez Avella </td>
                     <td>21/05/2024</td>
-                    <td>Recibido</td>
+                    <td>Rec</td>
                     <td>
 
-                        <div class="container-sm"  >
-                            <div class="accordion  accordion-flush" id="accordionFlushExample" >
+                        <div class="container-sm">
+                            <div class="accordion  accordion-flush" id="accordionFlushExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
                                             aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Accordion Item #1
+                                            Ver Productos
                                         </button>
                                     </h2>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> </div>
+                                        <div class="accordion-body">Aca se deben mostrar los productos del cliente.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -78,49 +68,17 @@
 
         </table>
 
-        <!--  -->
-        <main>
-            <div class="container" id="formularioDiv">
-                <!-- Contenedor Bootstrap con ID "f" -->
+
+
+    </main>
 
 
 
+    <footer>
+        <div id="footer-container"></div>
+    </footer>
+    <script src="../js/initHF.js"></script>
 
-
-        </main>
-
-
-
-        <footer>
-            <div id="footer-container"></div>
-        </footer>
-        <script src="../js/initHF.js"></script>
-        <script>
-        const $dropdown = $(".dropdown");
-        const $dropdownToggle = $(".dropdown-toggle");
-        const $dropdownMenu = $(".dropdown-menu");
-        const showClass = "show";
-        $(window).on("load resize", function() {
-            if (this.matchMedia("(min-width: 768px)").matches) {
-                $dropdown.hover(
-                    function() {
-                        const $this = $(this);
-                        $this.addClass(showClass);
-                        $this.find($dropdownToggle).attr("aria-expanded", "true");
-                        $this.find($dropdownMenu).addClass(showClass);
-                    },
-                    function() {
-                        const $this = $(this);
-                        $this.removeClass(showClass);
-                        $this.find($dropdownToggle).attr("aria-expanded", "false");
-                        $this.find($dropdownMenu).removeClass(showClass);
-                    }
-                );
-            } else {
-                $dropdown.off("mouseenter mouseleave");
-            }
-        });
-        </script>
 </body>
 
 </html>

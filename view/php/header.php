@@ -23,12 +23,8 @@ if (isset($_SESSION['documento'])) {
   $dropdown =
     '
   <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-    <a class="dropdown-item" href="#">Action</a>
-<<<<<<< HEAD
-    <a class="dropdown-item" href="../php/pedido.php">Pedido</a>
-=======
+    <a class="dropdown-item" href="../php/pedido.php">Pedidos</a>
     <a class="dropdown-item" href="formSesion.php">Editar</a>
->>>>>>> 7dd058b49579cdeeb82f9b84c36f72660a0ce98d
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="index.php?des=si">Salir</a>
   </div>

@@ -28,7 +28,6 @@ use proCaController\ProCaController;
     <div class="container">
         <h1>Carrito</h1>
         <hr>
-<<<<<<< HEAD
         <div class="row">
             <div class="col-md-8">
                 <table class="table">
@@ -120,57 +119,6 @@ use proCaController\ProCaController;
           <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
         </div>
       </form>
-=======
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Item</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Acción</th>
-                    <th scope="col">Total <?php $holaaa ?></th>
-                </tr>
-            </thead>
-            <tbody id="items">
-                <?php
-                var_dump(!empty($documento));
-                if (!empty($documento)) {
-                    $contador = 1;
-                    $precioTotalPro = 0;
-                    $precioTotal = 0;
-                    $proCa = new proCaController();
-                    $proEnCarrito = $proCa->ReadPro($documento);
-                    foreach ($proEnCarrito as $producto) {
-                        $precioTotalPro = $producto->getPrecioUnitario() * $producto->getCantidad();
-                        echo '<tr>
-                            <td>' . $contador . '</td>
-                            <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
-                            <td>' . $producto->getCantidad() . '</td>
-                            <td> sumar restar</td>
-                            <td> ' . $precioTotalPro . ' COP</td>
-                          </tr>';
-                        $contador++;
-                        $precioTotal += $precioTotalPro;
-                    }
-                    echo '<tr>
-                            <td>TOTAL</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>' . $precioTotal . ' COP</td>
-                          </tr>';
-                } else {
-                    echo '<tfoot>
-                            <tr id="footer">
-                                <th scope="row" colspan="5">Carrito vacío - inicia sesion y comienza a comprar!</th>
-                            </tr>
-                          </tfoot>';
-                }
-
-                ?>
-            </tbody>
-        </table>
->>>>>>> 7dd058b49579cdeeb82f9b84c36f72660a0ce98d
 
 
                 <table class="table">
@@ -197,38 +145,14 @@ use proCaController\ProCaController;
             </div>
         </div>
 
+      
+  
         <footer>
-            <div style="margin-left:-25%;margin-right: -15.25%;" id="footer-container"></div>
+            <div id="footer-container"></div>
         </footer>
-
         <script src="../js/carrito.js"></script>
-        <script src="../js/index.js"></script>
-        <script>
-            const $dropdown = $(".dropdown");
-            const $dropdownToggle = $(".dropdown-toggle");
-            const $dropdownMenu = $(".dropdown-menu");
-            const showClass = "show";
-            $(window).on("load resize", function() {
-                if (this.matchMedia("(min-width: 768px)").matches) {
-                    $dropdown.hover(
-                        function() {
-                            const $this = $(this);
-                            $this.addClass(showClass);
-                            $this.find($dropdownToggle).attr("aria-expanded", "true");
-                            $this.find($dropdownMenu).addClass(showClass);
-                        },
-                        function() {
-                            const $this = $(this);
-                            $this.removeClass(showClass);
-                            $this.find($dropdownToggle).attr("aria-expanded", "false");
-                            $this.find($dropdownMenu).removeClass(showClass);
-                        }
-                    );
-                } else {
-                    $dropdown.off("mouseenter mouseleave");
-                }
-            });
-        </script>
+      
+       <script src="../js/initHF.js"></script>
     </div>
 </body>
 
