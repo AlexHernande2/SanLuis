@@ -25,7 +25,36 @@
     <header>
         <?php include 'header.php'; ?>
     </header>
+    <h1>Historial de pedido </h1>
+
 <main>
+    <!--  -->
+<table class="table table-dark table-striped">
+    
+<thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Productos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <!-- Id del pedido -->
+      <th scope="row"></th>
+      <!-- Va el contenido, Nombre, Fecha, Estado y Productos-->
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+   
+  </tbody>
+
+</table>
+<!--  -->
 <main>
   <div class="container" id="formularioDiv">
       <!-- Contenedor Bootstrap con ID "f" -->
@@ -35,7 +64,8 @@
 
 
 </main>
-<p>d</p>
+
+
 
     <footer>
         <div id="footer-container"></div>
