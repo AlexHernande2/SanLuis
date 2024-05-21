@@ -25,20 +25,21 @@ class ClienteController extends ClienteBaseController
         $conexiondb->close();
         return $resultadoSQL;
     }
-    function readClienteValid($documento, $correoElectronico)
+    function readClienteValid($documento, $CorreoElectronico)
     {
-        session_start();
-        $_SESSION['documento'] = $documento;
         $sql = 'select * from cliente ';
-        $sql .= 'where Documento="' . $documento . '" and ';
-        $sql .= 'correoElectronico="' . $correoElectronico.'"';
+        $sql .= 'where Documento = ' . $documento . ' and ';
+        $sql .= 'CorreoElectronico = "' . $CorreoElectronico.'"';
         $conexiondb = new ConexionDbController();
         $resultadoSQL = $conexiondb->execSQL($sql);
-        $row_cnt = $resultadoSQL->num_rows;
-        if($row_cnt == 1){
+        $row_cont = $resultadoSQL->num_rows;
+        if ($row_cont != 0) {
+            session_start();
+            $_SESSION['documento'] = $documento;
             header('location:index.php');
         }else{
-            echo "campos vacios o datos incorrectos";
+            $resultadoSQL = false;
+            header('location:formSesion.php?inicioSesion=si');
         }
         $conexiondb->close();
         return $resultadoSQL;

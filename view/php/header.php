@@ -17,18 +17,14 @@ if (isset($_GET['des'])) {
 if (isset($_SESSION['documento'])) {
   $documento = $_SESSION['documento'];
   $cliente = new ClienteController();
-  $cliente = $cliente->readRow($documento);
-  $cliente = $cliente->getNombre();
+  $Cliente = $cliente->readRow($documento);
+  $cliente = $Cliente->getNombre();
   $iniEdit = "#";
   $dropdown =
     '
   <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
     <a class="dropdown-item" href="#">Action</a>
-<<<<<<< HEAD
     <a class="dropdown-item" href="../php/pedido.php">Pedido</a>
-=======
-    <a class="dropdown-item" href="formSesion.php">Editar</a>
->>>>>>> 7dd058b49579cdeeb82f9b84c36f72660a0ce98d
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="index.php?des=si">Salir</a>
   </div>
@@ -37,9 +33,11 @@ if (isset($_SESSION['documento'])) {
 } else {
   $documento="";
   $cliente = "inicia sesion o registrate";
+  $Cliente = new Cliente();
   $iniEdit = "formSesion.php?inicioSesion=no";
   $dropdown = "";
   $nav = "nav-link";
+  
 }
 
 
@@ -188,11 +186,7 @@ if (isset($_GET['des'])) {
       <a href="javascript:void(0)" class="closebtn">×</a>
       <table class="table">
         <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Valor</th>
-          </tr>
+         
         </thead>
         <tbody id="items">
         

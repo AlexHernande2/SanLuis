@@ -12,9 +12,16 @@ $index = "index.php";
 $inicioSesion = $_GET["inicioSes"];
 if ($inicioSesion == "si") {
     $documento = $_POST["documento"];
-    $correoElectronico = $_POST["correoElectronico"];
+    $CorreoElectronico = $_POST["correoElectronico"];
     $ClienteController = new ClienteController();
-    $resultado = $ClienteController->readClienteValid($documento, $correoElectronico);
+    $resultado = $ClienteController->readClienteValid($documento, $CorreoElectronico);
+
+    if ($resultado == true) {
+        echo '<h1>inicio de sesion exitoso</h1>';
+    } else {
+        echo '<h1>No se pudo iniciar sesion el Cliente</h1>';
+    }
+    echo '<a href="index.php">Volver al inicio</a>';
 } else {
     $Cliente = new Cliente();
     $Cliente->setDocumento($_POST['documento']);

@@ -11,7 +11,7 @@ $header = include 'header.php';
 if (empty($documento)) {
   $inicioSesion = $_GET['inicioSesion'];
   if ($inicioSesion == "si") {
-    $iniRegis = "registroCliente.php?inicioSes=si&";
+    $iniRegis = "registroCliente.php?inicioSes=si";
     $iniOregis = "INICIAR SESION";
     $btn = "iniciar sesion";
     $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no">registrate</a>';
@@ -19,7 +19,7 @@ if (empty($documento)) {
     $password = "Contraseña";
     $type = "password";
   } else {
-    $iniRegis = "registroCliente.php?inicioSes=no&";
+    $iniRegis = "registroCliente.php?inicioSes=no";
     $iniOregis = "REGISTRO";
     $btn = "registrar";
     $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si">inicia sesion</a>';
