@@ -10,11 +10,7 @@ require '../../controller/ProCaController.php';
 use proCaController\ProCaController;
 
 //leer productos para mostrarlos al hacer click en el icono del carrito
-if (!isset($documento)) {
-    $proCa = new proCaController();
-    $proEnCarrito = $proCa->ReadPro($documento);
-}
-var_dump(isset($documento));
+
 //se muestran todos los productos que se encuentran en el carrito del cliente
 
 ?>
@@ -32,6 +28,7 @@ var_dump(isset($documento));
     <div class="container">
         <h1>Carrito</h1>
         <hr>
+<<<<<<< HEAD
         <div class="row">
             <div class="col-md-8">
                 <table class="table">
@@ -123,6 +120,57 @@ var_dump(isset($documento));
           <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
         </div>
       </form>
+=======
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Acción</th>
+                    <th scope="col">Total <?php $holaaa ?></th>
+                </tr>
+            </thead>
+            <tbody id="items">
+                <?php
+                var_dump(!empty($documento));
+                if (!empty($documento)) {
+                    $contador = 1;
+                    $precioTotalPro = 0;
+                    $precioTotal = 0;
+                    $proCa = new proCaController();
+                    $proEnCarrito = $proCa->ReadPro($documento);
+                    foreach ($proEnCarrito as $producto) {
+                        $precioTotalPro = $producto->getPrecioUnitario() * $producto->getCantidad();
+                        echo '<tr>
+                            <td>' . $contador . '</td>
+                            <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
+                            <td>' . $producto->getCantidad() . '</td>
+                            <td> sumar restar</td>
+                            <td> ' . $precioTotalPro . ' COP</td>
+                          </tr>';
+                        $contador++;
+                        $precioTotal += $precioTotalPro;
+                    }
+                    echo '<tr>
+                            <td>TOTAL</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>' . $precioTotal . ' COP</td>
+                          </tr>';
+                } else {
+                    echo '<tfoot>
+                            <tr id="footer">
+                                <th scope="row" colspan="5">Carrito vacío - inicia sesion y comienza a comprar!</th>
+                            </tr>
+                          </tfoot>';
+                }
+
+                ?>
+            </tbody>
+        </table>
+>>>>>>> 7dd058b49579cdeeb82f9b84c36f72660a0ce98d
 
 
                 <table class="table">
