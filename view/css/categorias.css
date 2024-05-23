@@ -5,24 +5,13 @@
     /*Quita los estilos que tiene por default*/
 }
 
-.carousel-item img {
-    max-width: 100%;
-    /* Establece un ancho máximo del 100% para que la imagen se ajuste al contenedor */
-    max-height: 300px;
-    /* Establece una altura máxima para que la imagen no se haga demasiado grande */
-    width: auto;
-    /* Permite que el ancho se ajuste automáticamente manteniendo la proporción original */
-    height: auto;
-    /* Permite que la altura se ajuste automáticamente manteniendo la proporción original */
-}
+
 
 #container {
     margin-top: 10px;
 }
 
-#menuDesplegable {
-    background-color: rgb(238, 202, 202);
-}
+
 
 /* Para agregar una barra de movimiento al menu desplegable */
 .dropdown-menu-scroll {

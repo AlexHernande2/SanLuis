@@ -28,7 +28,7 @@
 
     <div class="container-fluid " id="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-10">
 
           <div id="carouselProductos" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -61,10 +61,10 @@
         <h1>Destacados</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div class="col">
-            <div class="card">
+            <div class="card" id="contenidoCajaCat">
               <img src="../imagenes/vegetales.jpg.png" class="card-img-top" alt="vegetales">
               <div class="card-body">
-                <a href="./vegetales.html" id="tit">
+                <a href="./productos.php?tipoProducto=vegetales" id="titCategorias">
                   <h5 class="card-title" id="tit">vegetales</h5>
                 </a>
 
@@ -72,33 +72,33 @@
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/pan.jpg.png" class="card-img-top" alt="pan">
               <div class="card-body">
-                <a href="./panaderia.html">
-                  <h5 class="card-title">Panadería</h5>
+                <a href="./panaderia.html" id="titCategorias">
+                  <h5 class="card-title" id="tit">Panadería</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/alcohol.jpg.png" class="card-img-top" alt="licores">
               <div class="card-body">
-                <a href="#">
-                  <h5 class="card-title">Licores</h5>
+                <a href="#" id="titCategorias">
+                  <h5 class="card-title" id="tit">Licores</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/lacteos.jpg.png" class="card-img-top" alt="lacteos">
               <div class="card-body">
-                <a href="./lacteos.html">
-                  <h5 class="card-title">Lácteos y huevos</h5>
+                <a href="./lacteos.html" id="titCategorias">
+                  <h5 class="card-title" id="tit">Lácteos y huevos</h5>
                 </a>
               </div>
             </div>
@@ -108,44 +108,44 @@
         <!-- Segunda fila -->
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/carne.jpg.png" class="card-img-top" alt="carne">
               <div class="card-body">
-                <a href="./carnes.html">
-                  <h5 class="card-title">Carne y aves</h5>
+                <a href="./carnes.html" id="titCategorias">
+                  <h5 class="card-title" id="tit">Carne y aves</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/gaseosas.jpg.png" class="card-img-top" alt="productosSinAlcohol">
               <div class="card-body">
-                <a href="#">
-                  <h5 class="card-title">Bebidas sin alcohol</h5>
+                <a href="#" id="titCategorias">
+                  <h5 class="card-title" id="tit">Bebidas sin alcohol</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/limpieza.jpg.png" class="card-img-top" alt="productosLimpieza">
               <div class="card-body">
-                <a href="#">
-                  <h5 class="card-title">Productos de limpieza</h5>
+                <a href="#" id="titCategorias">
+                  <h5 class="card-title" id="tit">Productos de limpieza</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col ">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/cereal-1444495_1280.jpg.192x192.png" class="card-img-top" alt="cereales">
               <div class="card-body">
-                <a href="./cereales.html">
-                  <h5 class="card-title">Cereales</h5>
+                <a href="./cereales.html" id="titCategorias">
+                  <h5 class="card-title" id="tit">Cereales</h5>
                 </a>
 
               </div>

@@ -16,9 +16,14 @@
     /* Permite que la altura se ajuste automáticamente manteniendo la proporción original */
 }
 
- #container {
-    margin-top: 10px;
-} 
+.carousel-item {
+    transition-duration: 0.5s;
+    /* Ajusta la velocidad de la transición */
+}
+
+#container {
+    margin-top: 15px;
+}
 
 /* Para agregar una barra de movimiento al menu desplegable */
 .dropdown-menu-scroll {
@@ -31,12 +36,33 @@
 #categoriesSection {
     margin-top: 20px;
 }
+
 .centered-img {
-    margin: 0 auto; /* Alinea horizontalmente */
-    display: block; /* Para que los márgenes automáticos funcionen */
+    margin: 0 auto;
+    /* Alinea horizontalmente */
+    display: block;
+    /* Para que los márgenes automáticos funcionen */
 }
 
-#tit{
+#tit {
     text-decoration: none;
-    color: black;
+    color: rgb(0, 0, 0);
+    text-align: center;
 }
+#titCategorias:hover {
+    color: rgb(0, 0, 0); 
+  }
+  
+  /* Estilo normal del título */
+  #tit {
+    color: #000; /* Color inicial */
+    transition: color 0.3s; /* Transición suave para el cambio de color */
+  }
+  
+  /* Estilo del título al pasar el cursor sobre el enlace */
+  #titCategorias:hover #tit {
+    color: rgb(7, 15, 255); /* Cambia el color del título al pasar el cursor sobre el enlace */
+  }
+ #contenidoCajaCat{
+    border: 1px solid #000000;
+  }

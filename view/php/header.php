@@ -60,15 +60,12 @@ if (isset($_GET['des'])) {
   <link rel="stylesheet" href="../css/styless.css">
   <link rel="stylesheet" href="../css/header.css">
 
-  <script src="../js/busqueda.js"></script>
-
+  
 </head>
-
 <body>
 
   <header>
     <?php echo var_dump($_SESSION); ?>
-
     <!-- Barra de navegacion o parte principal de la imagen -->
     <!-- Abre la etiqueta de navegación con las clases de Bootstrap para un navbar -->
     <nav class="navbar navbar-expand-md navbar-light " id="navigationBar">
@@ -111,7 +108,7 @@ if (isset($_GET['des'])) {
               <!-- Imagen del usuario con su ruta y dimensiones -->
               <img src="../imagenes/imagenUsuario.png" alt="usuario" width="50">
             </li>
-           
+
             <!-- Elemento de navegación para mostrar el nombre del usuario -->
             <li class="nav-item dropdown" id="navSaludousuario">
               <a class="<?php echo $nav ?>" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<?php echo $iniEdit ?>">¡Hola!
@@ -142,7 +139,7 @@ if (isset($_GET['des'])) {
               <li><a class="dropdown-item" href="index.php">Inicio</a></li>
               <li><a class="dropdown-header ">Comida</a></li>
               <li><a class="dropdown-item" href="./vegetales.php">Vegetales</a></li>
-              <li><a class="dropdown-item" href="./vegetales.php?tipoProducto=vegetales">Vegetales</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=vegetales">Vegetales</a></li>
               <li><a class="dropdown-item" href="./fruta.html">Fruta</a></li>
               <li><a class="dropdown-item" href="./carnes.html">Carne y Aves</a></li>
               <li><a class="dropdown-item" href="./lacteos.html">Lácteos y Huevos </a></li>
@@ -214,9 +211,9 @@ if (isset($_GET['des'])) {
   </header>
 
 
-
+  <script src="../js/busqueda.js"></script>
   <script src="../js/header.js"></script>
- 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 

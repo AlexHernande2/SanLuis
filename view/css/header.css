@@ -36,9 +36,9 @@
     margin-left: 50px; /* Margen izquierdo */
   }
  
-
+/* color de la barra de navegacion */
   #navigationBar{
-    background-color: rgba(0, 6, 167, 0.827);
+    background-color: rgba(253, 253, 253, 0.827);
   } 
 
   #buttonSearch {
@@ -61,13 +61,13 @@
   }
 
   #navSaludousuario a {
-    color: rgb(255, 255, 255); /* Letras negras */
+    color: rgb(0, 0, 0); /* Letras negras */
     transition: background-color 0.3s, color 0.3s; /* Transición suave */
   }
   
   #navSaludousuario a:hover {
-    background-color: #2c3131; 
-    color: white; /* Letras blancas */
+    background-color: #affefe; 
+    color: rgb(0, 0, 0); /* Letras blancas */
   }
   .space-right {
     margin-right: 10px; /* Paraajustar el tamaño del margen entre los Li de saludo de usuario*/
@@ -76,5 +76,6 @@
 
   #menuDesplegable{
     /* background-color: rgb(255, 229, 176); */
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
+    background-color: rgb(181, 245, 224);
   }
