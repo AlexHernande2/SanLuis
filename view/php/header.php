@@ -31,20 +31,19 @@ if (isset($_SESSION['documento'])) {
   ';
   $nav = "nav-link dropdown-toggle";
 } else {
-  $documento="";
+  $documento = "";
   $cliente = "inicia sesion o registrate";
   $Cliente = new Cliente();
   $iniEdit = "formSesion.php?inicioSesion=no";
   $dropdown = "";
   $nav = "nav-link";
-  
 }
 
 
 if (isset($_GET['des'])) {
   session_destroy();
   header('Location:index.php');
-} 
+}
 
 ?>
 <!DOCTYPE html>
@@ -70,8 +69,9 @@ if (isset($_GET['des'])) {
   <header>
     <?php echo var_dump($_SESSION); ?>
 
+    <!-- Barra de navegacion o parte principal de la imagen -->
     <!-- Abre la etiqueta de navegación con las clases de Bootstrap para un navbar -->
-    <nav class="navbar navbar-expand-md navbar-light" id="navigationBar">
+    <nav class="navbar navbar-expand-md navbar-light " id="navigationBar">
       <!-- Contenedor fluido para el contenido del navbar -->
       <div class="container-fluid">
         <!-- Botón del navbar para dispositivos pequeños -->
@@ -107,12 +107,13 @@ if (isset($_GET['des'])) {
           <!-- Lista de elementos de navegación del navbar -->
           <ul class="navbar-nav d-flex justify-content-center align-items-center">
             <!-- Elemento de navegación para mostrar la imagen del usuario -->
-            <li class="nav-item">
+            <li class="nav-item space-right">
               <!-- Imagen del usuario con su ruta y dimensiones -->
               <img src="../imagenes/imagenUsuario.png" alt="usuario" width="50">
             </li>
+           
             <!-- Elemento de navegación para mostrar el nombre del usuario -->
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" id="navSaludousuario">
               <a class="<?php echo $nav ?>" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<?php echo $iniEdit ?>">¡Hola!
                 <?php echo $cliente ?></a>
               <?php echo $dropdown ?>
@@ -120,7 +121,7 @@ if (isset($_GET['des'])) {
             <!-- Elemento de navegación para el carrito -->
             <li class="nav-item">
               <!-- Botón para abrir el carrito -->
-              <button onclick="view_cart(<?php echo $documento?>)" class="nav-link btn btn-link" id="cartButton"><img width="30px" height="50px" src="../imagenes/cart.svg" alt=""></button>
+              <button onclick="view_cart(<?php echo $documento ?>)" class="nav-link btn btn-link" id="cartButton"><img width="30px" height="50px" src="../imagenes/cart.svg" alt=""></button>
             </li>
           </ul>
         </div>
@@ -176,7 +177,7 @@ if (isset($_GET['des'])) {
       </div>
     </nav>
 
-   
+
 
 
     <!--  -->
@@ -186,16 +187,16 @@ if (isset($_GET['des'])) {
       <a href="javascript:void(0)" class="closebtn">×</a>
       <table class="table">
         <thead>
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Valor</th>
-          </tr>
-        </thead>
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Valor</th>
+            </tr>
+          </thead>
         </thead>
         <tbody id="items">
-        
+
         </tbody>
         <tfoot>
           <tr id="footer">
@@ -215,8 +216,9 @@ if (isset($_GET['des'])) {
 
 
   <script src="../js/header.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 
 
 </body>

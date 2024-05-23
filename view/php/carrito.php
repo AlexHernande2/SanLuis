@@ -6,10 +6,10 @@ require '../../controller/ProductoController.php';
 require '../../controller/ProCaBaseController.php';
 require '../../controller/ProCaController.php';
 
-var_dump(empty($documento));   
-if(empty($documento)){
+var_dump(empty($documento));
+if (empty($documento)) {
     $style = 'disabled';
-}else{
+} else {
     $style = '';
 }
 
@@ -79,51 +79,51 @@ if(empty($documento)){
             </div>
             <div class="col-md-4">
 
-            <!-- formulario del pedido o resumen del pedido -->
-            <form id="form">
-        
-       <h2>Resumen del pedido:</h2>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label name="correoElectronico" class="form-label">Email</label>
-          <!-- Etiqueta del campo de correo electrónico -->
-          <input type="text" <?php echo $style?> name="correoElectronico" class="form-control" value="<?php echo $Cliente->getCorreoElectronico()?>">
-          <!-- Campo de entrada de texto para el correo electrónico -->
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label name="correoElectronico" class="form-label">documento</label>
-          <!-- Etiqueta del campo de contraseña con texto dinámico -->
-          <input  name="documento" <?php echo $style?> class="form-control" value="<?php echo $Cliente->getDocumento()?>">
-          <!-- Campo de entrada de texto para el documento con tipo dinámico -->
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label class="form-label" >Nombre</label>
-          <!-- Etiqueta del campo de nombre con estilo dinámico -->
-          <input type="text" <?php echo $style?> name="nombre" class="form-control" value="<?php echo $Cliente->getNombre()?>">
-          <!-- Campo de entrada de texto para el nombre con estilo dinámico -->
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label name="telefono"  class="form-label">Teléfono</label>
-          <!-- Etiqueta del campo de teléfono con estilo dinámico -->
-          <input type="number" <?php echo $style?> name="telefono"  class="form-control" value="<?php echo $Cliente->getTelefono()?>">
-          <!-- Campo de entrada de número para el teléfono con estilo dinámico -->
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label name="correoElectronico" class="form-label">Dirección</label>
-          <!-- Etiqueta del campo de dirección con estilo dinámico -->
-          <input type="text" <?php echo $style?> name="direccion" class="form-control"  value="<?php echo $Cliente->getDireccion()?>">
-          <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
-        </div>
-      </form>
+                <!-- formulario del pedido o resumen del pedido -->
+                <form id="form">
+
+                    <h2>Resumen del pedido:</h2>
+                    <div class="mb-3">
+                        <!-- Grupo de formulario con margen inferior -->
+                        <label name="correoElectronico" class="form-label">Email</label>
+                        <!-- Etiqueta del campo de correo electrónico -->
+                        <input type="text" <?php echo $style ?> name="correoElectronico" class="form-control" value="<?php echo $Cliente->getCorreoElectronico() ?>">
+                        <!-- Campo de entrada de texto para el correo electrónico -->
+                    </div>
+                    <div class="mb-3">
+                        <!-- Grupo de formulario con margen inferior -->
+                        <label name="correoElectronico" class="form-label">documento</label>
+                        <!-- Etiqueta del campo de contraseña con texto dinámico -->
+                        <input name="documento" <?php echo $style ?> class="form-control" value="<?php echo $Cliente->getDocumento() ?>">
+                        <!-- Campo de entrada de texto para el documento con tipo dinámico -->
+                    </div>
+                    <div class="mb-3">
+                        <!-- Grupo de formulario con margen inferior -->
+                        <label class="form-label">Nombre</label>
+                        <!-- Etiqueta del campo de nombre con estilo dinámico -->
+                        <input type="text" <?php echo $style ?> name="nombre" class="form-control" value="<?php echo $Cliente->getNombre() ?>">
+                        <!-- Campo de entrada de texto para el nombre con estilo dinámico -->
+                    </div>
+                    <div class="mb-3">
+                        <!-- Grupo de formulario con margen inferior -->
+                        <label name="telefono" class="form-label">Teléfono</label>
+                        <!-- Etiqueta del campo de teléfono con estilo dinámico -->
+                        <input type="number" <?php echo $style ?> name="telefono" class="form-control" value="<?php echo $Cliente->getTelefono() ?>">
+                        <!-- Campo de entrada de número para el teléfono con estilo dinámico -->
+                    </div>
+                    <div class="mb-3">
+                        <!-- Grupo de formulario con margen inferior -->
+                        <label name="correoElectronico" class="form-label">Dirección</label>
+                        <!-- Etiqueta del campo de dirección con estilo dinámico -->
+                        <input type="text" <?php echo $style ?> name="direccion" class="form-control" value="<?php echo $Cliente->getDireccion() ?>">
+                        <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
+                    </div>
+                </form>
 
 
                 <table class="table">
                     <thead>
-                        
+
                     </thead>
                     <tbody>
                         <tr>
@@ -145,15 +145,18 @@ if(empty($documento)){
             </div>
         </div>
 
-      
-  
-        <footer>
-            <div id="footer-container"></div>
-        </footer>
-        <script src="../js/carrito.js"></script>
-      
-       <script src="../js/initHF.js"></script>
+
+
     </div>
+    <footer id="footerSes">
+        <div id="footer-container"></div>
+    </footer>
+
+    <script src="../js/initHF.js"></script>
+    <script src="../js/carrito.js"></script>
+
+    <script src="../js/initHF.js"></script>
+
 </body>
 
 </html>
