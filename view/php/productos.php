@@ -1,9 +1,9 @@
 <?php
+
 require '../../model/Producto.php';
 require '../../controller/conexionDbController.php';
 require '../../controller/ProductoBaseController.php';
 require '../../controller/ProductoController.php';
-
 use producto\Producto;
 use productoController\ProductoController;
 //se atrapa el tipo de producto seleccionado
@@ -14,20 +14,19 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/categorias.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/categorias.css">
+  
 </head>
-
 <body>
-  <header>
-    <?php include 'header.php'; ?>
-  </header>
-  <main>
+    
+    <header>
+    <?php include 'header.php' ; ?>
+    </header>
+    <main>
     <div class="container">
       <section id="categoriesSection">
         <h1><?php echo $tipoProducto ?></h1>
@@ -61,16 +60,13 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
         } ?>
     </div>
   </main>
-
-
   <footer>
     <div id="footer-container"></div>
   </footer>
+  <script src="../js/header.js"></script>
+  <script src="../js/initHF.js"></script>
+  <script src="../js/sumRes.js"></script>
 </body>
 
-
-<script src="../js/header.js"></script>
-<script src="../js/initHF.js"></script>
-<script src="../js/sumRes.js"></script>
-
+</body>
 </html>

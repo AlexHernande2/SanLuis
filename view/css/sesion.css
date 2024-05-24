@@ -5,7 +5,39 @@
     /* Elimina los márgenes y rellenos predeterminados */
 }
 
-#formularioDiv {
+/* #formularioDiv {
     min-height: 50vh; 
     /* Define una altura mínima para el contenedor del formulario */
+/*}*/
+#formularioDiv {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-width: 600px;
+    /* Ajusta el tamaño máximo del formulario*/
+
+    padding: 20px;
+    /* Añade algo de relleno */
+    background-color: #f8f9fa;
+    /* Color de fondo opcional */
+    border-radius: 10px;
+    /* Bordes redondeados opcionales */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra opcional */
+
+  
 }
+
+#divBoton {
+    margin-top: 15px;
+}
+
+/*  */
+#linkInicio{
+    color: blue;
+}
+
+#linkInicio:hover { color: red; }
+#linkRegistro{
+    color: blue;
+}
+#linkRegistro:hover { color: red; }

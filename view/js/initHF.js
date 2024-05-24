@@ -1,27 +1,7 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Obtiene una referencia al contenedor del encabezado por su ID
-    const headerContainer = document.getElementById('header-container');
-    // Especifica la ruta del archivo HTML que contiene el encabezado
-    const headerHtmlFile = 'header.php'; // Ruta 
-    // Crea una nueva instancia de XMLHttpRequest para realizar la solicitud HTTP
-    const xhr = new XMLHttpRequest();
-    // Abre una conexión HTTP GET asíncrona hacia el archivo HTML del encabezado
-    xhr.open('GET', headerHtmlFile, true);
-    // Define una función para manejar el cambio de estado de la solicitud
-    xhr.onreadystatechange = function () {
-        // Verifica si la solicitud se ha completado y si el código de estado es 200 (OK)
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // Si la solicitud es exitosa, actualiza el contenido del contenedor del encabezado
-            headerContainer.innerHTML = xhr.responseText;
-        }
-    };
-    // Envía la solicitud HTTP
-    xhr.send();
-
-
-
+   
     // Carga el pie de página
     const footerContainer = document.getElementById('footer-container');
     const footerHtmlFile = 'footer.html';
@@ -58,4 +38,30 @@ const arrayOfIds = Array.from(uniqueIds);
 // Imprimir los IDs en la consola
 console.log(arrayOfIds);
 
+/* Funcion que sorve para cuando se le pasa el cursor sobre un menu desplegable se desplegue sola*/
+
+const $dropdown = $(".dropdown");
+const $dropdownToggle = $(".dropdown-toggle");
+const $dropdownMenu = $(".dropdown-menu");
+const showClass = "show";
+$(window).on("load resize", function() {
+    if (this.matchMedia("(min-width: 768px)").matches) {
+        $dropdown.hover(
+            function() {
+                const $this = $(this);
+                $this.addClass(showClass);
+                $this.find($dropdownToggle).attr("aria-expanded", "true");
+                $this.find($dropdownMenu).addClass(showClass);
+            },
+            function() {
+                const $this = $(this);
+                $this.removeClass(showClass);
+                $this.find($dropdownToggle).attr("aria-expanded", "false");
+                $this.find($dropdownMenu).removeClass(showClass);
+            }
+        );
+    } else {
+        $dropdown.off("mouseenter mouseleave");
+    }
+});
 

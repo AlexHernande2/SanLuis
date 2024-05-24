@@ -7,32 +7,32 @@ require '../../controller/ClienteController.php';
 use cliente\Cliente;
 
 $cliente = new Cliente();
-$header = include 'header.php';
+
 if (empty($documento)) {
   $inicioSesion = $_GET['inicioSesion'];
   if ($inicioSesion == "si") {
     $iniRegis = "registroCliente.php?inicioSes=si";
     $iniOregis = "INICIAR SESION";
     $btn = "iniciar sesion";
-    $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no">registrate</a>';
+    $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no" id="linkRegistro"  >registrate</a>';
     $ocultar = "display: none;";
     $password = "Contraseña";
     $type = "password";
   } else {
     $iniRegis = "registroCliente.php?inicioSes=no";
     $iniOregis = "REGISTRO";
-    $btn = "registrar";
-    $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si">inicia sesion</a>';
+    $btn = "Registrar";
+    $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si" id="linkInicio"  >inicia sesion</a>';
     $ocultar = "";
     $password = "Documento";
     $type = "Number";
   }
 } else {
-    $iniOregis = "EDITAR CAMPOS";
-    $tieneCuenta = '';
-    $password = "Documento";
-    $btn = "Editar campos";
-    var_dump(empty($documento));
+  $iniOregis = "EDITAR CAMPOS";
+  $tieneCuenta = '';
+  $password = "Documento";
+  $btn = "Editar campos";
+  var_dump(empty($documento));
 }
 ?>
 
@@ -47,30 +47,21 @@ if (empty($documento)) {
   <title>Document</title>
   <!-- Título de la página -->
   <link rel="stylesheet" href="../css/sesion.css">
+  <link rel="stylesheet" href="../css/formSesion.css">
   <!-- Enlace a la hoja de estilo CSS personalizada -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
   <!-- Enlace a la hoja de estilo de Bootstrap -->
 </head>
 
 <body>
   <header>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Aquí se ejecutará cuando el DOM esté completamente cargado
-        <?php
-        // Imprime la variable de PHP usando JavaScript
-        echo $header;
-        ?>
-         // Muestra la variable en la consola del navegador
-            // Puedes manipular la variable como desees aquí en JavaScript
-        });
-    </script>
+  <?php include 'header.php' ; ?>
   </header>
-    <!-- Contenedor para el encabezado -->
+  <!-- Contenedor para el encabezado -->
 
   <main>
-  <div class="container" id="formularioDiv">
+    <div class="container" id="formularioDiv">
       <!-- Contenedor Bootstrap con ID "f" -->
       <form id="Registrar" action="<?php echo $iniRegis ?>" method="POST">
         <!-- Formulario con ID "Registrar" que usa el método POST y una acción dinámica -->
@@ -89,26 +80,26 @@ if (empty($documento)) {
           <!-- Grupo de formulario con margen inferior -->
           <label class="form-label"><?php echo $password ?></label>
           <!-- Etiqueta del campo de contraseña con texto dinámico -->
-          <input type="<?php echo $type ?>" name="documento" class="form-control" value="">
+          <input type="<?php echo $type ?>" name="documento" class="form-control" value="" >
           <!-- Campo de entrada de texto para el documento con tipo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
           <label class="form-label" style="<?php echo $ocultar ?>">Nombre</label>
           <!-- Etiqueta del campo de nombre con estilo dinámico -->
-          <input type="text" name="nombre" style="<?php echo $ocultar ?>" class="form-control" value="">
+          <input type="text" name="nombre" style="<?php echo $ocultar ?>" class="form-control" value="" >
           <!-- Campo de entrada de texto para el nombre con estilo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
           <label name="telefono" style="<?php echo $ocultar ?>" class="form-label">Teléfono</label>
           <!-- Etiqueta del campo de teléfono con estilo dinámico -->
-          <input type="number" name="telefono" style="<?php echo $ocultar ?>" class="form-control" value="">
+          <input type="number" name="telefono" style="<?php echo $ocultar ?>" class="form-control" value="" >
           <!-- Campo de entrada de número para el teléfono con estilo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
-          <label name="correoElectronico" style="<?php echo $ocultar ?>" class="form-label">Dirección</label>
+          <label class="label" name="correoElectronico" style="<?php echo $ocultar ?>" class="form-label">Dirección</label>
           <!-- Etiqueta del campo de dirección con estilo dinámico -->
           <input type="text" name="direccion" class="form-control" style="<?php echo $ocultar ?>" value="">
           <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
@@ -117,21 +108,22 @@ if (empty($documento)) {
           <!-- Div centrado con texto dinámico -->
           <?php echo $tieneCuenta ?>
         </div>
-        <button type="submit" class="btn btn-primary"><?php echo $btn ?></button>
-        <!-- Botón de envío del formulario -->
+        <div class="d-flex justify-content-center" id="divBoton">
+          <button type="submit" class="btn btn-success" ><?php echo $btn ?></button>
+          <!-- Botón de envío del formulario -->
+        </div>
       </form>
     </div>
   </main>
 
 
 
-
   <footer id="footerSes">
     <div id="footer-container"></div>
-</footer>
+  </footer>
   <script src="../js/sesion.js"></script>
   <script src="../js/initHF.js"></script>
-  
+
 </body>
 
 </html>

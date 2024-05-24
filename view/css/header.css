@@ -36,10 +36,46 @@
     margin-left: 50px; /* Margen izquierdo */
   }
  
-  #rar{
-    color: blue;
+/* color de la barra de navegacion */
+  #navigationBar{
+    background-color: rgba(253, 253, 253, 0.827);
+  } 
+
+  #buttonSearch {
+    background-color: white;
+    color: rgb(6, 6, 6);
+    border: 2px solid #000000; /* El color del borde original */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  }
+  
+  #buttonSearch:hover {
+    background-color: #2fff00cc; /* Cambia el color de fondo al pasar el cursor */
+    color: rgb(0, 0, 0); /* Cambia el color del texto al pasar el cursor */
   }
 
+
+  
+  #cartButton:hover {
+    background-color: #affefe; /* Cambia el color de fondo al pasar el cursor */
+    
+  }
+
+  #navSaludousuario a {
+    color: rgb(0, 0, 0); /* Letras negras */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+  }
+  
+  #navSaludousuario a:hover {
+    background-color: #affefe; 
+    color: rgb(0, 0, 0); /* Letras blancas */
+  }
+  .space-right {
+    margin-right: 10px; /* Paraajustar el tamaño del margen entre los Li de saludo de usuario*/
+  }
+
+
   #menuDesplegable{
-    background-color: aquamarine;
+    /* background-color: rgb(255, 229, 176); */
+    /* border: 1px solid #000000; */
+    background-color: rgb(181, 245, 224);
   }

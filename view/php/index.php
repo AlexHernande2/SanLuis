@@ -1,4 +1,8 @@
 
+<?php
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -9,9 +13,6 @@
   <title>SuperMercadoSanLuis</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
-  <!-- favicon -->
-  <!-- en esta parte ira el favicon que es el icono de la pagina web -->
   <link rel="stylesheet" href="../css/index.css">
 
 
@@ -27,7 +28,7 @@
 
     <div class="container-fluid " id="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-10">
 
           <div id="carouselProductos" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -60,10 +61,10 @@
         <h1>Destacados</h1>
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div class="col">
-            <div class="card">
+            <div class="card" id="contenidoCajaCat">
               <img src="../imagenes/vegetales.jpg.png" class="card-img-top" alt="vegetales">
               <div class="card-body">
-                <a href="./vegetales.html" id="tit">
+                <a href="./productos.php?tipoProducto=vegetales" id="titCategorias">
                   <h5 class="card-title" id="tit">vegetales</h5>
                 </a>
 
@@ -71,33 +72,33 @@
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/pan.jpg.png" class="card-img-top" alt="pan">
               <div class="card-body">
-                <a href="./panaderia.html">
-                  <h5 class="card-title">Panadería</h5>
+                <a href="./panaderia.html" id="titCategorias">
+                  <h5 class="card-title" id="tit">Panadería</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/alcohol.jpg.png" class="card-img-top" alt="licores">
               <div class="card-body">
-                <a href="#">
-                  <h5 class="card-title">Licores</h5>
+                <a href="#" id="titCategorias">
+                  <h5 class="card-title" id="tit">Licores</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/lacteos.jpg.png" class="card-img-top" alt="lacteos">
               <div class="card-body">
-                <a href="./lacteos.html">
-                  <h5 class="card-title">Lácteos y huevos</h5>
+                <a href="./lacteos.html" id="titCategorias">
+                  <h5 class="card-title" id="tit">Lácteos y huevos</h5>
                 </a>
               </div>
             </div>
@@ -107,44 +108,44 @@
         <!-- Segunda fila -->
         <div class="row row-cols-1 row-cols-md-4 g-4">
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/carne.jpg.png" class="card-img-top" alt="carne">
               <div class="card-body">
-                <a href="./carnes.html">
-                  <h5 class="card-title">Carne y aves</h5>
+                <a href="./carnes.html" id="titCategorias">
+                  <h5 class="card-title" id="tit">Carne y aves</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/gaseosas.jpg.png" class="card-img-top" alt="productosSinAlcohol">
               <div class="card-body">
-                <a href="#">
-                  <h5 class="card-title">Bebidas sin alcohol</h5>
+                <a href="#" id="titCategorias">
+                  <h5 class="card-title" id="tit">Bebidas sin alcohol</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/limpieza.jpg.png" class="card-img-top" alt="productosLimpieza">
               <div class="card-body">
-                <a href="#">
-                  <h5 class="card-title">Productos de limpieza</h5>
+                <a href="#" id="titCategorias">
+                  <h5 class="card-title" id="tit">Productos de limpieza</h5>
                 </a>
 
               </div>
             </div>
           </div>
           <div class="col ">
-            <div class="card">
+            <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/cereal-1444495_1280.jpg.192x192.png" class="card-img-top" alt="cereales">
               <div class="card-body">
-                <a href="./cereales.html">
-                  <h5 class="card-title">Cereales</h5>
+                <a href="./cereales.html" id="titCategorias">
+                  <h5 class="card-title" id="tit">Cereales</h5>
                 </a>
 
               </div>
@@ -168,33 +169,9 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="../js/busqueda.js"></script>
-  <script>
-    const $dropdown = $(".dropdown");
-    const $dropdownToggle = $(".dropdown-toggle");
-    const $dropdownMenu = $(".dropdown-menu");
-    const showClass = "show";
-    $(window).on("load resize", function() {
-      if (this.matchMedia("(min-width: 768px)").matches) {
-        $dropdown.hover(
-          function() {
-            const $this = $(this);
-            $this.addClass(showClass);
-            $this.find($dropdownToggle).attr("aria-expanded", "true");
-            $this.find($dropdownMenu).addClass(showClass);
-          },
-          function() {
-            const $this = $(this);
-            $this.removeClass(showClass);
-            $this.find($dropdownToggle).attr("aria-expanded", "false");
-            $this.find($dropdownMenu).removeClass(showClass);
-          }
-        );
-      } else {
-        $dropdown.off("mouseenter mouseleave");
-      }
-    });
-  </script>
-  <script src="../js/header.js"></script>
+  <script src="../js/index.js"></script>
+  <script src="../js/initHF.js"></script>
+  
 </body>
 
 </html>
