@@ -9,10 +9,6 @@ class ProCaController extends ProCaBasecontroller
 {
     function AddCliProCar($idCliente, $idProducto,$cantidadSelec)
     {
-        //INSERT INTO productocarrito (carrito_id, producto_id, cantidad) 
-        // VALUES (2, 5, 1) 
-        // ON DUPLICATE KEY UPDATE cantidad = cantidad + 1;
-
         //consulto el numero de carrito del cliente
         $sql = 'select id from carrito where cliente_id = ' . $idCliente;
         $conexiondb = new ConexionDbController();

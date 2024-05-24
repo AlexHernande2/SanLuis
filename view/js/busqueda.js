@@ -3,7 +3,7 @@ function consulta_buscador(busqueda) {
     var parametros = { "busqueda": busqueda };
     $.ajax({
         data: parametros,
-        url: '../html/busqueda.php',
+        url: '../php/busqueda.php',
         type: 'POST',
         beforeSend: function () {
 

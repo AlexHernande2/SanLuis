@@ -1,4 +1,5 @@
-// Espera a que se cargue completamente el DOM antes de ejecutar el código
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Obtiene una referencia al contenedor del encabezado por su ID
     const headerContainer = document.getElementById('header-container');
