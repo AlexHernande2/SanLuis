@@ -14,15 +14,15 @@ if (empty($documento)) {
     $iniRegis = "registroCliente.php?inicioSes=si";
     $iniOregis = "INICIAR SESION";
     $btn = "iniciar sesion";
-    $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no">registrate</a>';
+    $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no" id="linkRegistro"  >registrate</a>';
     $ocultar = "display: none;";
     $password = "Contraseña";
     $type = "password";
   } else {
     $iniRegis = "registroCliente.php?inicioSes=no";
     $iniOregis = "REGISTRO";
-    $btn = "registrar";
-    $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si">inicia sesion</a>';
+    $btn = "Registrar";
+    $tieneCuenta = 'ya tienes cuenta?<a href="formSesion.php?inicioSesion=si" id="linkInicio"  >inicia sesion</a>';
     $ocultar = "";
     $password = "Documento";
     $type = "Number";
@@ -64,9 +64,10 @@ if (empty($documento)) {
         echo $header;
         ?>
         // Muestra la variable en la consola del navegador
-        // Puedes manipular la variable como desees aquí en JavaScript
+
       });
     </script>
+
   </header>
   <!-- Contenedor para el encabezado -->
 
@@ -90,26 +91,26 @@ if (empty($documento)) {
           <!-- Grupo de formulario con margen inferior -->
           <label class="form-label"><?php echo $password ?></label>
           <!-- Etiqueta del campo de contraseña con texto dinámico -->
-          <input type="<?php echo $type ?>" name="documento" class="form-control" value="">
+          <input type="<?php echo $type ?>" name="documento" class="form-control" value="" >
           <!-- Campo de entrada de texto para el documento con tipo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
           <label class="form-label" style="<?php echo $ocultar ?>">Nombre</label>
           <!-- Etiqueta del campo de nombre con estilo dinámico -->
-          <input type="text" name="nombre" style="<?php echo $ocultar ?>" class="form-control" value="">
+          <input type="text" name="nombre" style="<?php echo $ocultar ?>" class="form-control" value="" >
           <!-- Campo de entrada de texto para el nombre con estilo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
           <label name="telefono" style="<?php echo $ocultar ?>" class="form-label">Teléfono</label>
           <!-- Etiqueta del campo de teléfono con estilo dinámico -->
-          <input type="number" name="telefono" style="<?php echo $ocultar ?>" class="form-control" value="">
+          <input type="number" name="telefono" style="<?php echo $ocultar ?>" class="form-control" value="" >
           <!-- Campo de entrada de número para el teléfono con estilo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
-          <label name="correoElectronico" style="<?php echo $ocultar ?>" class="form-label">Dirección</label>
+          <label class="label" name="correoElectronico" style="<?php echo $ocultar ?>" class="form-label">Dirección</label>
           <!-- Etiqueta del campo de dirección con estilo dinámico -->
           <input type="text" name="direccion" class="form-control" style="<?php echo $ocultar ?>" value="">
           <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
@@ -118,8 +119,10 @@ if (empty($documento)) {
           <!-- Div centrado con texto dinámico -->
           <?php echo $tieneCuenta ?>
         </div>
-        <button type="submit" class="btn btn-primary"><?php echo $btn ?></button>
-        <!-- Botón de envío del formulario -->
+        <div class="d-flex justify-content-center" id="divBoton">
+          <button type="submit" class="btn btn-success" ><?php echo $btn ?></button>
+          <!-- Botón de envío del formulario -->
+        </div>
       </form>
     </div>
   </main>

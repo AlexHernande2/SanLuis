@@ -50,13 +50,13 @@
   
   #buttonSearch:hover {
     background-color: #2fff00cc; /* Cambia el color de fondo al pasar el cursor */
-    color: white; /* Cambia el color del texto al pasar el cursor */
+    color: rgb(0, 0, 0); /* Cambia el color del texto al pasar el cursor */
   }
 
 
   
   #cartButton:hover {
-    background-color: #12a0ffcc; /* Cambia el color de fondo al pasar el cursor */
+    background-color: #affefe; /* Cambia el color de fondo al pasar el cursor */
     
   }
 
