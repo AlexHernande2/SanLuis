@@ -207,11 +207,12 @@ if (empty($documento)) {
                     },
                     url: "modalPedido.php",
                     type: "post",
-                    success: function (response) {
+                    success: function (response,response2) {
                         document.getElementById('modalbody').innerHTML = response
-                        setTimeout(() => {
-                            window.open('https://api.whatsapp.com/send?phone=573108108175&text=ramiro');
-                        }, 1300);
+                        console.log(response)
+                        // setTimeout(() => {
+                        //     window.open('https://api.whatsapp.com/send?phone=573108108175&text=ramiro');
+                        // }, 1300);
                        
                     }
                 })

@@ -25,7 +25,7 @@ $detallePed = new detallePedController();
 $detallePed = $detallePed->asigDetPed($documentoCuenta,$date,$productos,$documento);
 
 echo 'pedido realizado con exito';
-
+echo'buenas';
 
 ;
 
