@@ -7,7 +7,7 @@ require '../../controller/ClienteController.php';
 use cliente\Cliente;
 
 $cliente = new Cliente();
-$header = include 'header.php';
+
 if (empty($documento)) {
   $inicioSesion = $_GET['inicioSesion'];
   if ($inicioSesion == "si") {
@@ -56,18 +56,7 @@ if (empty($documento)) {
 
 <body>
   <header>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        // Aquí se ejecutará cuando el DOM esté completamente cargado
-        <?php
-        // Imprime la variable de PHP usando JavaScript
-        echo $header;
-        ?>
-        // Muestra la variable en la consola del navegador
-
-      });
-    </script>
-
+  <?php include 'header.php' ; ?>
   </header>
   <!-- Contenedor para el encabezado -->
 
