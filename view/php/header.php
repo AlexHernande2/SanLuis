@@ -190,6 +190,7 @@ if (isset($_GET['des'])) {
               <th scope="col">Cantidad</th>
               <th scope="col">Valor unit</th>
               <th scope="col">Valor total</th>
+              <th scope="col">Agregar</th>
             </tr>
           </thead>
         </thead>
