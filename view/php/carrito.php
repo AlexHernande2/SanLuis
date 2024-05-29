@@ -54,6 +54,7 @@ if (empty($documento)) {
                             $proCa = new proCaController();
                             $proEnCarrito = $proCa->ReadPro($documento);
                             $contador = 1;
+                            $conta = 0;
                             $precioTotalPro = 0;
                             $precioTotal = 0;
                             foreach ($proEnCarrito as $producto) {
@@ -62,10 +63,13 @@ if (empty($documento)) {
                                     <td>' . $contador . '</td>
                                     <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
                                     <td>' . $producto->getCantidad() . '</td>
-                                    <td> sumar restar</td>
+                                    <td> <button onclick="decrementCounter(' . $conta . ')" class="menos btn btn-danger">-</button>
+                                    <span max ="' . $producto->getCantidad() . '" class="contador">0</span>
+                                    <button onclick="incrementCounter(' . $conta . ')" class="mas btn btn-success">+</button></td>
                                     <td> ' . $precioTotalPro . ' COP</td>
                                   </tr>';
                                 $contador++;
+                                $conta++;
                                 $precioTotal += $precioTotalPro;
                             }
 
@@ -157,7 +161,7 @@ if (empty($documento)) {
 
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Modal Heading</h4>
+                                                    <h4 class="modal-title">Pedido</h4>
                                                     <button type="button" class="btn-close"
                                                         data-bs-dismiss="modal"></button>
                                                 </div>
@@ -183,45 +187,16 @@ if (empty($documento)) {
                 </form>
 
 
-
             </div>
         </div>
 
         <footer>
             <div style="margin-left:-25%;margin-right: -15.25%;" id="footer-container"></div>
         </footer>
-        <script>
-            function modalPedido() {
-                var correo = $('#correoElectronico').val();
-                var documento = $('#documento').val();
-                var nombre = $('#nombre').val();
-                var telefono = $('#telefono').val();
-                var direccion = $('#direccion').val();
-                $.ajax({
-                    data: {
-                        "correoElectronico": correo,
-                        "documento": documento,
-                        "nombre": nombre,
-                        "telefono": telefono,
-                        "direccion": direccion
-                    },
-                    url: "modalPedido.php",
-                    type: "post",
-                    success: function (response,response2) {
-                        document.getElementById('modalbody').innerHTML = response
-                        console.log(response)
-                        // setTimeout(() => {
-                        //     window.open('https://api.whatsapp.com/send?phone=573108108175&text=ramiro');
-                        // }, 1300);
-                       
-                    }
-                })
-            };
-        </script>
-
+        <script src="../js/busqueda.js"></script>
         <script src="../js/carrito.js"></script>
         <script src="../js/index.js"></script>
-       
+       <script src="../js/sumRes.js"></script>
         <script src="../js/initHF.js"></script>
     
     

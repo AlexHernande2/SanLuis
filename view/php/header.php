@@ -13,7 +13,8 @@ if (isset($_GET['des'])) {
   unset($_SESSION['documento']);
   session_destroy();
 }
-
+// <a class="dropdown-item" href="../php/pedido.php">Pedido</a>
+// <a class="dropdown-item" href="formSesion.php">Editar</a>
 if (isset($_SESSION['documento'])) {
   $documento = $_SESSION['documento'];
   $cliente = new ClienteController();
@@ -23,8 +24,8 @@ if (isset($_SESSION['documento'])) {
   $dropdown =
     '
   <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-    <a class="dropdown-item" href="../php/pedido.php">Pedido</a>
-    <a class="dropdown-item" href="formSesion.php">Editar</a>
+   
+  
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="index.php?des=si">Salir</a>
   </div>
@@ -55,7 +56,8 @@ if (isset($_GET['des'])) {
   <!-- Se utiliza para que se ajuste al contenido de la página -->
   <title>Headerpagina</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="../css/styless.css">
   <link rel="stylesheet" href="../css/header.css">
@@ -65,7 +67,6 @@ if (isset($_GET['des'])) {
 <body>
 
   <header>
-    <?php echo var_dump($_SESSION); ?>
     <!-- Barra de navegacion o parte principal de la imagen -->
     <!-- Abre la etiqueta de navegación con las clases de Bootstrap para un navbar -->
     <nav class="navbar navbar-expand-md navbar-light " id="navigationBar">
@@ -138,7 +139,6 @@ if (isset($_GET['des'])) {
             <ul class="dropdown-menu dropdown-menu-scroll">
               <li><a class="dropdown-item" href="index.php">Inicio</a></li>
               <li><a class="dropdown-header ">Comida</a></li>
-              <li><a class="dropdown-item" href="./vegetales.php">Vegetales</a></li>
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=vegetales">Vegetales</a></li>
               <li><a class="dropdown-item" href="./fruta.html">Fruta</a></li>
               <li><a class="dropdown-item" href="./carnes.html">Carne y Aves</a></li>
@@ -153,7 +153,7 @@ if (isset($_GET['des'])) {
               <li> <a class="dropdown-header ">Bebidas</a></li>
               <li><a class="dropdown-item" href="#">Té</a></li>
               <li><a class="dropdown-item" href="#">Café</a></li>
-              <li><a class="dropdown-item" href="#">Bebidas sin Alcohol</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=bebidas sin alcohol">Bebidas sin Alcohol</a></li>
               <li><a class="dropdown-item" href="#">Cerveza</a></li>
               <li><a class="dropdown-item" href="#">Vino</a></li>
               <li>
@@ -188,7 +188,8 @@ if (isset($_GET['des'])) {
             <tr>
               <th scope="col">Nombre</th>
               <th scope="col">Cantidad</th>
-              <th scope="col">Valor</th>
+              <th scope="col">Valor unit</th>
+              <th scope="col">Valor total</th>
             </tr>
           </thead>
         </thead>

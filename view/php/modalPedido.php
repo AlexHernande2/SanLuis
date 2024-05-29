@@ -6,6 +6,7 @@ require '../../controller/ProCaBaseController.php';
 require '../../controller/ProCaController.php';
 require '../../controller/DetallePedController.php';
 
+
 use detallePedController\DetallePedController;
 use proCaController\ProCaController;
 
@@ -24,8 +25,22 @@ $productos = $proCa->ReadPro($documentoCuenta);
 $detallePed = new detallePedController();
 $detallePed = $detallePed->asigDetPed($documentoCuenta,$date,$productos,$documento);
 
-echo 'pedido realizado con exito';
-echo'buenas';
+$dataPed = "Nombre:".$nombre;
+$dataPed .= "\n". 'documento'."\n".'correoElectronico:'.$correo;
+$dataPed .= "\n".'| PRODUCTO |'.' | PRECIO UNITARIO |'.'| CANTIDAD |'.'| TOTAL |';
+foreach ($productos as $producto){
+ $cantidad = $producto->getCantidad();
+$precioUnitario = $producto->getPrecioUnitario();
+$precioTotal = $cantidad*$precioUnitario;
+ $dataPed .= "\n".$producto->getNombre().'                  '.$producto->getPrecioUnitario();
+ $dataPed .= '                            '.$producto->getCantidad().'          '.$precioTotal;
+}
+
+
+
+$encode = urlencode($dataPed);
+echo 'https://wa.me/573108108175?text='.$encode;
+
 
 ;
 
