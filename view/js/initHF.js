@@ -1,4 +1,5 @@
-// Espera a que se cargue completamente el DOM antes de ejecutar el código
+
+
 document.addEventListener('DOMContentLoaded', function () {
    
     // Carga el pie de página

@@ -38,8 +38,9 @@ class ClienteController extends ClienteBaseController
             $_SESSION['documento'] = $documento;
             header('location:index.php');
         }else{
-            $resultadoSQL = false;
-            header('location:formSesion.php?inicioSesion=si');
+            $resultadoSQL = false; 
+            header('Refresh: 1; URL=formSesion.php?inicioSesion=si');
+        
         }
         $conexiondb->close();
         return $resultadoSQL;

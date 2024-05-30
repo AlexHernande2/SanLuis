@@ -5,12 +5,14 @@ require '../../controller/ProductoBaseController.php';
 require '../../controller/ProductoController.php';
 require '../../controller/ProCaBaseController.php';
 require '../../controller/ProCaController.php';
+use proCaController\ProCaController;
 
 var_dump(empty($documento));
 if (empty($documento)) {
     $style = 'disabled';
 } else {
     $style = '';
+
 }
 
 
@@ -22,7 +24,8 @@ if (empty($documento)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 
 <body>
@@ -43,8 +46,15 @@ if (empty($documento)) {
                     </thead>
                     <tbody id="items">
                         <?php
-                        if (!isset($documento)) {
+                        if (!empty($documento)) {
+
+
+                            //leer productos para mostrarlos al hacer click en el icono del carrito
+                        
+                            $proCa = new proCaController();
+                            $proEnCarrito = $proCa->ReadPro($documento);
                             $contador = 1;
+                            $conta = 0;
                             $precioTotalPro = 0;
                             $precioTotal = 0;
                             foreach ($proEnCarrito as $producto) {
@@ -53,10 +63,13 @@ if (empty($documento)) {
                                     <td>' . $contador . '</td>
                                     <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
                                     <td>' . $producto->getCantidad() . '</td>
-                                    <td> sumar restar</td>
+                                    <td> <button onclick="decrementCounter(' . $conta . ')" class="menos btn btn-danger">-</button>
+                                    <span max ="' . $producto->getCantidad() . '" class="contador">0</span>
+                                    <button onclick="incrementCounter(' . $conta . ')" class="mas btn btn-success">+</button></td>
                                     <td> ' . $precioTotalPro . ' COP</td>
                                   </tr>';
                                 $contador++;
+                                $conta++;
                                 $precioTotal += $precioTotalPro;
                             }
 
@@ -87,76 +100,106 @@ if (empty($documento)) {
                         <!-- Grupo de formulario con margen inferior -->
                         <label name="correoElectronico" class="form-label">Email</label>
                         <!-- Etiqueta del campo de correo electrónico -->
-                        <input type="text" <?php echo $style ?> name="correoElectronico" class="form-control" value="<?php echo $Cliente->getCorreoElectronico() ?>">
+                        <input type="text" id="correoElectronico" <?php echo $style ?> name="correoElectronico"
+                            class="form-control" value="<?php echo $Cliente->getCorreoElectronico() ?>">
                         <!-- Campo de entrada de texto para el correo electrónico -->
                     </div>
                     <div class="mb-3">
                         <!-- Grupo de formulario con margen inferior -->
-                        <label name="correoElectronico" class="form-label">documento</label>
+                        <label name="documento" class="form-label">documento</label>
                         <!-- Etiqueta del campo de contraseña con texto dinámico -->
-                        <input name="documento" <?php echo $style ?> class="form-control" value="<?php echo $Cliente->getDocumento() ?>">
+                        <input name="documento" id="documento" <?php echo $style ?> class="form-control"
+                            value="<?php echo $Cliente->getDocumento() ?>">
                         <!-- Campo de entrada de texto para el documento con tipo dinámico -->
                     </div>
                     <div class="mb-3">
                         <!-- Grupo de formulario con margen inferior -->
-                        <label class="form-label">Nombre</label>
+                        <label name="nombre" class="form-label">Nombre</label>
                         <!-- Etiqueta del campo de nombre con estilo dinámico -->
-                        <input type="text" <?php echo $style ?> name="nombre" class="form-control" value="<?php echo $Cliente->getNombre() ?>">
+                        <input type="text" <?php echo $style ?> id="nombre" name="nombre" class="form-control"
+                            value="<?php echo $Cliente->getNombre() ?>">
                         <!-- Campo de entrada de texto para el nombre con estilo dinámico -->
                     </div>
                     <div class="mb-3">
                         <!-- Grupo de formulario con margen inferior -->
                         <label name="telefono" class="form-label">Teléfono</label>
                         <!-- Etiqueta del campo de teléfono con estilo dinámico -->
-                        <input type="number" <?php echo $style ?> name="telefono" class="form-control" value="<?php echo $Cliente->getTelefono() ?>">
+                        <input type="number" <?php echo $style ?> id="telefono" name="telefono" class="form-control"
+                            value="<?php echo $Cliente->getTelefono() ?>">
                         <!-- Campo de entrada de número para el teléfono con estilo dinámico -->
                     </div>
                     <div class="mb-3">
                         <!-- Grupo de formulario con margen inferior -->
-                        <label name="correoElectronico" class="form-label">Dirección</label>
+                        <label name="direccion" class="form-label">Dirección</label>
                         <!-- Etiqueta del campo de dirección con estilo dinámico -->
-                        <input type="text" <?php echo $style ?> name="direccion" class="form-control" value="<?php echo $Cliente->getDireccion() ?>">
+                        <input type="text" <?php echo $style ?> name="direccion" id="direccion" class="form-control"
+                            value="<?php echo $Cliente->getDireccion() ?>">
                         <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
                     </div>
+                    <table class="table">
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total a pagar:</td>
+                                <!-- Aca debe ir el precio -->
+                                <td></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">
+
+                                    <button onclick="modalPedido()" type="button" class="btn btn-primary"
+                                        data-bs-toggle="modal" data-bs-target="#myModal">
+                                        Finalizar compra
+                                    </button>
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Pedido</h4>
+                                                    <button type="button" class="btn-close"
+                                                        data-bs-dismiss="modal"></button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body" id="modalbody">
+
+                                                </div>
+
+                                                <!-- Modal footer -->
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </form>
 
 
-                <table class="table">
-                    <thead>
-
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Total a pagar:</td>
-                            <!-- Aca debe ir el precio -->
-                            <td></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">
-                                <a href="../php/pedido.php">
-                                    <button type="submit" class="btn btn-primary">Finalizar Compra</button>
-                                </a>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
             </div>
         </div>
 
-
-
-    </div>
-    <footer id="footerSes">
-        <div id="footer-container"></div>
-    </footer>
-
-    <script src="../js/initHF.js"></script>
-    <script src="../js/carrito.js"></script>
-
-    <script src="../js/initHF.js"></script>
-
+        <footer>
+            <div style="margin-left:-25%;margin-right: -15.25%;" id="footer-container"></div>
+        </footer>
+        <script src="../js/busqueda.js"></script>
+        <script src="../js/carrito.js"></script>
+        <script src="../js/index.js"></script>
+       <script src="../js/sumRes.js"></script>
+        <script src="../js/initHF.js"></script>
+    
+    
 </body>
 
 </html>
