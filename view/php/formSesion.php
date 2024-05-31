@@ -18,6 +18,7 @@ if (empty($documento)) {
     $ocultar = "display: none;";
     $password = "Contraseña";
     $type = "password";
+    $required = "";
   } else {
     $iniRegis = "registroCliente.php?inicioSes=no";
     $iniOregis = "REGISTRO";
@@ -26,6 +27,7 @@ if (empty($documento)) {
     $ocultar = "";
     $password = "Documento";
     $type = "Number";
+    $required = "required";
   }
 } else {
   $iniOregis = "EDITAR CAMPOS";
@@ -73,35 +75,35 @@ if (empty($documento)) {
           <!-- Grupo de formulario con margen inferior -->
           <label name="correoElectronico" class="form-label">Email</label>
           <!-- Etiqueta del campo de correo electrónico -->
-          <input type="text" name="correoElectronico" class="form-control" value="">
+          <input type="text" required name="correoElectronico" class="form-control" value="">
           <!-- Campo de entrada de texto para el correo electrónico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
           <label class="form-label"><?php echo $password ?></label>
           <!-- Etiqueta del campo de contraseña con texto dinámico -->
-          <input type="<?php echo $type ?>" name="documento" class="form-control" value="" >
+          <input type="<?php echo $type ?>" required name="documento" class="form-control" value="" >
           <!-- Campo de entrada de texto para el documento con tipo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
           <label class="form-label" style="<?php echo $ocultar ?>">Nombre</label>
           <!-- Etiqueta del campo de nombre con estilo dinámico -->
-          <input type="text" name="nombre" style="<?php echo $ocultar ?>" class="form-control" value="" >
+          <input type="text" name="nombre" <?php echo $required?> style="<?php echo $ocultar ?>" class="form-control" value="" >
           <!-- Campo de entrada de texto para el nombre con estilo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
           <label name="telefono" style="<?php echo $ocultar ?>" class="form-label">Teléfono</label>
           <!-- Etiqueta del campo de teléfono con estilo dinámico -->
-          <input type="number" name="telefono" style="<?php echo $ocultar ?>" class="form-control" value="" >
+          <input type="number" name="telefono" <?php echo $required?> style="<?php echo $ocultar ?>" class="form-control" value="" >
           <!-- Campo de entrada de número para el teléfono con estilo dinámico -->
         </div>
         <div class="mb-3">
           <!-- Grupo de formulario con margen inferior -->
           <label class="label" name="correoElectronico" style="<?php echo $ocultar ?>" class="form-label">Dirección</label>
           <!-- Etiqueta del campo de dirección con estilo dinámico -->
-          <input type="text" name="direccion" class="form-control" style="<?php echo $ocultar ?>" value="">
+          <input type="text" <?php echo $required?> name="direccion" class="form-control" style="<?php echo $ocultar ?>" value="">
           <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
         </div>
         <div class="text-center">

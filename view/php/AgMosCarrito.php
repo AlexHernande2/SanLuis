@@ -25,13 +25,15 @@ if (isset($_POST['idProducto'])) {
     $idCliente = $_POST['idCliente'];
     $proCa = new proCaController();
 }
-
+//traer cantidad total y comparar por medio de un contador si este se excede en el limite de productos que hay en existencia 
+//el comentario anterior no explica ninguna parte del codigo, solo da una idea para implementar algo
 $proEnCarrito = $proCa->ReadPro($idCliente);
 //se muestran todos los productos que se encuentran en el carrito del cliente
 foreach ($proEnCarrito as $producto) {
     echo '<tr>
             <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
             <td>' . $producto->getCantidad() . '</td>
+            <td> ' . $producto->getPrecioUnitario() .' COP</td>
             <td> ' . $producto->getPrecioUnitario() * $producto->getCantidad() .' COP</td>
           </tr>';
 }

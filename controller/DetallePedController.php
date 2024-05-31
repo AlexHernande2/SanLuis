@@ -18,7 +18,6 @@ class DetallePedController extends DetallePedBaseController
         $resultadoSQL = $conexionDb->execSQL($sql);
         $registroExs = $resultadoSQL->fetch_assoc();
  
-        var_dump($registroExs['numPed']);
         //asignacion de numero de pedido al cliente al no existir
         if (!isset($registroExs['cliente_id'])) {
             //si no existe lo agrego

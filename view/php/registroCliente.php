@@ -33,9 +33,11 @@ if ($inicioSesion == "si") {
     $ClienteController = new ClienteController();
     $resultado = $ClienteController->create($Cliente);
     if ($resultado) {
-        echo '<h1>Cliente registrado</h1>';
+        echo '<h1>usuario registrado</h1>';
+        header('Refresh: 1; URL=formSesion.php?inicioSesion=no');  
     } else {
-        echo '<h1>No se pudo registrar el Cliente</h1>';
+        echo '<h1>credenciales no validas para registrar usuario</h1>';
+        header('Refresh: 1; URL=formSesion.php?inicioSesion=no');
     }
-    echo '<a href="../index.php">Volver al inicio</a>';
+  
 }
