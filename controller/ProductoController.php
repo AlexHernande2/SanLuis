@@ -75,5 +75,35 @@ class ProductoController extends ProductoBaseController{
         $conexiondb->close();
         return $producto;
     }
+
     
+/* */
+ // Nuevo método para obtener todos los productos
+ function readAllProductos() {
+    $sql = 'SELECT * FROM producto';
+    $conexiondb = new ConexionDbController();
+    $resultadoSQL = $conexiondb->execSQL($sql);
+    $productos = [];
+    while ($registro = $resultadoSQL->fetch_assoc()) {
+        $producto = new Producto();
+        $producto->setId($registro['id']);
+        $producto->setNombre($registro['nombre']);
+        $producto->setDescripcion($registro['descripcion']);
+        $producto->setCantidad($registro['cantidad']);
+        $producto->setTipoProducto($registro['tipoProducto']);
+        $producto->setCategoria($registro['categoria']);
+        $producto->setPrecioUnitario($registro['precioUnitario']);
+        $producto->setImagen($registro['imagenProducto']);
+        $producto->setExtensionImagen($registro['extensionImagen']);
+        array_push($productos, $producto);
+    }
+    $conexiondb->close();
+    return $productos;
+}
+
+
+
+/* */
+
+
 }

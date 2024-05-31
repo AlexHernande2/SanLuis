@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cod-container {
+    margin-bottom: 20px; /* Espacio entre las tablas */
+    border: 1px solid #ccc; /* Borde alrededor de las tablas */
+    padding: 10px; /* Espaciado interno de las tablas */
+}

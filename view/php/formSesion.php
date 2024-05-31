@@ -108,6 +108,9 @@ if (empty($documento)) {
           <!-- Div centrado con texto dinámico -->
           <?php echo $tieneCuenta ?>
         </div>
+        <div class="text-center">Eres admin
+          <a href="../php/formAdmin.php">Inicia sesión</a>
+        </div>
         <div class="d-flex justify-content-center" id="divBoton">
           <button type="submit" class="btn btn-success" ><?php echo $btn ?></button>
           <!-- Botón de envío del formulario -->

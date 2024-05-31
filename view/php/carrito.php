@@ -89,7 +89,7 @@ if (empty($documento)) {
             <div class="col-md-4">
 
                 <!-- formulario del pedido o resumen del pedido -->
-                <form id="form">
+                <form id="form" >
 
                     <h2>Resumen del pedido:</h2>
                     <div class="mb-3">
