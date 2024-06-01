@@ -25,6 +25,39 @@ function consulta_buscador(busqueda) {
         }
     })
 }
+
+
+function consulta_buscador_admin(busqueda,busqueda2,busqueda3) {
+    admin = "si"
+    
+    busqueda = $('#buscar1').val()
+    busqueda2 = $('#buscar2').val()
+    busqueda3 = $('#buscar3').val()
+
+    var parametros = { "busqueda": busqueda,
+    "busqueda2": busqueda2,
+    "busqueda3": busqueda3,
+    "admin" : admin
+     };
+    $.ajax({
+        data: parametros,
+        url: '../php/busqueda.php',
+        type: 'POST',
+        beforeSend: function () {
+
+        },
+        success: function (data) {
+
+
+            document.getElementById("bodyAdmin").innerHTML = data;
+        },
+        error: function (data, error) {
+
+
+        }
+    })
+}
+
 //funcion para añadir productos al carrito 
 function add_cart(idCliente, idProducto, index) {
 

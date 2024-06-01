@@ -117,7 +117,7 @@ input[type="password"] {
     top: 0;
     left: 0;
     font-size: 14px;
-    color: #FF3D00;
+    color: #666565;
     padding-left: 10px;
     cursor: text;
     transition: all .3s ease;

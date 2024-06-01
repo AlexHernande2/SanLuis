@@ -12,9 +12,8 @@
 </head>
 
 <body>
-    <p>hola admin</p>
+    
     <header>
-        <!-- <?php echo var_dump($_SESSION); ?> -->
         <!-- Barra de navegacion o parte principal de la imagen -->
         <!-- Abre la etiqueta de navegación con las clases de Bootstrap para un navbar -->
         <nav class="navbar navbar-expand-md navbar-light " id="navigationBar">

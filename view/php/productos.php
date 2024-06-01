@@ -15,7 +15,6 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
 ?>
 
 <!DOCTYPE html>
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,16 +22,6 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/categorias.css">
-=======
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="../css/categorias.css">
-
->>>>>>> 74b04c578335f1c5a7eab25756b7c577fbbde4eb
 </head>
 
 <body>
