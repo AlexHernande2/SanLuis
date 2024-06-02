@@ -38,97 +38,87 @@ if (empty($documento)) {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
-  <!-- Define el conjunto de caracteres como UTF-8 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Establece el viewport para que el diseño sea responsive -->
   <title>Document</title>
-  <!-- Título de la página -->
-  <link rel="stylesheet" href="../css/sesion.css">
-  <link rel="stylesheet" href="../css/formSesion.css">
-  <!-- Enlace a la hoja de estilo CSS personalizada -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-  <!-- Enlace a la hoja de estilo de Bootstrap -->
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/styless.css">
+  <link rel="stylesheet" href="../css/formSesion.css">
 </head>
 
 <body>
   <header>
-  <?php include 'header.php' ; ?>
+    <?php include 'header.php'; ?>
   </header>
-  <!-- Contenedor para el encabezado -->
-
+  
   <main>
-    <div class="container" id="formularioDiv">
-      <!-- Contenedor Bootstrap con ID "f" -->
-      <form id="Registrar" action="<?php echo $iniRegis ?>" method="POST">
-        <!-- Formulario con ID "Registrar" que usa el método POST y una acción dinámica -->
-        <div class="text-center">
-          <!-- Div centrado con texto dinámico -->
-          <?php echo $iniOregis ?>
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label name="correoElectronico" class="form-label">Email</label>
-          <!-- Etiqueta del campo de correo electrónico -->
-          <input type="text" required name="correoElectronico" class="form-control" value="">
-          <!-- Campo de entrada de texto para el correo electrónico -->
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label class="form-label"><?php echo $password ?></label>
-          <!-- Etiqueta del campo de contraseña con texto dinámico -->
-          <input type="<?php echo $type ?>" required name="documento" class="form-control" value="" >
-          <!-- Campo de entrada de texto para el documento con tipo dinámico -->
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label class="form-label" style="<?php echo $ocultar ?>">Nombre</label>
-          <!-- Etiqueta del campo de nombre con estilo dinámico -->
-          <input type="text" name="nombre" <?php echo $required?> style="<?php echo $ocultar ?>" class="form-control" value="" >
-          <!-- Campo de entrada de texto para el nombre con estilo dinámico -->
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label name="telefono" style="<?php echo $ocultar ?>" class="form-label">Teléfono</label>
-          <!-- Etiqueta del campo de teléfono con estilo dinámico -->
-          <input type="number" name="telefono" <?php echo $required?> style="<?php echo $ocultar ?>" class="form-control" value="" >
-          <!-- Campo de entrada de número para el teléfono con estilo dinámico -->
-        </div>
-        <div class="mb-3">
-          <!-- Grupo de formulario con margen inferior -->
-          <label class="label" name="correoElectronico" style="<?php echo $ocultar ?>" class="form-label">Dirección</label>
-          <!-- Etiqueta del campo de dirección con estilo dinámico -->
-          <input type="text" <?php echo $required?> name="direccion" class="form-control" style="<?php echo $ocultar ?>" value="">
-          <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
-        </div>
-        <div class="text-center">
-          <!-- Div centrado con texto dinámico -->
-          <?php echo $tieneCuenta ?>
-        </div>
-        <div class="text-center">Eres admin
-          <a href="../php/formAdmin.php">Inicia sesión</a>
-        </div>
-        <div class="d-flex justify-content-center" id="divBoton">
-          <button type="submit" class="btn btn-success" ><?php echo $btn ?></button>
-          <!-- Botón de envío del formulario -->
-        </div>
-      </form>
+    <div class="cod-container" id="divForm">
+      <div class="form-header">
+        <img src="../imagenes/admin.png" alt="Logo de CodigoMasters">
+      </div>
+
+      <div class="form-content">
+        <form id="Registrar" action="<?php echo $iniRegis ?>" method="POST" class="cod-form">
+          <div class="form-title">
+            <h3><?php echo $iniOregis ?></h3>
+          </div>
+
+          <div class="input-group">
+            <input type="text" required name="correoElectronico" class="form-input" id="correo" placeholder="Email">
+           
+          </div>
+
+          <div class="input-group">
+            <input type="<?php echo $type ?>" required name="documento" class="form-input" id="documento" placeholder="<?php echo $password ?>">
+           
+          </div>
+
+          <div class="input-group" style="<?php echo $ocultar ?>">
+            <input type="text" name="nombre" <?php echo $required ?> class="form-input" id="nombre" placeholder="Nombre">
+            
+          </div>
+
+          <div class="input-group" style="<?php echo $ocultar ?>">
+            <input type="number" name="telefono" <?php echo $required ?> class="form-input" id="telefono" placeholder="Teléfono">
+          </div>
+
+          <div class="input-group" style="<?php echo $ocultar ?>">
+            <input type="text" <?php echo $required ?> name="direccion" class="form-input" id="direccion" placeholder="Dirección">
+        
+          </div>
+
+          <div class="text-center">
+            <?php echo $tieneCuenta ?>
+          </div>
+
+          <div class="text-center">Eres admin
+            <a href="../php/formAdmin.php">Inicia sesión</a>
+          </div>
+
+          <div class="d-flex justify-content-center" id="divBoton">
+            <input type="submit" class="form-input" value="<?php echo $btn ?>">
+          </div>
+        </form>
+      </div>
     </div>
   </main>
-
-
 
   <footer id="footerSes">
     <div id="footer-container"></div>
   </footer>
-  <script src="../js/sesion.js"></script>
-  <script src="../js/initHF.js"></script>
 
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/busqueda.js"></script>
+  <script src="../js/header.js"></script>
+  <script src="../js/formAdmin.js"></script>
+  <script src="../js/initHF.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
