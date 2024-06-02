@@ -141,3 +141,57 @@ function modalPedido() {
         }
     })
 };
+
+function modalModificarProd(id,modEl){
+let idProducto = id
+var parametros = {
+    "id":id
+}
+    $.ajax({
+        data: parametros,
+        url: "modalModificarProducto.php",
+        type: "post",
+        success: function (response) {
+       
+            document.getElementById("modalbodyAdmin").innerHTML = response
+            if(modEl == "no"){
+                document.getElementById("modEl").innerHTML = '<button type="submit" onclick="(setTimeout)" class="col-3 btn btn-danger">ELIMINAR</button> </form>'
+
+            }else{
+                document.getElementById("modEl").innerHTML = '<button form="CreateForm" type="submit" class="col-3 btn btn-primary">MODIFICAR</button></form>'
+     
+            }
+        }
+    })
+}
+
+// function modificarProducto(id){
+//     var nombre = $('#nombre').val();
+//     var cantidad = $('#cantidad').val();
+//     var tipoProducto = $('#tipoProducto').val();
+//     var categoria = $('#categoria').val();
+//     var precioUnitario = $('#precioUnitario').val();
+//     var imagenProducto = $('#imagenProducto')
+//     console.log(imagenProducto)
+
+//     var parametros = {
+//         "id":id,
+//         "nombre":nombre,
+//         "cantidad":cantidad,
+//         "tipoProducto":tipoProducto,
+//         "categoria":categoria,
+//         "precioUnitario":precioUnitario,
+//         "imagenProducto":imagenProducto
+//     }
+//         $.ajax({
+//             data: parametros,
+//             url: "modificarProducto.php",
+//             type: "post",
+//             success: function (response) {
+           
+//                 document.getElementById("modalbodyAdmin").innerHTML = response
+    
+               
+//             }
+//         })
+// }

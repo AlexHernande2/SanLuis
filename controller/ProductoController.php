@@ -7,6 +7,24 @@ use conexionDb\ConexionDbController;
 
 class ProductoController extends ProductoBaseController
 {
+    function updateProducto($id,$nombre, $cantidad, $tipoProducto, $categoria, $precioUnitario, $imagenProducto)
+    {
+        $conexiondb = new ConexionDbController();
+        $imagenProducto = $conexiondb->execSQLESCAPE($imagenProducto);
+        // update producto
+        // SET nombre = "cilantro", cantidad = 201 , tipoProducto = "vegetales", categoria = "comida", precioUnitario = 345
+        // where id = 2
+        $sql = 'update producto ';
+        $sql .= 'SET nombre = "'.$nombre.'", cantidad = '.$cantidad.', tipoProducto = "'.$tipoProducto.'", categoria = "'.$categoria.'", precioUnitario = '.$precioUnitario;
+        
+        if(!empty($imagenProducto)){
+            $sql .= ',imagenProducto = "'.$imagenProducto.'"';
+        }
+        $sql .= 'where id = '.$id.'';
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
+    }
     function createProducto($nombre, $cantidad, $tipoProducto, $categoria, $precioUnitario, $imagenProducto)
     {
         $conexiondb = new ConexionDbController();
@@ -14,6 +32,7 @@ class ProductoController extends ProductoBaseController
         $sql = "insert into producto (nombre,cantidad,tipoProducto,categoria,precioUnitario,imagenProducto)";
         $sql .= "VALUES ('" . $nombre . "'," . $cantidad . ",'" . $tipoProducto . "','" . $categoria . "'," . $precioUnitario . ",'" . $imagenProducto . "')";
         $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
         return $resultadoSQL;
     }
     function readProductoCategori($tipoProducto)
@@ -33,7 +52,7 @@ class ProductoController extends ProductoBaseController
             $producto->setCategoria($registro['categoria']);
             $producto->setPrecioUnitario($registro['precioUnitario']);
             $producto->setImagen($registro['imagenProducto']);
-            $producto->setExtensionImagen($registro['extensionImagen']);
+       
 
             array_push($productosValid, $producto);
 

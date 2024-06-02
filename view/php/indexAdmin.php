@@ -3,13 +3,14 @@
 require '../../model/Producto.php';
 require '../../controller/conexionDbController.php';
 require '../../controller/ProductoBaseController.php';
-require '../../controller/ProductoController.php';
+require '../../controller/ProductoController.php';  
 
 use producto\Producto;
 use productoController\ProductoController;
 
 $producController = new ProductoController();
 $productos = $producController->readAllProductos();
+
 
 ?>
 <!DOCTYPE html>
@@ -103,47 +104,53 @@ $productos = $producController->readAllProductos();
         
                     <tr style="text-align:center;">
                         <th scope="row">' . $cont . '</th>
-                        <td><img style="height: 40px;" src="data:image/jpg;base64,' . base64_encode($producto->getImagen()) . '"></td>
+                        <td><img style="height: 40px;" src="data:;base64,' . base64_encode($producto->getImagen()) . '"></td>
                         <td>' . $producto->getNombre() . '</td>
                         <td>' . $producto->getCantidad() . '</td>
                         <td>' . $producto->getCategoria() . '</td>
                         <td>' . $producto->getTipoProducto() . '</td>
                         <td>' . $producto->getPrecioUnitario() . '</td>
-                        <td><button  class="btn btn-primary" ><img style="height: 20px;" src="../imagenes/modificarProd.png"></button></td>
-                        <td><button class="btn btn-danger" ><img style="height: 20px;" src="../imagenes/modificarProd.png"></button></td>
+                        <td><button data-bs-toggle="modal" data-bs-target="#myModal" onclick=modalModificarProd(' . $producto->getId() . ',"si") class="btn btn-primary" ><img style="height: 20px;" src="../imagenes/modificarProd.png"></button></td>
+                        <td><button data-bs-toggle="modal" data-bs-target="#myModal" onclick=modalModificarProd(' . $producto->getId() . ',"no") class="btn btn-danger" ><img style="height: 20px;" src="../imagenes/modificarProd.png"></button></td>
                     </tr>';
                             $cont++;
                         } ?>
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-lg">
+
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">PRODUCTO</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body" id="modalbodyAdmin">
+
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div id="modEl" class="modal-footer">
+
+                                        <button type="button" class="btn btn-danger"
+                                            data-bs-dismiss="modal">Close</button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                     </tbody>
                 </table>
             </div>
 
             <h4 id="scrollspyHeading2">Agregar Producto</h4>
             <h1 style=" text-align: center;">AGREGAR PRODUCTO</h1>
-
-            <?php
-            if (!empty($_POST)) {
-                $nombre = $_POST['nombre'];
-                $cantidad = $_POST['cantidad'];
-                $tipoProducto = $_POST['tipoProducto'];
-                $categoria = $_POST['categoria'];
-                $precioUnitario = $_POST['precioUnitario'];
-
-                $nombreArchivo = $_FILES['imagen']['name'];
-                $tipoArchivo = $_FILES['imagen']['type'];
-                $tamanoArchivo = $_FILES['imagen']['size'];
-                $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
-                $imagenProducto = fread($imagenSubida, $tamanoArchivo);
-        
-                $productoAdd = $producController->createProducto($nombre,$cantidad,$tipoProducto,$categoria,$precioUnitario,$imagenProducto);
-                if ($productoAdd) {
-                    echo '<h1>Producto agregado con exito</h1>';
-                
-                } else {
-                    echo '<h1>credenciales no validas para registrar usuario</h1>';
-                }
-            } ?>
-            <form action="indexAdmin.php" method="POST" enctype="multipart/form-data" class="container py-4">
+              
+            <form action="agregarProd.php" method="POST" enctype="multipart/form-data" class="container py-4">
                 <div class="row mb-3">
                     <div class="col">
                         <input name="nombre" type="text" class="form-control" placeholder="Nombre del producto"
