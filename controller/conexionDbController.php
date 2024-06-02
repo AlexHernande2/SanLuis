@@ -20,7 +20,13 @@ class ConexionDbController
     {
         return $this->conex->query($sql);
     }
-
+    function execSQLESCAPE($imagen)
+    {
+        
+        // Escapar parámetros de la consulta SQL
+        return $sql = $this->conex->real_escape_string($imagen);
+      
+    }
     function close()
     {
         $this->conex->close();

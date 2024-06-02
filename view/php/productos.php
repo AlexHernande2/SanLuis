@@ -59,7 +59,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
           //plantilla para generar las cartas con sus productos
           echo '<div class="col">';
           echo '<div class="card">';
-          echo '<img style="height: 200px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '" class="card-img-top" alt="brocoli">';
+          echo '<img style="height: 200px;" src="data:;base64,' . base64_encode($producto->getImagen()) . '" class="card-img-top" alt="brocoli">';
           echo '<div class="card-body">';
           echo '<a id="tit">';
           echo '<h5 class="card-title" id="tit">' . $producto->getNombre() . '</h5>';

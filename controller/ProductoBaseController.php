@@ -6,5 +6,6 @@ abstract class ProductoBaseController{
     abstract function readProductoCategori($tipoProducto);
     abstract function readRow($idProducto);
     abstract function readProducBuscador3($categoria,$producto,$subCategoria);
+    abstract function createProducto($nombre,$cantidad,$tipoProducto,$categoria,$precioUnitario,$imagenProducto);
   
 }

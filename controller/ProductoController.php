@@ -7,6 +7,15 @@ use conexionDb\ConexionDbController;
 
 class ProductoController extends ProductoBaseController
 {
+    function createProducto($nombre, $cantidad, $tipoProducto, $categoria, $precioUnitario, $imagenProducto)
+    {
+        $conexiondb = new ConexionDbController();
+        $imagenProducto = $conexiondb->execSQLESCAPE($imagenProducto);
+        $sql = "insert into producto (nombre,cantidad,tipoProducto,categoria,precioUnitario,imagenProducto)";
+        $sql .= "VALUES ('" . $nombre . "'," . $cantidad . ",'" . $tipoProducto . "','" . $categoria . "'," . $precioUnitario . ",'" . $imagenProducto . "')";
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        return $resultadoSQL;
+    }
     function readProductoCategori($tipoProducto)
     {
         $sql = 'select * from producto ';
@@ -50,7 +59,7 @@ class ProductoController extends ProductoBaseController
             $producto->setCategoria($registro['categoria']);
             $producto->setPrecioUnitario($registro['precioUnitario']);
             $producto->setImagen($registro['imagenProducto']);
-            $producto->setExtensionImagen($registro['extensionImagen']);
+
 
             array_push($productos, $producto);
 
@@ -75,7 +84,7 @@ class ProductoController extends ProductoBaseController
             $producto->setCategoria($registro['categoria']);
             $producto->setPrecioUnitario($registro['precioUnitario']);
             $producto->setImagen($registro['imagenProducto']);
-            $producto->setExtensionImagen($registro['extensionImagen']);
+
         }
         $conexiondb->close();
         return $producto;
@@ -100,7 +109,7 @@ class ProductoController extends ProductoBaseController
             $producto->setCategoria($registro['categoria']);
             $producto->setPrecioUnitario($registro['precioUnitario']);
             $producto->setImagen($registro['imagenProducto']);
-            $producto->setExtensionImagen($registro['extensionImagen']);
+
             array_push($productos, $producto);
         }
         $conexiondb->close();
@@ -127,7 +136,7 @@ class ProductoController extends ProductoBaseController
             $producto->setCategoria($registro['categoria']);
             $producto->setPrecioUnitario($registro['precioUnitario']);
             $producto->setImagen($registro['imagenProducto']);
-            $producto->setExtensionImagen($registro['extensionImagen']);
+
 
             array_push($productos, $producto);
 

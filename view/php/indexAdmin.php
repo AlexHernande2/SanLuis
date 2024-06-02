@@ -8,8 +8,8 @@ require '../../controller/ProductoController.php';
 use producto\Producto;
 use productoController\ProductoController;
 
-$productos = new ProductoController();
-$productos = $productos->readAllProductos();
+$producController = new ProductoController();
+$productos = $producController->readAllProductos();
 
 ?>
 <!DOCTYPE html>
@@ -30,171 +30,158 @@ $productos = $productos->readAllProductos();
 
 <body>
     <header>
-        <!-- Barra de navegacion o parte principal de la imagen -->
-        <!-- Abre la etiqueta de navegación con las clases de Bootstrap para un navbar -->
-        <nav class="navbar   navbar-expand-md navbar-light " id="navigationBar" style="background-color: #e3f2fd;">
-            <!-- Contenedor fluido para el contenido del navbar -->
-            <div class="container-fluid">
-                <!-- Botón del navbar para dispositivos pequeños -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <!-- Icono del botón del navbar -->
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!-- Contenido colapsable del navbar -->
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <!-- Enlace de la marca del navbar -->
-                    <a class="navbar-brand" href="./indexAdmin.php">
-                        <!-- Imagen de la marca con su ruta y dimensiones -->
-                        <img src="../imagenes/icono empresa.png.144x144.png" width="80" alt="logo de la empresa">
-                    </a>
-                    <!-- Formulario de búsqueda con un campo de entrada y un botón -->
-                    <form class="d-flex flex-column position-relative" method="POST" role="search">
-                        <div class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" id="buscar"
-                                name="buscar" onkeyup="consulta_buscador($('#buscar').val())" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit" id="buttonSearch">Search</button>
-                        </div>
 
-                        <!-- card_busqueda dentro del formulario pero después de los elementos de búsqueda -->
-                        <div class="card_busqueda position-absolute top-100  translate-middle-x" id="card_busqueda"
-                            style="opacity: 0; z-index: 999; left:120px;">
-                            <div class="card shadow-sm p-2">
-                                <div class="container m-0 p-0" id="resultados_busqueda_nav">
+        <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3 fixed-top">
+            <a class="navbar-brand" href="#">Navegacion</a>
+            <l class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading1">Modificar o Eliminar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#scrollspyHeading2">Agregar Producto</a>
+                </li>
 
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-
-                    <!-- Lista de elementos de navegación del navbar -->
-                    <ul class="navbar-nav d-flex justify-content-center align-items-center">
-                        <!-- Elemento de navegación para mostrar la imagen del usuario -->
-                        <li class="nav-item space-right">
-                            <!-- Imagen del usuario con su ruta y dimensiones -->
-                            <img src="../imagenes/imagenUsuario.png" alt="usuario" width="50">
-                        </li>
-
-                        <!-- Elemento de navegación para mostrar el nombre del usuario -->
-                        <li class="nav-item dropdown" id="navSaludousuario">
-                            <!-- <a class="<?php echo $nav ?>" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="<?php echo $iniEdit ?>">¡Hola!
-                                <?php echo $cliente ?></a>
-                            <?php echo $dropdown ?> -->
-                        </li>
-                        <!-- Elemento de navegación para el carrito -->
-                        <li class="nav-item">
-                            <!-- Botón para abrir el carrito -->
-                            <button onclick="view_cart(<?php echo $documento ?>)" class="nav-link btn btn-link"
-                                id="cartButton"><img width="30px" height="50px" src="../imagenes/cart.svg"
-                                    alt=""></button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                </ul>
         </nav>
-
     </header>
 
     <main>
-        <div class="container text-center">
-            <div class="row align-items-end">
-                <div class="col">
-                    <label for="buscar"><br></label>
-                    <input class="form-control mb-2" type="search" placeholder="Buscar por categoria" id="buscar1"
-                        name="buscar"
-                        onkeyup="consulta_buscador_admin($('#buscar1').val(),$('#buscar2').val(),$('#buscar3').val())"
-                        aria-label="Search">
-                </div>
-                <div class="col">
-                    <label for="buscar"><br></label>
-                    <input class="form-control mb-2" type="search" placeholder="Buscar por Nombre producto" id="buscar2"
-                        name="buscar"
-                        onkeyup="consulta_buscador_admin($('#buscar').val(),$('#buscar2').val(),$('#buscar3').val())"
-                        aria-label="Search">
-                </div>
-                <div class="col">
-                    <label for="buscar"><br></label>
-                    <input class="form-control mb-2" type="search" placeholder="Buscar por Subcategoria" id="buscar3"
-                        name="buscar"
-                        onkeyup="consulta_buscador_admin($('#buscar').val(),$('#buscar2').val(),$('#buscar3').val())"
-                        aria-label="Search">
+
+        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%"
+            data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+            <h4 id="scrollspyHeading1">Modificar o Eliminar
+                sdas
+            </h4>
+            <h1 style=" text-align: center; padding:10px;margin-top: 25px;">Modficar o Eliminar</h1>
+            <div class="container text-center">
+                <div class="row align-items-end">
+                    <div class="col">
+                        <label for="buscar"><br></label>
+                        <input class="form-control mb-2" type="search" placeholder="Buscar por categoria" id="buscar1"
+                            name="buscar"
+                            onkeyup="consulta_buscador_admin($('#buscar1').val(),$('#buscar2').val(),$('#buscar3').val())"
+                            aria-label="Search">
+                    </div>
+                    <div class="col">
+                        <label for="buscar"><br></label>
+                        <input class="form-control mb-2" type="search" placeholder="Buscar por Nombre producto"
+                            id="buscar2" name="buscar"
+                            onkeyup="consulta_buscador_admin($('#buscar').val(),$('#buscar2').val(),$('#buscar3').val())"
+                            aria-label="Search">
+                    </div>
+                    <div class="col">
+                        <label for="buscar"><br></label>
+                        <input class="form-control mb-2" type="search" placeholder="Buscar por Subcategoria"
+                            id="buscar3" name="buscar"
+                            onkeyup="consulta_buscador_admin($('#buscar').val(),$('#buscar2').val(),$('#buscar3').val())"
+                            aria-label="Search">
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <div style="margin-left:1%; margin-right:1%;" class="cod-container" id="tableAllProductos">
+                <table id="table" class="table">
+                    <thead>
+                        <tr style="text-align:center;">
+                            <th scope="col">#</th>
+                            <th scope="col">imagen</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">categoria</th>
+                            <th scope="col">tipo Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Modificar</th>
+                            <th scope="col">Eliminar</th>
 
-        <!-- <div class="cod-container" id="tableAgregProduc">
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">tipoProducto</th>
-                        <th scope="col">categoria</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Agregar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div> -->
-
-        <!--  -->
-        <div style="margin-left:1%; margin-right:1%;" class="cod-container" id="tableAllProductos">
-            <table id="table" class="table">
-                <thead>
-                    <tr style="text-align:center;">
-                        <th scope="col">#</th>
-                        <th scope="col">imagen</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">categoria</th>
-                        <th scope="col">tipo Producto</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Modificar</th>
-                        <th scope="col">Eliminar</th>
-
-                    </tr>
-                </thead>
-                <tbody id="bodyAdmin">
-                <?php
-                $cont = 1;
-                foreach ($productos as $producto) {
-                    echo ' 
+                        </tr>
+                    </thead>
+                    <tbody id="bodyAdmin">
+                        <?php
+                        $cont = 1;
+                        foreach ($productos as $producto) {
+                            echo ' 
         
                     <tr style="text-align:center;">
-                        <th scope="row">'.$cont.'</th>
-                        <td><img style="height: 40px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"></td>
-                        <td>'.$producto->getNombre().'</td>
-                        <td>'.$producto->getCantidad().'</td>
-                        <td>'.$producto->getCategoria().'</td>
-                        <td>'.$producto->getTipoProducto().'</td>
-                        <td>'.$producto->getPrecioUnitario().'</td>
+                        <th scope="row">' . $cont . '</th>
+                        <td><img style="height: 40px;" src="data:image/jpg;base64,' . base64_encode($producto->getImagen()) . '"></td>
+                        <td>' . $producto->getNombre() . '</td>
+                        <td>' . $producto->getCantidad() . '</td>
+                        <td>' . $producto->getCategoria() . '</td>
+                        <td>' . $producto->getTipoProducto() . '</td>
+                        <td>' . $producto->getPrecioUnitario() . '</td>
                         <td><button  class="btn btn-primary" ><img style="height: 20px;" src="../imagenes/modificarProd.png"></button></td>
                         <td><button class="btn btn-danger" ><img style="height: 20px;" src="../imagenes/modificarProd.png"></button></td>
                     </tr>';
-                $cont++;
-                } ?>
-                </tbody>
-            </table>
+                            $cont++;
+                        } ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 id="scrollspyHeading2">Agregar Producto</h4>
+            <h1 style=" text-align: center;">AGREGAR PRODUCTO</h1>
+
+            <?php
+            if (!empty($_POST)) {
+                $nombre = $_POST['nombre'];
+                $cantidad = $_POST['cantidad'];
+                $tipoProducto = $_POST['tipoProducto'];
+                $categoria = $_POST['categoria'];
+                $precioUnitario = $_POST['precioUnitario'];
+
+                $nombreArchivo = $_FILES['imagen']['name'];
+                $tipoArchivo = $_FILES['imagen']['type'];
+                $tamanoArchivo = $_FILES['imagen']['size'];
+                $imagenSubida = fopen($_FILES['imagen']['tmp_name'], 'r');
+                $imagenProducto = fread($imagenSubida, $tamanoArchivo);
+        
+                $productoAdd = $producController->createProducto($nombre,$cantidad,$tipoProducto,$categoria,$precioUnitario,$imagenProducto);
+                if ($productoAdd) {
+                    echo '<h1>Producto agregado con exito</h1>';
+                
+                } else {
+                    echo '<h1>credenciales no validas para registrar usuario</h1>';
+                }
+            } ?>
+            <form action="indexAdmin.php" method="POST" enctype="multipart/form-data" class="container py-4">
+                <div class="row mb-3">
+                    <div class="col">
+                        <input name="nombre" type="text" class="form-control" placeholder="Nombre del producto"
+                            aria-label="Nombre">
+                    </div>
+                    <div class="col">
+                        <input name="cantidad" type="number" class="form-control" placeholder="Cantidad"
+                            aria-label="Cantidad">
+                    </div>
+                    <div class="col">
+                        <input name="tipoProducto" type="text" class="form-control" placeholder="Tipo de producto"
+                            aria-label="Tipo de producto">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <input name="categoria" type="text" class="form-control" placeholder="Categoría"
+                            aria-label="Categoría">
+                    </div>
+                    <div class="col">
+                        <input name="precioUnitario" type="number" class="form-control" placeholder="Precio unitario"
+                            aria-label="Precio unitario">
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <input name="imagen" type="file" class="form-control" id="formFile">
+                            <label class="input-group-text" for="formFile">Subir imagen</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="col-3 btn btn-primary">Guardar</button>
+                </div>
+            </form>
+
         </div>
+
+
     </main>
 
     <footer>
