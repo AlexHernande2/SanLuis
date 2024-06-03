@@ -142,29 +142,57 @@ function modalPedido() {
     })
 };
 
-function modalModificarProd(id,modEl){
-let idProducto = id
-var parametros = {
-    "id":id
-}
+// function modalModificarProd(id,modEl){
+// let idProducto = id
+// var parametros = {
+//     "id":id
+// }
+//     $.ajax({
+//         data: parametros,
+//         url: "modalModificarProducto.php",
+//         type: "post",
+//         success: function (response) {
+       
+//             document.getElementById("modalbodyAdmin").innerHTML = response
+//             if(modEl == "no"){
+//                 document.getElementById("modEl").innerHTML = '<button type="submit" onclick="(setTimeout)" class="col-3 btn btn-danger">ELIMINAR</button> </form>'
+
+//             }else{
+//                 document.getElementById("modEl").innerHTML = '<button form="CreateForm" type="submit" class="col-3 btn btn-primary">MODIFICAR</button></form>'
+     
+//             }
+//         }
+//     })
+// }
+
+/** */
+
+
+function modalModificarProd(id, modEl) {
+    let idProducto = id;
+    var parametros = {
+        "id": id
+    }
     $.ajax({
         data: parametros,
         url: "modalModificarProducto.php",
         type: "post",
         success: function (response) {
-       
-            document.getElementById("modalbodyAdmin").innerHTML = response
-            if(modEl == "no"){
-                document.getElementById("modEl").innerHTML = '<button type="submit" onclick="(setTimeout)" class="col-3 btn btn-danger">ELIMINAR</button> </form>'
-
-            }else{
-                document.getElementById("modEl").innerHTML = '<button form="CreateForm" type="submit" class="col-3 btn btn-primary">MODIFICAR</button></form>'
-     
+            document.getElementById("modalbodyAdmin").innerHTML = response;
+            if (modEl == "no") {
+                document.getElementById("modEl").innerHTML = '<button form="DeleteForm" type="submit" class="col-3 btn btn-danger">ELIMINAR</button>';
+            } else {
+                document.getElementById("modEl").innerHTML = '<button form="CreateForm" type="submit" class="col-3 btn btn-primary">MODIFICAR</button>';
             }
         }
-    })
+    });
 }
 
+
+
+
+
+/** */
 // function modificarProducto(id){
 //     var nombre = $('#nombre').val();
 //     var cantidad = $('#cantidad').val();

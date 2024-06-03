@@ -97,6 +97,7 @@ h3::before {
 /* para la configuracion del borde de los input  es decir para q' no se muestren en recuadros*/
 input[type="text"],
 input[type="number"],
+input[type="email"],
 input[type="password"] {
     border: none;
     border-bottom: 2px solid #021e26;

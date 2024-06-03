@@ -42,4 +42,9 @@ echo '
     </div>
    </form>
 
+
+   <form id="DeleteForm" action="eliminarProducto.php?id='.$id.'" method="POST" class="container py-4">
+   
+</form>
+
 ';

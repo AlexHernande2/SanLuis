@@ -166,4 +166,18 @@ class ProductoController extends ProductoBaseController
 
     }
 
+
+
+
+    function delete($id) {
+      
+        $conexiondb = new ConexionDbController();
+        
+        $sql = 'DELETE FROM producto WHERE id = ' . $id;
+        // Ejecutar la consulta
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
+    }
 }
+

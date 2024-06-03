@@ -70,7 +70,7 @@ if (empty($documento)) {
           </div>
 
           <div class="input-group">
-            <input type="text" required name="correoElectronico" class="form-input" id="correo" placeholder="Email">
+            <input type="email" required name="correoElectronico" class="form-input" id="correo" placeholder="Email">
            
           </div>
 
