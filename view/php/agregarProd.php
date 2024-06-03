@@ -27,7 +27,7 @@ if (!empty($_POST)) {
     if ($productoAdd) {
 
         echo "<script><alert('agregado con exito')</script>";
-        header("Refresh:1; url=indexAdmin.php");
+        header("Refresh:0.5; url=indexAdmin.php");
 
     } else {
         echo '<h1>credenciales no validas para registrar usuario</h1>';

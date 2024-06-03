@@ -147,7 +147,7 @@ $productos = $producController->readAllProductos();
                 </table>
             </div>
 
-            <h4 id="scrollspyHeading2">Agregar Producto</h4>
+            <h4 id="scrollspyHeading2"></h4>
             <h1 style=" text-align: center;">AGREGAR PRODUCTO</h1>
               
             <form action="agregarProd.php" method="POST" enctype="multipart/form-data" class="container py-4">

@@ -26,8 +26,8 @@ $detallePed = new detallePedController();
 $detallePed = $detallePed->asigDetPed($documentoCuenta, $date, $productos, $documento);
 
 $dataPed = "Nombre:" . $nombre;
-$dataPed .= "\n" . 'documento' . "\n" . 'correoElectronico:' . $correo;
-$dataPed .= "\n" . '| PRODUCTO |' . ' | PRECIO UNITARIO |' . '| CANTIDAD |' . '| TOTAL |';
+$dataPed .= "\n" . 'documento' . "\n" . 'correoElectronico:' . $correo . "\n";
+$dataPed .= 'tu pedido es el siguiente:'."\n";
 foreach ($productos as $producto) {
     $cantidad = $producto->getCantidad();
     $precioUnitario = $producto->getPrecioUnitario();
@@ -39,7 +39,10 @@ foreach ($productos as $producto) {
 
 
 $encode = urlencode($dataPed);
+
 echo 'https://wa.me/573108108175?text=' . $encode;
+
+
 
 
 ;

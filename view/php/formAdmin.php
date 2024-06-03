@@ -1,3 +1,22 @@
+<?php
+require_once '../../model/Cliente.php';
+require_once '../../controller/conexionDbController.php';
+require_once '../../controller/ClienteBaseController.php';
+require_once '../../controller/ClienteController.php';
+
+use cliente\Cliente;
+use ClienteController\ClienteController;
+$adminCont = new ClienteController();
+
+if(!empty($_POST['correoElectronico'])&& !empty($_POST['contraseña'])){
+    $correo = $_POST['correoElectronico'];
+    $contraseña = $_POST['contraseña'];
+    $admin = $adminCont->readValidAdmin($correo,$contraseña);
+if($admin){
+    header('location:indexAdmin.php');
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -32,7 +51,7 @@
                         <img src="../imagenes/icono empresa.png.144x144.png" width="80" alt="logo de la empresa">
                     </a>
                     <!-- Formulario de búsqueda con un campo de entrada y un botón -->
-                    <form class="d-flex flex-column position-relative" method="POST" role="search">
+                    <form  class="d-flex flex-column position-relative" method="POST" role="search">
                         <div class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" id="buscar" name="buscar" onkeyup="consulta_buscador($('#buscar').val())" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit" id="buttonSearch">Search</button>
@@ -83,24 +102,23 @@
             </div>
 
             <div class="form-content">
-                <form action="#" class="cod-form">
+                <form action="formAdmin.php" method="POST" class="cod-form">
                     <div class="form-title">
                         <h3>Iniciar Sesión</h3>
                     </div>
 
                     <div class="input-group">
-                        <input type="email" class="form-input" name="form-input" id="correo">
-                        <label class="label" for="correo">Correo</label>
+                        <input type="email" class="form-input" name="correoElectronico" id="correo">
+                        <label class="label" for="correoElectronico">Correo</label>
                     </div>
 
                     <div class="input-group">
-                        <input type="password" class="form-input" name="form-input" id="pass">
-                        <label class="label" for="pass">Contraseña</label>
+                        <input type="password" class="form-input" name="contraseña" id="pass">
+                        <label class="label" for="contraseña">Contraseña</label>
                     </div>
 
                     <div class="input-group">
                         <input type="submit" class="form-input" value="Iniciar Sesión">
-
                     </div>
 
                 </form>

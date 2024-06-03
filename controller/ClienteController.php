@@ -61,4 +61,21 @@ class ClienteController extends ClienteBaseController
         $conexiondb->close();
         return $cliente;
     }
+    function readValidAdmin($correo,$contraseña){
+        $sql = 'select * from administrador ';
+        $sql .= 'where correoElectronico = "' . $correo . '" and ';
+        $sql .= 'contraseña = "' . $contraseña.'"';
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $row_cont = $resultadoSQL->num_rows;
+        if ($row_cont != 0) {
+            header('location:indexAdmin.php');
+        }else{
+            $resultadoSQL = false; 
+            header('Refresh: 1; URL=formSesion.php?inicioSesion=si');
+        
+        }
+        $conexiondb->close();
+        return $resultadoSQL;
+    }
 }
