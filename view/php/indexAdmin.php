@@ -33,7 +33,14 @@ $productos = $producController->readAllProductos();
     <header>
 
         <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3 fixed-top">
-            <a class="navbar-brand" href="#">Navegacion</a>
+           
+        <a class="navbar-brand" href="indexAdmin.php">
+            <!-- Imagen de la marca con su ruta y dimensiones -->
+            <img src="../imagenes/icono empresa.png.144x144.png" width="80" alt="logo de la empresa">
+          </a>
+
+
+
             <l class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link" href="#scrollspyHeading1">Modificar o Eliminar</a>

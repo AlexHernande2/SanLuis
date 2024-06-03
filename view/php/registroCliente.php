@@ -19,7 +19,7 @@ if ($inicioSesion == "si") {
     if ($resultado == true) {
         echo '<h1>inicio de sesion exitoso</h1>';
     } else {
-        echo '<h1>No se pudo iniciar sesion el Cliente</h1>';
+        echo '<script>alert("No se pudo iniciar sesión dato erróneos");</script>';
     }
     echo '<a href="index.php">Volver al inicio</a>';
 } else {
@@ -36,7 +36,7 @@ if ($inicioSesion == "si") {
         echo '<h1>usuario registrado</h1>';
         header('Refresh: 1; URL=formSesion.php?inicioSesion=no');  
     } else {
-        echo '<h1>credenciales no validas para registrar usuario</h1>';
+        echo '<script>alert("Credenciales no válidas, por favor inténtelo de nuevo.");</script>';
         header('Refresh: 1; URL=formSesion.php?inicioSesion=no');
     }
   

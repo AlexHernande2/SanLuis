@@ -75,7 +75,7 @@ if (empty($documento)) {
           </div>
 
           <div class="input-group">
-            <input type="<?php echo $type ?>" required name="documento" class="form-input" id="documento" placeholder="<?php echo $password ?>">
+            <input type="<?php echo $type ?>" required name="documento" class="form-input" id="documento" placeholder="<?php echo $password ?>" min="0">
            
           </div>
 
@@ -85,7 +85,7 @@ if (empty($documento)) {
           </div>
 
           <div class="input-group" style="<?php echo $ocultar ?>">
-            <input type="number" name="telefono" <?php echo $required ?> class="form-input" id="telefono" placeholder="Teléfono">
+            <input type="number" name="telefono" <?php echo $required ?> class="form-input" id="telefono" placeholder="Teléfono" min="0">
           </div>
 
           <div class="input-group" style="<?php echo $ocultar ?>">

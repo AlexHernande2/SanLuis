@@ -7,9 +7,7 @@
 body {
   
     width: 100%;
-    height: 100vh;
-    /* color: #fff; */
-    
+    height: 100vh;    
 }
 main {
     display: flex;
@@ -21,8 +19,10 @@ main {
 .cod-container {
     background: #fff;
     width: 380px;
-    border-radius: 10px;
+    border-radius: 10px ;
+    border: 2px solid black; 
     overflow: hidden;
+   
 }
 
 .form-header {
@@ -93,11 +93,12 @@ h3::before {
     width: 100%;
     height: auto;
     text-align: center;
+    padding: 10px 40px 20px;
 }
 
 .input-group {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 input[type="email"],
@@ -151,7 +152,6 @@ input[type="submit"] {
     font-size: 14px;
     padding: 10px 0;
     font-family: AbeeZee;
-    margin-bottom: 16px;
     border-radius: 10px;
     transition: all .5s ease;
 }
@@ -176,12 +176,6 @@ input[type="submit"]:hover {
     text-decoration: underline;
 }
 
-.form-content {
-    display: none;
-}
 
-.form-content:nth-child(2) {
-    display: block;
-}
 
 

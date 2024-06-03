@@ -4,15 +4,17 @@
     box-sizing: border-box;
 }
 
-
-.container{
+.container {
     margin-top: 1px;
 }
+
 .cod-container {
-    background: #fff;
+    background: #fffdfd;
     width: 410px; /* Ancho fijo del contenedor en pantallas grandes */
     margin: 0 auto; /* Centra el formulario horizontalmente */
-    padding: 20px; /* Ajusta el relleno del contenedor */
+    padding: 20px;   /* Ajusta el relleno del contenedor */
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 600px) {
@@ -45,7 +47,7 @@
 }
 
 .cod-form {
-    padding: 10px 40px 40px;
+    padding: 10px 40px 20px; /* Reduce el padding inferior */
 }
 
 .form-title {
@@ -91,10 +93,9 @@ h3::before {
 
 .input-group {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 30px; /* Reduce la margen inferior */
 }
 
-/* para la configuracion del borde de los input  es decir para q' no se muestren en recuadros*/
 input[type="text"],
 input[type="number"],
 input[type="email"],
