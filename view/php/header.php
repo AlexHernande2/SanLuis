@@ -140,12 +140,12 @@ if (isset($_GET['des'])) {
               <li><a class="dropdown-item" href="index.php">Inicio</a></li>
               <li><a class="dropdown-header ">Comida</a></li>
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=vegetales">Vegetales</a></li>
-              <li><a class="dropdown-item" href="./fruta.html">Fruta</a></li>
-              <li><a class="dropdown-item" href="./carnes.html">Carne y Aves</a></li>
-              <li><a class="dropdown-item" href="./lacteos.html">Lácteos y Huevos </a></li>
-              <li><a class="dropdown-item" href="./panaderia.html">Panadería</a></li>
-              <li><a class="dropdown-item" href="./pastas.html">Pasta y Granos</a></li>
-              <li><a class="dropdown-item" href="./vegetales.php?tipoProducto=cereales">Cereales</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=fruta">Fruta</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=carnes y aves">Carne y Aves</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=lacteos">Lácteos y Huevos </a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=panaderia">Panadería</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=pastas">Pasta y Granos</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=cereales">Cereales</a></li>
 
               <li>
                 <hr class="dropdown-divider">

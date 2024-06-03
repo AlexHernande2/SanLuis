@@ -76,7 +76,7 @@
             <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/pan.jpg.png" class="card-img-top" alt="pan">
               <div class="card-body">
-                <a href="./panaderia.html" id="titCategorias">
+                <a href="./productos.php?tipoProducto=panaderia" id="titCategorias">
                   <h5 class="card-title" id="tit">Panadería</h5>
                 </a>
 
@@ -87,7 +87,8 @@
             <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/alcohol.jpg.png" class="card-img-top" alt="licores">
               <div class="card-body">
-                <a href="#" id="titCategorias">
+                <a href="./productos.php?tipoProducto=cerveza" id="titCategorias">
+
                   <h5 class="card-title" id="tit">Licores</h5>
                 </a>
 
@@ -98,7 +99,7 @@
             <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/lacteos.jpg.png" class="card-img-top" alt="lacteos">
               <div class="card-body">
-                <a href="./lacteos.html" id="titCategorias">
+                <a href="./productos.php?tipoProducto=lacteos y huevos" id="titCategorias">
                   <h5 class="card-title" id="tit">Lácteos y huevos</h5>
                 </a>
               </div>
@@ -112,7 +113,7 @@
             <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/carne.jpg.png" class="card-img-top" alt="carne">
               <div class="card-body">
-                <a href="./carnes.html" id="titCategorias">
+                <a href="./productos.php?tipoProducto=carnes y aves" id="titCategorias">
                   <h5 class="card-title" id="tit">Carne y aves</h5>
                 </a>
 
@@ -123,7 +124,7 @@
             <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/gaseosas.jpg.png" class="card-img-top" alt="productosSinAlcohol">
               <div class="card-body">
-                <a href="#" id="titCategorias">
+                <a href="./productos.php?tipoProducto=bebidas sin alcohol" id="titCategorias">
                   <h5 class="card-title" id="tit">Bebidas sin alcohol</h5>
                 </a>
 
@@ -134,7 +135,7 @@
             <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/limpieza.jpg.png" class="card-img-top" alt="productosLimpieza">
               <div class="card-body">
-                <a href="#" id="titCategorias">
+                <a href="./productos.php?tipoProducto=casa y cocina" id="titCategorias">
                   <h5 class="card-title" id="tit">Productos de limpieza</h5>
                 </a>
 
@@ -145,7 +146,7 @@
             <div class="card"  id="contenidoCajaCat">
               <img src="../imagenes/cereal-1444495_1280.jpg.192x192.png" class="card-img-top" alt="cereales">
               <div class="card-body">
-                <a href="./cereales.html" id="titCategorias">
+                <a href="./productos.php?tipoProducto=cereales" id="titCategorias">
                   <h5 class="card-title" id="tit">Cereales</h5>
                 </a>
 
