@@ -78,8 +78,16 @@ function add_cart(idCliente, idProducto, index) {
         success: function (data) {
             console.log(idCliente)
             if (idCliente != 0) {
-                document.getElementById("items").innerHTML = data;
-                document.getElementById("mySidebar").style.width = "40%"
+                if(data==1){
+                    $('#exampleModal').modal('show');
+                    $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las que se encuentran en existencia");
+                    console.log('entre a la condicion')
+                }else{
+                    console.log(data)
+                    document.getElementById("items").innerHTML = data;
+                    document.getElementById("mySidebar").style.width = "40%"
+                
+                }
             } else {
 
                 // document.getElementById("myModal").style.display = "block"
@@ -142,30 +150,60 @@ function modalPedido() {
     })
 };
 
-// function modalModificarProd(id,modEl){
-// let idProducto = id
-// var parametros = {
-//     "id":id
-// }
-//     $.ajax({
-//         data: parametros,
-//         url: "modalModificarProducto.php",
-//         type: "post",
-//         success: function (response) {
-       
-//             document.getElementById("modalbodyAdmin").innerHTML = response
-//             if(modEl == "no"){
-//                 document.getElementById("modEl").innerHTML = '<button type="submit" onclick="(setTimeout)" class="col-3 btn btn-danger">ELIMINAR</button> </form>'
+function decrementincrementCounterCart(conta,idProducto,cantMaxProd,cantidadYaSelec,operacion,idClienteAcc){
+    let input = document.getElementsByClassName('numberInput')
+    fieldInput = input[conta].value
+    $idcliente = idClienteAcc
+    console.log(conta)
+    console.log(idProducto)
+    console.log(cantMaxProd)
+    console.log(cantidadYaSelec)
+    console.log(operacion)
+    console.log(idClienteAcc)
+   
+    $.ajax({
+        data: {
+            "idProductoAccion": idProducto,
+            "cantMaxProd": cantMaxProd,
+            "fieldInput":fieldInput,
+            "cantidadYaSelec":cantidadYaSelec,
+            "operacion":operacion,
+            "idCliente":idClienteAcc
+        },
+        url: "AgMosCarrito.php",
+        type: "post",
+      
+        success: function (data) {
+            
+            if(data==1){
+                $('#exampleModal').modal('show');
+                $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las que se encuentran en existencia");
+                console.log('entre a la condicion')
+            }else{
+                console.log(data)
+                document.getElementById("items").innerHTML = data;
+                
+            
+            }
+              
+            
+        }
+    })
+}
 
-//             }else{
-//                 document.getElementById("modEl").innerHTML = '<button form="CreateForm" type="submit" class="col-3 btn btn-primary">MODIFICAR</button></form>'
-     
-//             }
-//         }
-//     })
-// }
-
-/** */
+function validateNumber(index) {
+    let input = document.getElementsByClassName('numberInput')
+   fieldT =input[index]
+    field = input[index].value
+    
+    var value = parseFloat(field);
+  
+  if (value < 0) {
+    fieldT.value = 0;
+  } else if (value > 200) {
+    fieldT.value = 200;
+  }
+}
 
 
 function modalModificarProd(id, modEl) {

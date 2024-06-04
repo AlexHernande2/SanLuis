@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Obtener todos los elementos del DOM
 const allElements = document.querySelectorAll('*');
-
 // Crear un conjunto para almacenar los IDs únicos
 const uniqueIds = new Set();
 

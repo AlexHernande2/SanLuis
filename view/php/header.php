@@ -180,7 +180,7 @@ if (isset($_GET['des'])) {
     <!--  -->
 
     <!-- Menú lateral -->
-    <div class="sidebar" id="mySidebar">
+    <div class="sidebar" style=" scrollbar-width: none;"id="mySidebar">
       <a href="javascript:void(0)" class="closebtn">×</a>
       <table class="table">
         <thead>
@@ -190,7 +190,10 @@ if (isset($_GET['des'])) {
               <th scope="col">Cantidad</th>
               <th scope="col">Valor unit</th>
               <th scope="col">Valor total</th>
-              <th scope="col">Agregar</th>
+              <th scope="col">accion sum</th>
+              <th scope="col">accion res</th>
+              <th scope="col"></th>
+         
             </tr>
           </thead>
         </thead>
@@ -212,7 +215,7 @@ if (isset($_GET['des'])) {
     </div>
   </header>
 
-
+ 
   <script src="../js/busqueda.js"></script>
   <script src="../js/header.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
