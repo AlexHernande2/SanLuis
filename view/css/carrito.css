@@ -11,7 +11,7 @@
     top: 0;
     transition: .3s;
 }
-
+overflow: hidden;
 .carrito .header-carrito{
     background-color: #000;
     color: #fff;

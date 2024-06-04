@@ -5,6 +5,10 @@ require '../../controller/ProductoBaseController.php';
 require '../../controller/ProductoController.php';
 require '../../controller/ProCaBaseController.php';
 require '../../controller/ProCaController.php';
+
+use producto\Producto;
+use productoController\ProductoController;
+use proCaBasecontroller\ProCaBasecontroller;
 use proCaController\ProCaController;
 
 var_dump(empty($documento));
@@ -40,7 +44,9 @@ if (empty($documento)) {
                             <th scope="col">#</th>
                             <th scope="col">Item</th>
                             <th scope="col">Cantidad</th>
-                            <th scope="col">Acción</th>
+                            <th scope="col">Acción sum</th>
+                            <th scope="col">Acción res</th>
+                            <th scope="col"></th>
                             <th scope="col">Total</th>
                         </tr>
                     </thead>
@@ -57,15 +63,24 @@ if (empty($documento)) {
                             $conta = 0;
                             $precioTotalPro = 0;
                             $precioTotal = 0;
+                            
+                            $productoRow = new productoController();
+                            $cantidadProductos = [];
+                            //cantidad maxima de un producto
+                            foreach ($proEnCarrito as $producto) {
+                                $productoCantidadmax = $productoRow->readRow($producto->getId()); 
+                                array_push($cantidadProductos,$productoCantidadmax->getCantidad());
+                            }
+
                             foreach ($proEnCarrito as $producto) {
                                 $precioTotalPro = $producto->getPrecioUnitario() * $producto->getCantidad();
                                 echo '<tr>
                                     <td>' . $contador . '</td>
                                     <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
                                     <td>' . $producto->getCantidad() . '</td>
-                                    <td> <button onclick="decrementCounter(' . $conta . ')" class="menos btn btn-danger">-</button>
-                                    <input max ="' . $producto->getCantidad() . '" class="contador" value = 0></span>
-                                    <button onclick="incrementCounter(' . $conta . ')" class="mas btn btn-success">+</button></td>
+                                    <td><button onclick="decrementincrementCounterCart('.$conta.','.$producto->getId().','.$cantidadProductos[$conta].','.$producto->getCantidad().', 0,'.$Cliente->getDocumento().')" class="menos btn btn-danger d-inline">-</button></td>
+                                    <td><button onclick="decrementincrementCounterCart('.$conta.','.$producto->getId().','.$cantidadProductos[$conta].','.$producto->getCantidad().', 1,'.$Cliente->getDocumento().')" class="mas btn btn-success d-inline">+</button></td>
+                                    <td><input value="0" type="number" oninput="validateNumber('.$conta.')" max="'.$producto->getCantidad().'" class="numberInput" style="width:50px;"></td>                        
                                     <td> ' . $precioTotalPro . ' COP</td>
                                   </tr>';
                                 $contador++;
@@ -75,6 +90,8 @@ if (empty($documento)) {
 
                             echo '<tr>
                                  <td>TOTAL</td>
+                                 <td></td>
+                                 <td></td>
                                  <td></td>
                                  <td></td>
                                  <td></td>
@@ -142,7 +159,7 @@ if (empty($documento)) {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Total a pagar:</td>
+                                <td>Total a pagar:<?php echo $precioTotal. ' COP'?></td>
                                 <!-- Aca debe ir el precio -->
                                 <td></td>
                             </tr>

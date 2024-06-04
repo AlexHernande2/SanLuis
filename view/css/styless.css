@@ -24,5 +24,11 @@
     text-decoration: none;
   }
   
+.divAccion{
+  display: flex;
+  background-color:transparent; 
+  margin-top: 40%;
+  border-bottom: #000;
+}
 
   
