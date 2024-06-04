@@ -190,36 +190,3 @@ function modalModificarProd(id, modEl) {
 
 
 
-
-
-/** */
-// function modificarProducto(id){
-//     var nombre = $('#nombre').val();
-//     var cantidad = $('#cantidad').val();
-//     var tipoProducto = $('#tipoProducto').val();
-//     var categoria = $('#categoria').val();
-//     var precioUnitario = $('#precioUnitario').val();
-//     var imagenProducto = $('#imagenProducto')
-//     console.log(imagenProducto)
-
-//     var parametros = {
-//         "id":id,
-//         "nombre":nombre,
-//         "cantidad":cantidad,
-//         "tipoProducto":tipoProducto,
-//         "categoria":categoria,
-//         "precioUnitario":precioUnitario,
-//         "imagenProducto":imagenProducto
-//     }
-//         $.ajax({
-//             data: parametros,
-//             url: "modificarProducto.php",
-//             type: "post",
-//             success: function (response) {
-           
-//                 document.getElementById("modalbodyAdmin").innerHTML = response
-    
-               
-//             }
-//         })
-// }

@@ -98,7 +98,7 @@ if (empty($documento)) {
           </div>
 
           <div class="text-center">Eres admin
-            <a href="../php/formAdmin.php">Inicia sesión</a>
+            <a href="../php/formAdmin.php" id="linkAdmi">Inicia sesión</a>
           </div>
 
           <div class="d-flex justify-content-center" id="divBoton">

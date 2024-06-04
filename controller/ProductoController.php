@@ -179,5 +179,10 @@ class ProductoController extends ProductoBaseController
         $conexiondb->close();
         return $resultadoSQL;
     }
+
+
+
+
+
 }
 
