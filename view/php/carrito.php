@@ -50,7 +50,7 @@ if (empty($documento)) {
                             <th scope="col">Total</th>
                         </tr>
                     </thead>
-                    <tbody id="items">
+                    <tbody id="items2">
                         <?php
                         if (!empty($documento)) {
 
@@ -63,31 +63,32 @@ if (empty($documento)) {
                             $conta = 0;
                             $precioTotalPro = 0;
                             $precioTotal = 0;
-                            
+
                             $productoRow = new productoController();
                             $cantidadProductos = [];
                             //cantidad maxima de un producto
                             foreach ($proEnCarrito as $producto) {
-                                $productoCantidadmax = $productoRow->readRow($producto->getId()); 
-                                array_push($cantidadProductos,$productoCantidadmax->getCantidad());
+                                $productoCantidadmax = $productoRow->readRow($producto->getId());
+                                array_push($cantidadProductos, $productoCantidadmax->getCantidad());
                             }
 
                             foreach ($proEnCarrito as $producto) {
+                                if ($producto->getCantidad() != 0) {
                                 $precioTotalPro = $producto->getPrecioUnitario() * $producto->getCantidad();
                                 echo '<tr>
                                     <td>' . $contador . '</td>
                                     <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
                                     <td>' . $producto->getCantidad() . '</td>
-                                    <td><button onclick="decrementincrementCounterCart('.$conta.','.$producto->getId().','.$cantidadProductos[$conta].','.$producto->getCantidad().', 0,'.$Cliente->getDocumento().')" class="menos btn btn-danger d-inline">-</button></td>
-                                    <td><button onclick="decrementincrementCounterCart('.$conta.','.$producto->getId().','.$cantidadProductos[$conta].','.$producto->getCantidad().', 1,'.$Cliente->getDocumento().')" class="mas btn btn-success d-inline">+</button></td>
-                                    <td><input value="0" type="number" oninput="validateNumber('.$conta.')" max="'.$producto->getCantidad().'" class="numberInput" style="width:50px;"></td>                        
+                                    <td><button onclick="decrementincrementCounterCart2(' . $conta . ',' . $producto->getId() . ',' . $cantidadProductos[$conta] . ',' . $producto->getCantidad() . ', 0,' . $documento . ')" class="menos btn btn-danger d-inline">-</button></td>
+                                    <td><button onclick="decrementincrementCounterCart2(' . $conta . ',' . $producto->getId() . ',' . $cantidadProductos[$conta] . ',' . $producto->getCantidad() . ', 1,' . $documento . ')" class="mas btn btn-success d-inline">+</button></td>
+                                    <td><input value="0" type="number" oninput="validateNumber(' . $conta . ')" max="' . $producto->getCantidad() . '" class="numberInput" style="width:50px;"></td>                        
                                     <td> ' . $precioTotalPro . ' COP</td>
                                   </tr>';
                                 $contador++;
                                 $conta++;
                                 $precioTotal += $precioTotalPro;
                             }
-
+                        }
                             echo '<tr>
                                  <td>TOTAL</td>
                                  <td></td>
@@ -108,9 +109,27 @@ if (empty($documento)) {
                 </table>
             </div>
             <div class="col-md-4">
-
+                <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <!-- modal ADVERTENCIA -->
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">ADVERTENCIA</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div id="ModalBodyAdv" class="modal-body">
+                                No puedes agregar mas unidades de este producto
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- formulario del pedido o resumen del pedido -->
-                <form id="form" >
+                <form id="form">
 
                     <h2>Resumen del pedido:</h2>
                     <div class="mb-3">
@@ -159,7 +178,7 @@ if (empty($documento)) {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Total a pagar:<?php echo $precioTotal. ' COP'?></td>
+                                <td>Total a pagar:<?php echo $precioTotal . ' COP' ?></td>
                                 <!-- Aca debe ir el precio -->
                                 <td></td>
                             </tr>
@@ -168,17 +187,16 @@ if (empty($documento)) {
                             <tr>
                                 <td colspan="2">
 
-                                    <button onclick="modalPedido()" type="button" class="btn btn-primary"
-                                        data-bs-toggle="modal" data-bs-target="#myModal">
+                                    <button onclick="modalPedido()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                         Finalizar compra
                                     </button>
-                                    <div class="modal fade" id="myModal">
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
 
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Pedido</h4>
+                                                    <h4 class="modal-title fs-5" id="staticBackdropLabel">Pedido</h4>
                                                     <button type="button" class="btn-close"
                                                         data-bs-dismiss="modal"></button>
                                                 </div>
@@ -190,7 +208,7 @@ if (empty($documento)) {
 
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger"
+                                                    <button type="button" onclick="window.location.href = 'carrito.php'"class="btn btn-danger"
                                                         data-bs-dismiss="modal">Close</button>
                                                 </div>
 
@@ -213,10 +231,10 @@ if (empty($documento)) {
         <script src="../js/busqueda.js"></script>
         <script src="../js/carrito.js"></script>
         <script src="../js/index.js"></script>
-       <script src="../js/sumRes.js"></script>
+        <script src="../js/sumRes.js"></script>
         <script src="../js/initHF.js"></script>
-    
-    
+
+
 </body>
 
 </html>

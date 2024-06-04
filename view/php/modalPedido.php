@@ -19,22 +19,30 @@ $nombre = $_POST['nombre'];
 $telefono = $_POST['telefono'];
 $direccion = $_POST['direccion'];
 $date = date('Y-m-d');
-
 $proCa = new proCaController();
 $productos = $proCa->ReadPro($documentoCuenta);
-$detallePed = new detallePedController();
-$detallePed = $detallePed->asigDetPed($documentoCuenta, $date, $productos, $documento);
+
 
 $dataPed = "Nombre:" . $nombre;
 $dataPed .= "\n" . 'documento' . "\n" . 'correoElectronico:' . $correo . "\n";
-$dataPed .= 'tu pedido es el siguiente:'."\n";
+$dataPed .= '*EL PEDIDO ES EL SIGUIENTE:*'."\n"."\n";
 foreach ($productos as $producto) {
-    $cantidad = $producto->getCantidad();
-    $precioUnitario = $producto->getPrecioUnitario();
-    $precioTotal = $cantidad * $precioUnitario;
-    $dataPed .= "\n" . $producto->getNombre() . '                  ' . $producto->getPrecioUnitario();
-    $dataPed .= '                            ' . $producto->getCantidad() . '          ' . $precioTotal;
+    if($producto->getCantidad()!=0){
+        $cantidad = $producto->getCantidad();
+        $precioUnitario = $producto->getPrecioUnitario();
+        $precioTotal = $cantidad * $precioUnitario;
+        $dataPed .='Producto: '. $producto->getNombre() . '| PrecioUnitario: ' . $producto->getPrecioUnitario();
+        $dataPed .= '| CantidadProducto: ' . $producto->getCantidad() . '| TOTAL:' . $precioTotal."\n"."\n";
+    }
+   
 }
+
+
+$proCa = $proCa->deleteCartProds($documentoCuenta);
+
+
+
+
 
 
 

@@ -19,7 +19,3 @@ function decrementCounter(index){
         cont[index].innerText = newValue;
     }
 }
-
-function incrementCounterCart(){
-    
-}

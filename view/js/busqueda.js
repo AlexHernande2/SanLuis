@@ -59,46 +59,7 @@ function consulta_buscador_admin(busqueda,busqueda2,busqueda3) {
 }
 
 //funcion para añadir productos al carrito 
-function add_cart(idCliente, idProducto, index) {
 
-    let cantidadSelec = document.getElementsByClassName("contador")
-    cantidadSelec = cantidadSelec[index].innerText;
-    var parametros = {
-        "idProducto": idProducto,
-        "idCliente": idCliente,
-        "cantidadSelec": cantidadSelec
-    };
-    $.ajax({
-        data: parametros,
-        url: '../php/AgMosCarrito.php',
-        type: 'POST',
-        beforeSend: function () {
-
-        },
-        success: function (data) {
-            console.log(idCliente)
-            if (idCliente != 0) {
-                if(data==1){
-                    $('#exampleModal').modal('show');
-                    $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las que se encuentran en existencia");
-                    console.log('entre a la condicion')
-                }else{
-                    console.log(data)
-                    document.getElementById("items").innerHTML = data;
-                    document.getElementById("mySidebar").style.width = "40%"
-                
-                }
-            } else {
-
-                // document.getElementById("myModal").style.display = "block"
-            }
-        },
-        error: function (data, error) {
-
-
-        }
-    })
-}
 //funcion ajax para ver los productos del carrito al darle al icono del carrito
 function view_cart(idCliente) {
     var parametros = {
@@ -113,7 +74,7 @@ function view_cart(idCliente) {
         },
         success: function (data) {
             if (idCliente != undefined) {
-                document.getElementById("items").innerHTML = data;
+                document.getElementById("itemsAgMosCarrito1").innerHTML = data;
             }
         },
         error: function (data, error) {
@@ -136,6 +97,7 @@ function modalPedido() {
             "nombre": nombre,
             "telefono": telefono,
             "direccion": direccion
+         
         },
         url: "modalPedido.php",
         type: "post",
@@ -149,6 +111,57 @@ function modalPedido() {
         }
     })
 };
+
+
+function add_cart(idCliente, idProducto, index) {
+
+    let cantidadSelec = document.getElementsByClassName("contador");
+    cantidadSelec = cantidadSelec[index].innerText;
+    var parametros = {
+        "idProducto": idProducto,
+        "idCliente": idCliente,
+        "cantidadSelec": cantidadSelec
+    };
+
+    $.ajax({
+        data: parametros,
+        url: 'AgMosCarrito.php',
+        type: 'POST',
+        success: function (data) {
+            console.log(idCliente);
+            if (idCliente != 0) {
+                if(data==1){
+                    $('#exampleModal').modal('show');
+                    $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las que se encuentran en existencia");
+                    console.log('entre a la condicion');
+                } else {
+                    console.log(data);
+                    $('#itemsAgMosCarrito1').html(data);
+                    actualizarParteEspecifica(idCliente);
+                    document.getElementById("mySidebar").style.width = "40%"
+                    // Actualizar solo una parte específica de la página
+                    
+                }
+            } 
+        }
+    });
+}
+
+function actualizarParteEspecifica(idCliente) {
+    // Coloca aquí la lógica para actualizar solo una parte específica de la página
+    // Por ejemplo, puedes utilizar otra solicitud Ajax para obtener datos adicionales y actualizar otra sección de la página
+    const data ={
+        "idCliente":idCliente
+    }
+    $.ajax({
+        data:data,
+        url: 'AgMosCarrito.php',
+        type: 'POST',
+        success: function (data) {
+            $('#itemsAgMosCarrito1').html(data); // Actualizar otra sección de la página con el contenido obtenido
+        }
+    });
+}
 
 function decrementincrementCounterCart(conta,idProducto,cantMaxProd,cantidadYaSelec,operacion,idClienteAcc){
     let input = document.getElementsByClassName('numberInput')
@@ -170,7 +183,7 @@ function decrementincrementCounterCart(conta,idProducto,cantMaxProd,cantidadYaSe
             "operacion":operacion,
             "idCliente":idClienteAcc
         },
-        url: "AgMosCarrito.php",
+        url: "../php/AgMosCarrito.php",
         type: "post",
       
         success: function (data) {
@@ -181,7 +194,48 @@ function decrementincrementCounterCart(conta,idProducto,cantMaxProd,cantidadYaSe
                 console.log('entre a la condicion')
             }else{
                 console.log(data)
-                document.getElementById("items").innerHTML = data;
+                document.getElementById("itemsAgMosCarrito1").innerHTML = data;
+                
+            
+            }
+              
+            
+        }
+    })
+}
+
+function decrementincrementCounterCart2(conta,idProducto,cantMaxProd,cantidadYaSelec,operacion,idClienteAcc){
+    let input = document.getElementsByClassName('numberInput')
+    fieldInput = input[conta].value
+    $idcliente = idClienteAcc
+    console.log(conta)
+    console.log(idProducto)
+    console.log(cantMaxProd)
+    console.log(cantidadYaSelec)
+    console.log(operacion)
+    console.log(idClienteAcc)
+  
+    $.ajax({
+        data: {
+            "idProductoAccion": idProducto,
+            "cantMaxProd": cantMaxProd,
+            "fieldInput":fieldInput,
+            "cantidadYaSelec":cantidadYaSelec,
+            "operacion":operacion,
+            "idCliente":idClienteAcc
+        },
+        url: "AgMosCarritoPedido.php",
+        type: "post",
+      
+        success: function (data) {
+            
+            if(data==1){
+                $('#exampleModal').modal('show');
+                $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las que se encuentran en existencia");
+                console.log('entre a la condicion')
+            }else{
+                console.log(data)
+                document.getElementById("items2").innerHTML = data;
                 
             
             }
@@ -230,34 +284,3 @@ function modalModificarProd(id, modEl) {
 
 
 
-/** */
-// function modificarProducto(id){
-//     var nombre = $('#nombre').val();
-//     var cantidad = $('#cantidad').val();
-//     var tipoProducto = $('#tipoProducto').val();
-//     var categoria = $('#categoria').val();
-//     var precioUnitario = $('#precioUnitario').val();
-//     var imagenProducto = $('#imagenProducto')
-//     console.log(imagenProducto)
-
-//     var parametros = {
-//         "id":id,
-//         "nombre":nombre,
-//         "cantidad":cantidad,
-//         "tipoProducto":tipoProducto,
-//         "categoria":categoria,
-//         "precioUnitario":precioUnitario,
-//         "imagenProducto":imagenProducto
-//     }
-//         $.ajax({
-//             data: parametros,
-//             url: "modificarProducto.php",
-//             type: "post",
-//             success: function (response) {
-           
-//                 document.getElementById("modalbodyAdmin").innerHTML = response
-    
-               
-//             }
-//         })
-// }

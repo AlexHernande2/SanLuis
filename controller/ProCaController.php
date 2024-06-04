@@ -112,7 +112,7 @@ class ProCaController extends ProCaBasecontroller
         //resta
         if($operacion == 0){
             $cantidadTotalAccion = $cantidadYaSelec - $cantidadAccion;
-            if($cantidadTotalAccion>0){
+            if($cantidadTotalAccion>=0){
                 $sql = 'update productocarrito ';
                 $sql .= 'set cantidad = '.$cantidadTotalAccion.' ';
                 $sql .= 'where carrito_id = '.$idCarrito.' and producto_id = '.$idProductoAccion.'';
@@ -121,7 +121,37 @@ class ProCaController extends ProCaBasecontroller
                 return $resultadoSQL;
             }
         }
-        $sql ='hola' ;
-        return 'hla';
+   
+
+        
+    }
+    function deleteCartProds($documentoCuenta){
+        $sql = 'select id from carrito where cliente_id = ' . $documentoCuenta;
+        $conexiondb = new ConexionDbController();
+        $idCarrito = $conexiondb->execSQL($sql);
+        $idCarrito = $idCarrito->fetch_assoc();
+        $idCarrito = $idCarrito['id'];
+        //select * from productocarrito where carrito_id = 2
+        $sql = 'select * from productocarrito where carrito_id = '.$idCarrito.'';
+        $carritoProds = $conexiondb->execSQL($sql);
+        
+        while ($registro = $carritoProds->fetch_assoc()) {
+            $sql = 'select cantidad from producto where id = '.$registro['producto_id'].'';
+            $resultadoCantProd = $conexiondb->execSQL($sql);
+            $resultadoCantProd = $resultadoCantProd->fetch_assoc();
+            $resultadoCantProd = $resultadoCantProd['cantidad'];
+   
+            $sql = 'update producto ';
+            $sql .= 'SET cantidad = '.$resultadoCantProd - $registro['cantidad'].' where id = '.$registro['producto_id'].'';
+            $conexiondb->execSQL($sql);
+           
+        }
+        $sql = 'select cantidad from productocarrito ';
+        $sql .= 'where carrito_id = carrito';
+
+        $sql = 'DELETE FROM productocarrito WHERE carrito_id = '.$idCarrito.'';
+        $resultradoSQL = $conexiondb->execSQL($sql);
+        return $resultradoSQL;
+    
     }
 }
