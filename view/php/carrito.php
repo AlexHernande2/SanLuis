@@ -64,7 +64,7 @@ if (empty($documento)) {
                                     <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
                                     <td>' . $producto->getCantidad() . '</td>
                                     <td> <button onclick="decrementCounter(' . $conta . ')" class="menos btn btn-danger">-</button>
-                                    <span max ="' . $producto->getCantidad() . '" class="contador">0</span>
+                                    <input max ="' . $producto->getCantidad() . '" class="contador" value = 0></span>
                                     <button onclick="incrementCounter(' . $conta . ')" class="mas btn btn-success">+</button></td>
                                     <td> ' . $precioTotalPro . ' COP</td>
                                   </tr>';

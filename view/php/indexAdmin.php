@@ -60,7 +60,7 @@ $productos = $producController->readAllProductos();
             <h4 id="scrollspyHeading1">Modificar o Eliminar
                 sdas
             </h4>
-            <h1 style=" text-align: center; padding:10px;margin-top: 25px;">Modficar o Eliminar</h1>
+            <h1 style=" text-align: center; padding:10px;margin-top: 5%;">Modficar o Eliminar</h1>
             <div class="container text-center">
                 <div class="row align-items-end">
                     <div class="col">

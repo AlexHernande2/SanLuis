@@ -18,6 +18,8 @@ use proCaController\ProCaController;
         $idCliente = $_POST['idCliente'];
         $idProducto = $_POST['idProducto'];
         $cantidadSelec = $_POST['cantidadSelec'];
+        $productoRow = new productoController();
+        $productoRow = $productoRow->readRow($idProducto); 
         $proCa = new proCaController();
         $proca = $proCa->AddCliProCar($idCliente, $idProducto, $cantidadSelec);
     } else {

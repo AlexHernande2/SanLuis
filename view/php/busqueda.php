@@ -37,7 +37,6 @@ if (!empty($_POST['admin'])) {
 <thead>
     <tr>
         <th>Producto</th>
-        <th>Descripcion</th>
         <th>Precio</th>
     </tr>
 </thead>
@@ -51,7 +50,6 @@ if (!empty($_POST['admin'])) {
             <tr>
                 <th scope="row"><img  class="img-fluid" height="60px"  width="50px" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '">
                 <br>' . $producto->getNombre() . '</th>
-                <td>placeholderDescripcion</td>
                 <td>' . $producto->getPrecioUnitario() . '</td>
             </tr>
         </tbody>

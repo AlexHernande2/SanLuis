@@ -96,7 +96,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-success" data-bs-dismiss="modal">seguir navegando</button>
-          <a href="formSesion.php?inicioSesion=no"><button class="btn btn-primary">ir a registrar</button></a>
+          <a href="formSesion.php?inicioSesion=si"><button class="btn btn-primary">ir a inicio sesion</button></a>
         </div>
 
       </div>
