@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
    
     // Carga el pie de página
@@ -15,12 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
     footerXhr.send();
 });
 
-//dsd
-
-
 // Obtener todos los elementos del DOM
 const allElements = document.querySelectorAll('*');
-
 // Crear un conjunto para almacenar los IDs únicos
 const uniqueIds = new Set();
 
@@ -31,7 +25,6 @@ allElements.forEach(element => {
         uniqueIds.add(id);
     }
 });
-
 // Convertir el conjunto a un array para poder trabajar con él
 const arrayOfIds = Array.from(uniqueIds);
 
@@ -39,7 +32,6 @@ const arrayOfIds = Array.from(uniqueIds);
 console.log(arrayOfIds);
 
 /* Funcion que sorve para cuando se le pasa el cursor sobre un menu desplegable se desplegue sola*/
-
 const $dropdown = $(".dropdown");
 const $dropdownToggle = $(".dropdown-toggle");
 const $dropdownMenu = $(".dropdown-menu");

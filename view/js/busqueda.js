@@ -282,5 +282,3 @@ function modalModificarProd(id, modEl) {
 
 
 
-
-

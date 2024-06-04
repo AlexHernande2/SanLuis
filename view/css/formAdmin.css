@@ -59,14 +59,13 @@ main {
     margin-bottom: 32px;
     overflow: hidden;
     font-family: AbeeZee;
-    color: #FF3D00;
+    color: #80ed99;
 
 }
 
 h3 {
     position: relative;
     display: inline-block;
-    color: #FF3D00;
     padding: 0 10px;
 }
 
@@ -146,7 +145,7 @@ input[type="password"] {
 input[type="submit"] {
     background: none;
     border: none;
-    background: #FF3D00;
+    background: #57cc99;
     color: #fff;
     width: 100%;
     font-size: 14px;
