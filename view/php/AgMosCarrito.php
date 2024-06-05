@@ -99,7 +99,7 @@ if (!empty($_POST['idProducto']) ) {
         <td> ' . $producto->getPrecioUnitario() * $producto->getCantidad() . ' COP</td>
         <td><button onclick="decrementincrementCounterCart('.$conta.','.$producto->getId().','.$cantidadProductos[$cont].','.$producto->getCantidad().', 0,'.$idCliente.')" class="menos btn btn-danger d-inline">-</button></td>
         <td><button onclick="decrementincrementCounterCart('.$conta.','.$producto->getId().','.$cantidadProductos[$cont].','.$producto->getCantidad().', 1,'.$idCliente.')" class="mas btn btn-success d-inline">+</button></td>
-        <td><input value="0" type="number" oninput="validateNumber('.$conta.')" max="'.$producto->getCantidad().'" class="numberInput" style="width:50px;"></td>
+        <td><input value="0" type="number" oninput="validateNumber('.$conta.','.$cantidadProductos[$cont].')" max="'.$producto->getCantidad().'" class="numberInput" style="width:50px;"></td>
       </tr>';
       $conta++;
       $cont++;

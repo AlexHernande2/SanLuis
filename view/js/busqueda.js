@@ -245,7 +245,7 @@ function decrementincrementCounterCart2(conta,idProducto,cantMaxProd,cantidadYaS
     })
 }
 
-function validateNumber(index) {
+function validateNumber(index,maxValue) {
     let input = document.getElementsByClassName('numberInput')
    fieldT =input[index]
     field = input[index].value
@@ -254,8 +254,8 @@ function validateNumber(index) {
   
   if (value < 0) {
     fieldT.value = 0;
-  } else if (value > 200) {
-    fieldT.value = 200;
+  } else if (value > maxValue) {
+    fieldT.value = maxValue;
   }
 }
 
