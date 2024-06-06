@@ -57,5 +57,5 @@ if (!empty($_POST['admin'])) {
     ';
 
     }
-    echo ' </table>';
+' </table>';
 }

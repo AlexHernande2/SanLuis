@@ -144,7 +144,7 @@ if (empty($documento)) {
                         <!-- Grupo de formulario con margen inferior -->
                         <label name="documento" class="form-label">documento</label>
                         <!-- Etiqueta del campo de contraseña con texto dinámico -->
-                        <input name="documento" id="documento" <?php echo $style ?> class="form-control"
+                        <input name="documento" required id="documento" <?php echo $style ?> class="form-control"
                             value="<?php echo $Cliente->getDocumento() ?>">
                         <!-- Campo de entrada de texto para el documento con tipo dinámico -->
                     </div>
@@ -152,7 +152,7 @@ if (empty($documento)) {
                         <!-- Grupo de formulario con margen inferior -->
                         <label name="nombre" class="form-label">Nombre</label>
                         <!-- Etiqueta del campo de nombre con estilo dinámico -->
-                        <input type="text" <?php echo $style ?> id="nombre" name="nombre" class="form-control"
+                        <input type="text" <?php echo $style ?> required id="nombre" name="nombre" class="form-control"
                             value="<?php echo $Cliente->getNombre() ?>">
                         <!-- Campo de entrada de texto para el nombre con estilo dinámico -->
                     </div>
@@ -160,7 +160,7 @@ if (empty($documento)) {
                         <!-- Grupo de formulario con margen inferior -->
                         <label name="telefono" class="form-label">Teléfono</label>
                         <!-- Etiqueta del campo de teléfono con estilo dinámico -->
-                        <input type="number" <?php echo $style ?> id="telefono" name="telefono" class="form-control"
+                        <input type="number" required <?php echo $style ?> id="telefono" name="telefono" class="form-control"
                             value="<?php echo $Cliente->getTelefono() ?>">
                         <!-- Campo de entrada de número para el teléfono con estilo dinámico -->
                     </div>
@@ -168,7 +168,7 @@ if (empty($documento)) {
                         <!-- Grupo de formulario con margen inferior -->
                         <label name="direccion" class="form-label">Dirección</label>
                         <!-- Etiqueta del campo de dirección con estilo dinámico -->
-                        <input type="text" <?php echo $style ?> name="direccion" id="direccion" class="form-control"
+                        <input type="text" required <?php echo $style ?> name="direccion" id="direccion" class="form-control"
                             value="<?php echo $Cliente->getDireccion() ?>">
                         <!-- Campo de entrada de texto para la dirección con estilo dinámico -->
                     </div>

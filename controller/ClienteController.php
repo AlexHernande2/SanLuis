@@ -31,7 +31,10 @@ class ClienteController extends ClienteBaseController
 
         $conexiondb = new ConexionDbController();
         $resultadoSQL = $conexiondb->execSQL($sql);
-
+        
+        $sql = 'insert into carrito (cliente_id) values ';
+        $sql .= ' ('.$documento.')';
+        $resultadoSQL = $conexiondb->execSQL($sql);
         // También, asegúrate de manejar el caso de error al ejecutar la consulta SQL
 
         $conexiondb->close();

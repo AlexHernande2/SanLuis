@@ -64,6 +64,7 @@ class ProCaController extends ProCaBasecontroller
 
         //almaceno los id de los productos que se encuentran en el carrito 
         $sql = 'select producto_id,cantidad from productocarrito where carrito_id = ' . $idCarrito;
+  
         $idsProd = $conexiondb->execSQL($sql);
         $productoCarrito = [];
         while ($registro = $idsProd->fetch_assoc()) {
