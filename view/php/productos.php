@@ -12,6 +12,7 @@ $tipoProducto = $_GET['tipoProducto'];
 $productoController = new ProductoController();
 //consulta de que productos de ese tipo se encuentran en la base de datos
 $productoValid = $productoController->readProductoCategori($tipoProducto);
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +62,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
 
           //plantilla para generar las cartas con sus productos
           echo '<div class="col">';
-          echo '<div class="card">';
+          echo '<div class="card" id="' . $producto->getNombre() . '">';
           echo '<img style="height: 200px;" src="data:;base64,' . base64_encode($producto->getImagen()) . '" class="card-img-top" alt="brocoli">';
           echo '<div class="card-body">';
           echo '<a id="tit">';
@@ -124,13 +125,13 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
   </div>
 
   <script src="../js/header.js"></script>
-  <script src="../js/initHF.js"></script>
   <script src="../js/sumRes.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+    <script src="../js/initHF.js"></script>
 </body>
 
 
