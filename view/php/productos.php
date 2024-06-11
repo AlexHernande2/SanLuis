@@ -71,7 +71,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
           echo '<button onclick="decrementCounter(' . $conta . ')" class="menos btn btn-danger">-</button>';
           echo '<span max ="' . $producto->getCantidad() . '" class="contador">1</span>';
           echo '<button onclick="incrementCounter(' . $conta . ')" class="mas btn btn-success">+</button>';
-          echo '<button  ' . $styleModal . ' type="button" onclick="add_cart(' . $documento . ',' . $producto->getId() . ',' . $conta . ')" style="margin-left: 5px;" class="btn btn-primary"><img src="../imagenes/cart.svg" alt=""></button>';
+          echo '<button  ' . $styleModal . ' type="button" onclick="add_cart(' . $documento . ',' . $producto->getId() . ',' . $conta . ','.$producto->getCantidad().')" style="margin-left: 5px;" class="btn btn-primary"><img src="../imagenes/cart.svg" alt=""></button>';
           echo '</div>';
           echo '</div>';
           echo '</div>';

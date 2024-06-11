@@ -30,7 +30,11 @@ if (!empty($_POST['idProducto']) ) {
     if ($procar == false) {
          echo 1;
     
-    } 
+    } else if($procar!= false){
+        $proEnCarrito = $proCa->ReadPro($idCliente);
+    
+        mostrarCosas($idCliente, $proCa, $proEnCarrito);
+    }
     
         // mostrarCosas($idCliente, $procar, $proEnCarrito);
     
@@ -52,9 +56,10 @@ if (!empty($_POST['idProducto']) ) {
       
         if ($productoAccion == false) {
             echo 1;
-       } else {
+       } else if($productoAccion != false) {
         $proEnCarrito = $proCa->ReadPro($idCliente);
-        // mostrarCosas($idCliente, $proCa, $proEnCarrito);
+    
+         mostrarCosas($idCliente, $proCa, $proEnCarrito);
        }
 
     }else{
@@ -62,7 +67,7 @@ if (!empty($_POST['idProducto']) ) {
         $idCliente = $_POST['idCliente'];
         $proCa = new proCaController();
         $proEnCarrito = $proCa->ReadPro($idCliente);
-        // mostrarCosas($idCliente, $proCa, $proEnCarrito);
+         mostrarCosas($idCliente, $proCa, $proEnCarrito);
     
     }
 }
@@ -74,8 +79,8 @@ if (!empty($_POST['idProducto']) ) {
 
 
 
-// function mostrarCosas($idCliente, $proCa, $proEnCarrito)
-// {
+function mostrarCosas($idCliente, $proCa, $proEnCarrito)
+{
   
     $productoRow = new productoController();
     $cantidadProductos = [];
@@ -109,4 +114,4 @@ if (!empty($_POST['idProducto']) ) {
       
           
     }
-// }
+}

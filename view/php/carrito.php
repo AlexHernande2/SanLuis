@@ -11,7 +11,7 @@ use productoController\ProductoController;
 use proCaBasecontroller\ProCaBasecontroller;
 use proCaController\ProCaController;
 
-var_dump(empty($documento));
+
 if (empty($documento)) {
     $style = 'disabled';
 } else {
@@ -178,7 +178,7 @@ if (empty($documento)) {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Total a pagar:<?php echo $precioTotal . ' COP' ?></td>
+                                <td>Total a pagar: <?php echo $precioTotal . ' COP' ?></td>
                                 <!-- Aca debe ir el precio -->
                                 <td></td>
                             </tr>
@@ -208,7 +208,7 @@ if (empty($documento)) {
 
                                                 <!-- Modal footer -->
                                                 <div class="modal-footer">
-                                                    <button type="button" onclick="window.location.href = 'carrito.php'"class="btn btn-danger"
+                                                    <button type="button" id="buttonPedido" class="btn btn-danger"
                                                         data-bs-dismiss="modal">Close</button>
                                                 </div>
 

@@ -27,7 +27,20 @@ class ProductoController extends ProductoBaseController
     }
     function createProducto($nombre, $cantidad, $tipoProducto, $categoria, $precioUnitario, $imagenProducto)
     {
+        
         $conexiondb = new ConexionDbController();
+        //se busca los nombres que existen en la base de datos
+        $sql = 'select * from producto where nombre = "'.$nombre.'"';
+        $nombreRep = $conexiondb->execSQL($sql);
+        $nombreRep = $nombreRep->fetch_assoc();
+        $nombreRep = $nombreRep['nombre'];
+
+        if(str_replace(" ","",$nombre) == str_replace(" ","",$nombre)){
+            echo "<script>alert('Error: Producto con este nombe $nombre ya existe.');</script>";
+            header('Refresh:0,5 ; url = indexAdmin.php');
+            return "holas";
+        }
+
         $imagenProducto = $conexiondb->execSQLESCAPE($imagenProducto);
         $sql = "insert into producto (nombre,cantidad,tipoProducto,categoria,precioUnitario,imagenProducto)";
         $sql .= "VALUES ('" . $nombre . "'," . $cantidad . ",'" . $tipoProducto . "','" . $categoria . "'," . $precioUnitario . ",'" . $imagenProducto . "')";

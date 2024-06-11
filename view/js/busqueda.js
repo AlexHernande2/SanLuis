@@ -107,8 +107,13 @@ function modalPedido() {
             if (response == "noProductos") {
                 document.getElementById('modalbody').innerHTML = "no tienes productos en el carrito"
                 console.log(response)
-            } else {
+            } else if (response == "no datos") {
+                document.getElementById('modalbody').innerHTML = "faltan incluir datos del cliente"
+                console.log(response)
+            }
+            else {
                 document.getElementById('modalbody').innerHTML = "pedido realizado con exito"
+                document.getElementById('buttonPedido').setAttribute("onclick","window.location.href = 'carrito.php'")
                 console.log(response)
                 setTimeout(() => {
                     window.open(response);
@@ -119,7 +124,7 @@ function modalPedido() {
 };
 
 
-function add_cart(idCliente, idProducto, index) {
+function add_cart(idCliente, idProducto, index , total) {
 
     let cantidadSelec = document.getElementsByClassName("contador");
     cantidadSelec = cantidadSelec[index].innerText;
@@ -137,13 +142,13 @@ function add_cart(idCliente, idProducto, index) {
             console.log(idCliente);
             if (idCliente != 0) {
                 if (data == 1) {
+                    console.log(data)
                     $('#exampleModal').modal('show');
-                    $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las que se encuentran en existencia");
+                    $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las "+total+" que se encuentran en existencia");
                     console.log('entre a la condicion');
                 } else {
-                    console.log(data);
                     $('#itemsAgMosCarrito1').html(data);
-                    actualizarParteEspecifica(idCliente);
+                    // actualizarParteEspecifica(idCliente);
                     document.getElementById("mySidebar").style.width = "40%"
                     // Actualizar solo una parte específica de la página
 
@@ -154,8 +159,7 @@ function add_cart(idCliente, idProducto, index) {
 }
 
 function actualizarParteEspecifica(idCliente) {
-    // Coloca aquí la lógica para actualizar solo una parte específica de la página
-    // Por ejemplo, puedes utilizar otra solicitud Ajax para obtener datos adicionales y actualizar otra sección de la página
+
     const data = {
         "idCliente": idCliente
     }
@@ -164,6 +168,7 @@ function actualizarParteEspecifica(idCliente) {
         url: 'AgMosCarrito.php',
         type: 'POST',
         success: function (data) {
+             document.getElementById("mySidebar").style.width = "40%"
             $('#itemsAgMosCarrito1').html(data); // Actualizar otra sección de la página con el contenido obtenido
         }
     });
@@ -196,7 +201,7 @@ function decrementincrementCounterCart(conta, idProducto, cantMaxProd, cantidadY
 
             if (data == 1) {
                 $('#exampleModal').modal('show');
-                $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las que se encuentran en existencia");
+                $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las "+cantMaxProd+" que se encuentran en existencia");
                 console.log('entre a la condicion')
             } else {
                 console.log(data)

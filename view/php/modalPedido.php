@@ -23,25 +23,26 @@ $proCa = new proCaController();
 $productos = $proCa->ReadPro($documentoCuenta);
 
 
+
 $dataPed = "Nombre:" . $nombre;
-$dataPed .= "\n" . 'documento' . "\n" . 'correoElectronico:' . $correo . "\n";
-$dataPed .= '*EL PEDIDO ES EL SIGUIENTE:*'."\n"."\n";
+$dataPed .= "\n" . 'documento'.$documento . "\n" . 'correoElectronico:' . $correo . "\n";
+$dataPed .= '*EL PEDIDO ES EL SIGUIENTE:*' . "\n" . "\n";
 $contadorSiProd = 0;
 foreach ($productos as $producto) {
-    if($producto->getCantidad()!=0){
+    if ($producto->getCantidad() != 0) {
         $cantidad = $producto->getCantidad();
         $precioUnitario = $producto->getPrecioUnitario();
         $precioTotal = $cantidad * $precioUnitario;
-        $dataPed .='Producto: '. $producto->getNombre() . '| PrecioUnitario: ' . $producto->getPrecioUnitario();
-        $dataPed .= '| CantidadProducto: ' . $producto->getCantidad() . '| TOTAL:' . $precioTotal."\n"."\n";
+        $dataPed .= 'Producto: ' . $producto->getNombre() . '| PrecioUnitario: ' . $producto->getPrecioUnitario();
+        $dataPed .= '| CantidadProducto: ' . $producto->getCantidad() . '| TOTAL:' . $precioTotal . "\n" . "\n";
         $contadorSiProd++;
-    } 
-    
-   
+    }
+
+
 }
 
 
-$proCa = $proCa->deleteCartProds($documentoCuenta);
+
 
 
 
@@ -50,10 +51,14 @@ $proCa = $proCa->deleteCartProds($documentoCuenta);
 
 
 $encode = urlencode($dataPed);
-if($contadorSiProd == 0){
+
+if ($contadorSiProd == 0) {
     echo "noProductos";
-}else{
-    echo 'https://wa.me/573108108175?text=' . $encode; 
+} else if (empty($correo) || empty($documento) || empty($nombre) || empty($telefono) || empty($direccion)) {
+    echo "no datos";
+} else {
+    $proCa = $proCa->deleteCartProds($documentoCuenta);
+    echo 'https://wa.me/573108108175?text=' . $encode;
 }
 
 
