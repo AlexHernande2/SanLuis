@@ -142,7 +142,7 @@ if (isset($_GET['des'])) {
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=vegetales">Vegetales</a></li>
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=fruta">Fruta</a></li>
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=carnes y aves">Carne y Aves</a></li>
-              <li><a class="dropdown-item" href="./productos.php?tipoProducto=lacteos">Lácteos y Huevos </a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=lacteos y huevos">Lácteos y Huevos </a></li>
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=panaderia">Panadería</a></li>
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=pastas">Pasta y Granos</a></li>
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=cereales">Cereales</a></li>
@@ -151,22 +151,22 @@ if (isset($_GET['des'])) {
                 <hr class="dropdown-divider">
               </li>
               <li> <a class="dropdown-header ">Bebidas</a></li>
-              <li><a class="dropdown-item" href="#">Té</a></li>
-              <li><a class="dropdown-item" href="#">Café</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=Té">Té</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=Cafe">Café</a></li>
               <li><a class="dropdown-item" href="./productos.php?tipoProducto=bebidas sin alcohol">Bebidas sin Alcohol</a></li>
-              <li><a class="dropdown-item" href="#">Cerveza</a></li>
-              <li><a class="dropdown-item" href="#">Vino</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=Cerveza">Cerveza</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=Vino">Vino</a></li>
               <li>
                 <!-- Divide parte del menu  -->
                 <hr class="dropdown-divider">
               </li>
               <li> <a class="dropdown-header ">Limpieza y Hogar</a></li>
-              <li><a class="dropdown-item" href="#">Casa y Cocina</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=Casa y Cocina">Casa y Cocina</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li> <a class="dropdown-header ">Cuidado Personal</a></li>
-              <li><a class="dropdown-item" href="#">Higiene Personal</a></li>
+              <li><a class="dropdown-item" href="./productos.php?tipoProducto=Higiene Personal">Higiene Personal</a></li>
               <li><a class="dropdown-item" href="#">Productos para Bebes</a></li>
             </ul>
           </li>
@@ -190,8 +190,8 @@ if (isset($_GET['des'])) {
               <th scope="col">Cantidad</th>
               <th scope="col">Valor unit</th>
               <th scope="col">Valor total</th>
-              <th scope="col">accion sum</th>
-              <th scope="col">accion res</th>
+              <th scope="col">quitar</th>
+              <th scope="col">agregar</th>
               <th scope="col"></th>
          
             </tr>

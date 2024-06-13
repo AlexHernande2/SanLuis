@@ -61,14 +61,15 @@ $(window).on("load resize", function() {
 
 function scrollToSection(sectionId) {
     const sectionElement = document.getElementById(sectionId);
-    console.log(sectionElement)
+    // console.log(sectionId)
     if (sectionElement) {
         sectionElement.scrollIntoView({
             behavior: 'smooth'
         });
-    } else {
-        console.error(`Section with ID "${sectionId}" not found.`);
-    }
+     } 
+    //else {
+    //     console.error(`Section with ID "${sectionId}" not found.`);
+    // }
 }
 
 function getQueryParameter(name) {
@@ -78,6 +79,7 @@ function getQueryParameter(name) {
 
 window.onload = function() {
     const sectionId = getQueryParameter('section');
+    console.log(sectionId)
     if (sectionId) {
         scrollToSection(sectionId);
     }

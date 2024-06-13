@@ -35,11 +35,11 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
   </header>
   <main>
     <div class="container">
-      <section id="categoriesSection">
+      <section style="padding-bottom:2%;" id="categoriesSection">
 
 
 
-        <h1><?php echo $tipoProducto ?></h1>
+        <h1 id="tipoProd"><?php echo $tipoProducto ?></h1>
         <?php
         //contador para saltos
         $cont = 1;
@@ -62,7 +62,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
 
           //plantilla para generar las cartas con sus productos
           echo '<div class="col">';
-          echo '<div class="card" id="' . $producto->getNombre() . '">';
+          echo '<div class="card" id="' . $producto->getId() . '">';
           echo '<img style="height: 200px;" src="data:;base64,' . base64_encode($producto->getImagen()) . '" class="card-img-top" alt="brocoli">';
           echo '<div class="card-body">';
           echo '<a id="tit">';
@@ -71,7 +71,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
           echo '<button onclick="decrementCounter(' . $conta . ')" class="menos btn btn-danger">-</button>';
           echo '<span max ="' . $producto->getCantidad() . '" class="contador">1</span>';
           echo '<button onclick="incrementCounter(' . $conta . ')" class="mas btn btn-success">+</button>';
-          echo '<button  ' . $styleModal . ' type="button" onclick="add_cart(' . $documento . ',' . $producto->getId() . ',' . $conta . ','.$producto->getCantidad().')" style="margin-left: 5px;" class="btn btn-primary"><img src="../imagenes/cart.svg" alt=""></button>';
+          echo '<button  ' . $styleModal . '  type="button" onclick="add_cart(' . $documento . ',' . $producto->getId() . ',' . $conta . ',' . $producto->getCantidad() .')" style="margin-left: 5px;" class="btn btn-primary"><img src="../imagenes/cart.svg" alt=""></button>';
           echo '</div>';
           echo '</div>';
           echo '</div>';
@@ -100,7 +100,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-success" data-bs-dismiss="modal">seguir navegando</button>
-          <a href="formSesion.php?inicioSesion=si"><button class="btn btn-primary">ir a inicio sesion</button></a>
+          <a id="linkIniSes"><button class="btn btn-primary">ir a inicio sesion</button></a>
         </div>
 
       </div>
@@ -123,7 +123,7 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
       </div>
     </div>
   </div>
-
+  <script src="../js/initHF.js"></script>
   <script src="../js/header.js"></script>
   <script src="../js/sumRes.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -131,9 +131,8 @@ $productoValid = $productoController->readProductoCategori($tipoProducto);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-    <script src="../js/initHF.js"></script>
-</body>
 
+</body>
 
 
 </html>

@@ -52,7 +52,7 @@ if (!empty($_POST['admin'])) {
                 <th scope="row"><img  class="img-fluid" height="60px"  width="50px" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '">
                 <br>' . $producto->getNombre() . '</th>
                 <td>' . $producto->getPrecioUnitario() . '</td>
-                <td><a href="productos.php?tipoProducto=' . $producto->getTipoProducto() . '&section=' . urlencode($producto->getNombre()) . '"> ir al producto</a></td>
+                <td><a href="productos.php?tipoProducto='.$producto->getTipoProducto().'&section='.$producto->getId().'"> ir al producto</a></td>
             </tr>
         </tbody>
    

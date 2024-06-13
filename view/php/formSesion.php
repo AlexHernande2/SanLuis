@@ -11,7 +11,8 @@ $cliente = new Cliente();
 if (empty($documento)) {
   $inicioSesion = $_GET['inicioSesion'];
   if ($inicioSesion == "si") {
-    $iniRegis = "registroCliente.php?inicioSes=si";
+    $pagAnterior = (!empty($_GET['section'])) ? $_GET['section']."&tipoProducto=".$_GET['tipoProducto'] : '';
+    $iniRegis = "registroCliente.php?inicioSes=si&section=".$pagAnterior;
     $iniOregis = "INICIAR SESION";
     $btn = "iniciar sesion";
     $tieneCuenta = 'no tienes cuenta <a href="formSesion.php?inicioSesion=no" id="linkRegistro"  >registrate</a>';

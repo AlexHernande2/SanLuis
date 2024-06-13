@@ -103,18 +103,18 @@ function modalPedido() {
         url: "modalPedido.php",
         type: "post",
         success: function (response) {
-
+            response = response.trim();
             if (response == "noProductos") {
                 document.getElementById('modalbody').innerHTML = "no tienes productos en el carrito"
-                console.log(response)
+             
             } else if (response == "no datos") {
                 document.getElementById('modalbody').innerHTML = "faltan incluir datos del cliente"
-                console.log(response)
+              
             }
             else {
                 document.getElementById('modalbody').innerHTML = "pedido realizado con exito"
                 document.getElementById('buttonPedido').setAttribute("onclick","window.location.href = 'carrito.php'")
-                console.log(response)
+        
                 setTimeout(() => {
                     window.open(response);
                 }, 1300);
@@ -128,6 +128,8 @@ function add_cart(idCliente, idProducto, index , total) {
 
     let cantidadSelec = document.getElementsByClassName("contador");
     cantidadSelec = cantidadSelec[index].innerText;
+   
+  
     var parametros = {
         "idProducto": idProducto,
         "idCliente": idCliente,
@@ -153,6 +155,9 @@ function add_cart(idCliente, idProducto, index , total) {
                     // Actualizar solo una parte específica de la página
 
                 }
+            }else{
+                let tipoProd = document.getElementById('tipoProd').innerText;
+                document.getElementById('linkIniSes').setAttribute('href',"formSesion.php?inicioSesion=si&section="+idProducto+"&tipoProducto="+tipoProd) 
             }
         }
     });
@@ -242,7 +247,7 @@ function decrementincrementCounterCart2(conta, idProducto, cantMaxProd, cantidad
 
             if (data == 1) {
                 $('#exampleModal').modal('show');
-                $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las que se encuentran en existencia");
+                $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las "+cantMaxProd+" que se encuentran en existencia");
                 console.log('entre a la condicion')
             } else {
                 console.log(data)

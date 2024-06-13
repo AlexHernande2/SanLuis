@@ -13,15 +13,25 @@ $inicioSesion = $_GET["inicioSes"];
 if ($inicioSesion == "si") {
     $documento = $_POST["documento"];
     $CorreoElectronico = $_POST["correoElectronico"];
+    
     $ClienteController = new ClienteController();
     $resultado = $ClienteController->readClienteValid($documento, $CorreoElectronico);
 
     if ($resultado == true) {
-        echo '<h1>inicio de sesion exitoso</h1>';
+        echo '<script>alert("inicio de sesion exitoso");</script>';
+        if(empty($_GET['section'])){
+            header('Refresh: 0.1; URL=index.php'); 
+        }else{
+            header('Refresh: 0.1; URL=productos.php?tipoProducto='.$_GET['tipoProducto'].'&section='.$_GET['section']);
+        }
+        
+        
     } else {
+
         echo '<script>alert("No se pudo iniciar sesión dato erróneos");</script>';
+        header('Refresh: 1; URL=formSesion.php?inicioSesion=si');
     }
-    echo '<a href="index.php">Volver al inicio</a>';
+  
 } else {
     $Cliente = new Cliente();
     $Cliente->setDocumento($_POST['documento']);

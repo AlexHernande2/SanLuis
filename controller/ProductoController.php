@@ -11,12 +11,9 @@ class ProductoController extends ProductoBaseController
     {
         $conexiondb = new ConexionDbController();
         $imagenProducto = $conexiondb->execSQLESCAPE($imagenProducto);
-        // update producto
-        // SET nombre = "cilantro", cantidad = 201 , tipoProducto = "vegetales", categoria = "comida", precioUnitario = 345
-        // where id = 2
         $sql = 'update producto ';
         $sql .= 'SET nombre = "'.$nombre.'", cantidad = '.$cantidad.', tipoProducto = "'.$tipoProducto.'", categoria = "'.$categoria.'", precioUnitario = '.$precioUnitario;
-        
+
         if(!empty($imagenProducto)){
             $sql .= ',imagenProducto = "'.$imagenProducto.'"';
         }
@@ -35,18 +32,20 @@ class ProductoController extends ProductoBaseController
         $nombreRep = $nombreRep->fetch_assoc();
         $nombreRep = $nombreRep['nombre'];
 
-        if(str_replace(" ","",$nombre) == str_replace(" ","",$nombre)){
+        if(str_replace(" ","",$nombre) == str_replace(" ","",$nombreRep)){
             echo "<script>alert('Error: Producto con este nombe $nombre ya existe.');</script>";
             header('Refresh:0,5 ; url = indexAdmin.php');
             return "holas";
+        }else{
+            $imagenProducto = $conexiondb->execSQLESCAPE($imagenProducto);
+            $sql = "insert into producto (nombre,cantidad,tipoProducto,categoria,precioUnitario,imagenProducto)";
+            $sql .= "VALUES ('" . $nombre . "'," . $cantidad . ",'" . $tipoProducto . "','" . $categoria . "'," . $precioUnitario . ",'" . $imagenProducto . "')";
+            $resultadoSQL = $conexiondb->execSQL($sql);
+            $conexiondb->close();
+            return $resultadoSQL;
         }
 
-        $imagenProducto = $conexiondb->execSQLESCAPE($imagenProducto);
-        $sql = "insert into producto (nombre,cantidad,tipoProducto,categoria,precioUnitario,imagenProducto)";
-        $sql .= "VALUES ('" . $nombre . "'," . $cantidad . ",'" . $tipoProducto . "','" . $categoria . "'," . $precioUnitario . ",'" . $imagenProducto . "')";
-        $resultadoSQL = $conexiondb->execSQL($sql);
-        $conexiondb->close();
-        return $resultadoSQL;
+    
     }
     function readProductoCategori($tipoProducto)
     {
@@ -195,7 +194,30 @@ class ProductoController extends ProductoBaseController
 
 
 
-
-
+    function pdf($pdf)
+    {
+        $conexiondb = new ConexionDbController();
+        $PDF = $conexiondb->execSQLESCAPE($pdf);
+        $sql = 'insert into pdf (pdf) ';
+        $sql .= 'VALUES ("'.$PDF.'")';
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $sql = 'select MAX(id) from pdf ';
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $resultadoSQL = $resultadoSQL->fetch_assoc();
+        $resultadoSQL = $resultadoSQL['MAX(id)'];
+        $conexiondb->close();
+        return $resultadoSQL;
+    }
+    function readPdf($id){
+        $conexiondb = new ConexionDbController();
+        $sql = 'select pdf from pdf ';
+        $sql .= 'where id='.$id.'';
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $resultadoSQL = $resultadoSQL->fetch_assoc();
+        $resultadoSQL = $resultadoSQL['pdf'];
+        // $resultadoSQL = $conexiondb->execSQLESCAPE($resultadoSQL);
+        $conexiondb->close();
+        return $resultadoSQL;
+    }
 }
 

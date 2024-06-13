@@ -81,7 +81,7 @@ if (empty($documento)) {
                                     <td>' . $producto->getCantidad() . '</td>
                                     <td><button onclick="decrementincrementCounterCart2(' . $conta . ',' . $producto->getId() . ',' . $cantidadProductos[$conta] . ',' . $producto->getCantidad() . ', 0,' . $documento . ')" class="menos btn btn-danger d-inline">-</button></td>
                                     <td><button onclick="decrementincrementCounterCart2(' . $conta . ',' . $producto->getId() . ',' . $cantidadProductos[$conta] . ',' . $producto->getCantidad() . ', 1,' . $documento . ')" class="mas btn btn-success d-inline">+</button></td>
-                                    <td><input value="0" type="number" oninput="validateNumber(' . $conta . ')" max="' . $producto->getCantidad() . '" class="numberInput" style="width:50px;"></td>                        
+                                    <td><input value="1" type="number" oninput="validateNumber('.$conta.','.$cantidadProductos[$conta].')" max="' . $producto->getCantidad() . '" class="numberInput" style="width:50px;"></td>                        
                                     <td> ' . $precioTotalPro . ' COP</td>
                                   </tr>';
                                 $contador++;
@@ -178,7 +178,7 @@ if (empty($documento)) {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Total a pagar: <?php echo $precioTotal . ' COP' ?></td>
+                                <td id="totPag">Total a pagar: <?php echo $precioTotal . ' COP' ?></td>
                                 <!-- Aca debe ir el precio -->
                                 <td></td>
                             </tr>
