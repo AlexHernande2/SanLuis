@@ -29,7 +29,7 @@ if ($inicioSesion == "si") {
     } else {
 
         echo '<script>alert("No se pudo iniciar sesión dato erróneos");</script>';
-        header('Refresh: 1; URL=formSesion.php?inicioSesion=si');
+        header('Refresh: 0.1; URL=formSesion.php?inicioSesion=si');
     }
   
 } else {
@@ -43,11 +43,11 @@ if ($inicioSesion == "si") {
     $ClienteController = new ClienteController();
     $resultado = $ClienteController->create($Cliente);
     if ($resultado) {
-        echo '<h1>usuario registrado</h1>';
-        header('Refresh: 1; URL=formSesion.php?inicioSesion=no');  
+        echo '<script>alert("registro exitoso");</script>';
+        header('Refresh: 0.1; URL=formSesion.php?inicioSesion=no');  
     } else {
         echo '<script>alert("Credenciales no válidas, por favor inténtelo de nuevo.");</script>';
-        header('Refresh: 1; URL=formSesion.php?inicioSesion=no');
+        header('Refresh: 0.1; URL=formSesion.php?inicioSesion=no');
     }
   
 }

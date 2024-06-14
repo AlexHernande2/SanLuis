@@ -79,8 +79,8 @@ if (empty($documento)) {
                                     <td>' . $contador . '</td>
                                     <td><img style="height: 70px; width: 70px;" src="data:' . $producto->getExtensionImagen() . ';base64,' . base64_encode($producto->getImagen()) . '"><br>' . $producto->getNombre() . '</td>
                                     <td>' . $producto->getCantidad() . '</td>
-                                    <td><button onclick="decrementincrementCounterCart2(' . $conta . ',' . $producto->getId() . ',' . $cantidadProductos[$conta] . ',' . $producto->getCantidad() . ', 0,' . $documento . ')" class="menos btn btn-danger d-inline">-</button></td>
-                                    <td><button onclick="decrementincrementCounterCart2(' . $conta . ',' . $producto->getId() . ',' . $cantidadProductos[$conta] . ',' . $producto->getCantidad() . ', 1,' . $documento . ')" class="mas btn btn-success d-inline">+</button></td>
+                                    <td><button onclick="decrementincrementCounterCart2(' . $conta . ',' . $producto->getId() . ',' . $cantidadProductos[$conta] . ',' . $producto->getCantidad() . ', 0,' . $documento . ','.$producto->getPrecioUnitario().')" class="menos btn btn-danger d-inline">-</button></td>
+                                    <td><button onclick="decrementincrementCounterCart2(' . $conta . ',' . $producto->getId() . ',' . $cantidadProductos[$conta] . ',' . $producto->getCantidad() . ', 1,' . $documento . ','.$producto->getPrecioUnitario().')" class="mas btn btn-success d-inline">+</button></td>
                                     <td><input value="1" type="number" oninput="validateNumber('.$conta.','.$cantidadProductos[$conta].')" max="' . $producto->getCantidad() . '" class="numberInput" style="width:50px;"></td>                        
                                     <td> ' . $precioTotalPro . ' COP</td>
                                   </tr>';
@@ -96,7 +96,7 @@ if (empty($documento)) {
                                  <td></td>
                                  <td></td>
                                  <td></td>
-                                 <td>' . $precioTotal . ' COP</td>
+                                 <td id="totAnt">' . $precioTotal . ' COP</td>
                              </tr>';
                         } else {
                             echo '<tfoot>
@@ -197,8 +197,8 @@ if (empty($documento)) {
                                                 <!-- Modal Header -->
                                                 <div class="modal-header">
                                                     <h4 class="modal-title fs-5" id="staticBackdropLabel">Pedido</h4>
-                                                    <button type="button" class="btn-close"
-                                                        data-bs-dismiss="modal"></button>
+                                                    <button type="button" id="equisPed" class="btn-close"
+                                                        data-bs-dismiss="modal" href="carrito.php"></button>
                                                 </div>
 
                                                 <!-- Modal body -->

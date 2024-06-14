@@ -24,12 +24,11 @@ if (!empty($_POST)) {
     $imagenProducto = fread($imagenSubida, $tamanoArchivo);
 
     $productoAdd = $producController->createProducto($nombre, $cantidad, $tipoProducto, $categoria, $precioUnitario, $imagenProducto);
-    if ($productoAdd) {
-
-        echo "<script><alert('agregado con exito')</script>";
+    if ($productoAdd == true) {
+        echo "<script>alert('agregado con exito')</script>";
         header("Refresh:0.5; url=indexAdmin.php");
 
-    } else {
-        echo '<h1>credenciales no validas para registrar usuario</h1>';
+    } else if($productoAdd == false){
+        header("Refresh:0.5; url=indexAdmin.php");
     }
 }

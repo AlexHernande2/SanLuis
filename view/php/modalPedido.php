@@ -28,8 +28,8 @@ $proCa = new proCaController();
 $productos = $proCa->ReadPro($documentoCuenta);
 ?>
 
-
 <?php ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -43,10 +43,10 @@ $productos = $proCa->ReadPro($documentoCuenta);
 <body>
     <div class="invoice">
         <div class="header">
-            <img style="height:80px;"
-                src="https://imagenes.elpais.com/resizer/v2/Y3W6QUFBBZLLTALRW6NBRPZ2RA.jpg?auth=d68f18251117888479d8fdc3210796bc86d9d3f41719da72c2877bcafc3504ea&width=414"
+            <img style="height:160px; width: 120px;"
+                src="../imagenes/icono empresa.png.144x144.png"
                 alt="Company Logo">
-            <div style="margin-left:30%; margin-top:-18%;" class="company-details">
+            <div style="margin-left:30%; margin-top:-22%;" class="company-details">
                 <h1>Distribuidora San Luis</h1>
                 <p>Dirección: cra. 15 #18-68, Tunja, boyaca</p>
                 <p>CONTACTO:3108108175</p>
@@ -55,6 +55,7 @@ $productos = $proCa->ReadPro($documentoCuenta);
         <div class="invoice-details">
             <p><strong>CLIENTE:</strong> <?php echo $nombre ?></p>
             <p><strong>CONTACTO:</strong> <?php echo $telefono ?></p>
+            <p><strong>DIRECCION:</strong> <?php echo $direccion    ?></p>
             <p><strong>FECHA:</strong> <?php echo $date?></p>
         </div>
         <table>
@@ -97,20 +98,18 @@ $productos = $proCa->ReadPro($documentoCuenta);
 
 </html>
 
-<?php $html = ob_get_clean(); ?>
-
 <?php
+ $html = ob_get_clean(); 
+
 $mpdf = new \Mpdf\Mpdf();
 $mpdf->WriteHTML($html);
 $pdfContent = $mpdf->Output('', 'S');
 $pdf = $productoController->pdf($pdfContent);
 
-?>
 
 
 
 
-<?php
 
 
 if ($contadorSiProd == 0) {

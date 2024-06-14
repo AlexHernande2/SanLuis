@@ -103,21 +103,21 @@ function modalPedido() {
         url: "modalPedido.php",
         type: "post",
         success: function (response) {
-            response = response.trim();
-            if (response == "noProductos") {
+            Response = response.trim();
+            if (Response == "noProductos") {
                 document.getElementById('modalbody').innerHTML = "no tienes productos en el carrito"
              
-            } else if (response == "no datos") {
+            } else if (Response == "no datos") {
                 document.getElementById('modalbody').innerHTML = "faltan incluir datos del cliente"
-              
+                console.log(Response)
             }
             else {
                 document.getElementById('modalbody').innerHTML = "pedido realizado con exito"
                 document.getElementById('buttonPedido').setAttribute("onclick","window.location.href = 'carrito.php'")
-        
+                document.getElementById('equisPed').setAttribute("onclick","window.location.href = 'carrito.php'")
                 setTimeout(() => {
-                    window.open(response);
-                }, 1300);
+                    window.open(Response);
+                }, 500);
             }
         }
     })
@@ -211,7 +211,8 @@ function decrementincrementCounterCart(conta, idProducto, cantMaxProd, cantidadY
             } else {
                 console.log(data)
                 document.getElementById("itemsAgMosCarrito1").innerHTML = data;
-
+             
+                
 
             }
 
@@ -220,16 +221,12 @@ function decrementincrementCounterCart(conta, idProducto, cantMaxProd, cantidadY
     })
 }
 
-function decrementincrementCounterCart2(conta, idProducto, cantMaxProd, cantidadYaSelec, operacion, idClienteAcc) {
+function decrementincrementCounterCart2(conta, idProducto, cantMaxProd, cantidadYaSelec, operacion, idClienteAcc,precioUni) {
     let input = document.getElementsByClassName('numberInput')
     fieldInput = input[conta].value
     $idcliente = idClienteAcc
-    console.log(conta)
-    console.log(idProducto)
-    console.log(cantMaxProd)
-    console.log(cantidadYaSelec)
-    console.log(operacion)
-    console.log(idClienteAcc)
+    total = document.getElementById('totAnt').innerText
+    total = parseInt(total);
 
     $.ajax({
         data: {
@@ -250,10 +247,15 @@ function decrementincrementCounterCart2(conta, idProducto, cantMaxProd, cantidad
                 $('#ModalBodyAdv').text("No se pueden agregar mas unidades de las "+cantMaxProd+" que se encuentran en existencia");
                 console.log('entre a la condicion')
             } else {
-                console.log(data)
+              
                 document.getElementById("items2").innerHTML = data;
-
-
+                if(operacion == 1){
+                    TotalPag = (fieldInput*precioUni)+total
+                    document.getElementById('totPag').innerText = 'Total a pagar: '+TotalPag+' COP';
+                }else if(operacion==0){
+                    TotalPag = total-(fieldInput*precioUni);
+                document.getElementById('totPag').innerText = 'Total a pagar: '+TotalPag+' COP';
+                }
             }
 
 
@@ -278,8 +280,10 @@ function validateNumber(index, maxValue) {
 
 function modalModificarProd(id, modEl) {
     let idProducto = id;
+    console.log(modEl);
     var parametros = {
-        "id": id
+        "id": id,
+        "modEl":modEl
     }
     $.ajax({
         data: parametros,

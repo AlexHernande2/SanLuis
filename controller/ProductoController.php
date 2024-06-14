@@ -33,16 +33,15 @@ class ProductoController extends ProductoBaseController
         $nombreRep = $nombreRep['nombre'];
 
         if(str_replace(" ","",$nombre) == str_replace(" ","",$nombreRep)){
-            echo "<script>alert('Error: Producto con este nombe $nombre ya existe.');</script>";
-            header('Refresh:0,5 ; url = indexAdmin.php');
-            return "holas";
+            echo "<script>alert('Error: Producto con este nombe $nombre ya existe.')</script>";
+            return false;
         }else{
             $imagenProducto = $conexiondb->execSQLESCAPE($imagenProducto);
             $sql = "insert into producto (nombre,cantidad,tipoProducto,categoria,precioUnitario,imagenProducto)";
             $sql .= "VALUES ('" . $nombre . "'," . $cantidad . ",'" . $tipoProducto . "','" . $categoria . "'," . $precioUnitario . ",'" . $imagenProducto . "')";
             $resultadoSQL = $conexiondb->execSQL($sql);
             $conexiondb->close();
-            return $resultadoSQL;
+            return true;
         }
 
     

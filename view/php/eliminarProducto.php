@@ -14,11 +14,11 @@ $result = $productoController->delete($id);
 
 if ($result) {
 
-    echo "<script>alert('modificacion exitosa')</script>";
+    echo "<script>alert('eliminacion exitosa')</script>";
     header("refresh:0.5; url=indexAdmin.php");
 } else {
     // Redirige a la página de productos o mostrar un mensaje de error
-    echo "<script>alert('modificacion No exitosa')</script>";
+    echo "<script>alert('eliminacion No exitosa')</script>";
     header("refresh:0.5; url=indexAdmin.php");
 }
-?>
+
